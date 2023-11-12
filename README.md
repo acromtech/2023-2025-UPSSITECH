@@ -1,4 +1,4 @@
-Robotic and Interactive Systems (SRI) courses and projects of UPSSITECH engineering school in France.
+This repository include Robotic and Interactive Systems (SRI) courses and projects of UPSSITECH engineering school in France.
 
 ## What's UPSSITECH ?
 **UPSSITECH is a French engineering school**.
