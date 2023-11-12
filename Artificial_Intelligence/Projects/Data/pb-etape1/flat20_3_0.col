@@ -1,0 +1,82 @@
+c File: flat20_3_0.col
+c
+c SOURCE: Joseph Culberson (joe@cs.ualberta.ca)
+c DESCRIPTION: Quasi-random coloring problem
+c              generated with flatness = 0
+c                             probability = 0.500
+c                             known coloring = 3
+c                             random seed = 39112
+c              Creation Date:  Sat Apr  1 14:33:46 1995
+c Maximum degree = 9 Minimum degree = 4
+c COLOR VERIFICATION: Using the permuted order
+c under simple greedy yields the specified
+c coloring number
+c Color = 3 specified partitions = 3
+p edge 20 66
+e 2 1
+e 3 1
+e 7 1
+e 9 1
+e 13 1
+e 15 1
+e 17 1
+e 5 2
+e 6 2
+e 10 2
+e 12 2
+e 13 2
+e 15 2
+e 8 3
+e 11 3
+e 17 3
+e 18 3
+e 20 3
+e 9 4
+e 12 4
+e 13 4
+e 14 4
+e 15 4
+e 18 4
+e 19 4
+e 8 5
+e 12 5
+e 15 5
+e 16 5
+e 19 5
+e 7 6
+e 9 6
+e 13 6
+e 16 6
+e 17 6
+e 10 7
+e 11 7
+e 12 7
+e 13 7
+e 15 7
+e 19 7
+e 10 8
+e 13 8
+e 10 9
+e 15 9
+e 19 9
+e 20 9
+e 12 10
+e 15 10
+e 17 10
+e 13 11
+e 14 11
+e 16 11
+e 18 11
+e 17 12
+e 18 12
+e 20 12
+e 15 14
+e 16 14
+e 19 14
+e 20 14
+e 17 15
+e 17 16
+e 18 16
+e 20 16
+e 20 17
+

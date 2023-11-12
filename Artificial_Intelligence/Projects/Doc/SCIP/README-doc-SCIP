@@ -1,0 +1,47 @@
+SCIP - Documentation d'installation et utilisation minimale
+===============================================================
+
+1. aller sur le site https://scip.zib.de
+
+2. aller sur l'item "download" du menu sur la gauche
+
+3. préciser la version de votre système d'exploitation
+
+4. choisir l'installateur correspondant le plus simple à installer
+
+par exemple, pour la version "6.0.2 Linux" :
+   choisir "SCIPOptSuite-6.0.2-Linux.sh"
+   
+5. remplir le questionnaire (nom, email et pays) et cocher la case 
+       "I certify that I will use the software only as a member of a 
+       noncommercial and academic institute and that I have read and 
+       accepted the ZIB Academic License." 
+       
+6. cliquer sur "start download"
+
+7. qd le téléchargement est fini, installer scip en utilisant l'installateur choisi de telle sorte que l'installation se fasse dans le dossier "solvers" de l'architecture du projet
+
+par exemple, avec SCIPOptSuite-6.0.2-Linux.sh :
+    placer le shell téléchargé dans le dossier "solvers", lui donner les droits d'exécution et l'exécuter
+    
+8. l'installation crée un dossier avec les répertoires adéquats (bin, include et lib dans le cas de linux)
+
+9. renommer le dossier ainsi créé "SCIP"
+
+10. l'exécutable est dans bin et s'appelle scip
+
+11. exemple d'exécution en ligne de commande sous linux depuis le dossier "projet" :
+    solvers/SCIP/bin/scip -f etape5/fichier.zpl
+ avec "fichier.zpl" le fichier contenant la description du pb au format ZIMPL
+ 
+12. vérifier que votre installation est correcte en la testant à l'aide du fichier "test.zpl" fourni dans le répertoire etape5.
+Vous devez obtenir (parmi bq d'autres choses !-) les infos suivantes (remarque : x2 n'est pas donnée car = à 0) :
+
+primal solution (original space):
+=================================
+
+objective value:                                   68
+x1                                                  4 	
+
+
+

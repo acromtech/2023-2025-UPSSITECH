@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>projet.outils.GrapheDeLieux API documentation</title>
+<meta name="description" content="module pour la classe GrapheDeLieux et ses tests" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>projet.outils.GrapheDeLieux</code></h1>
+</header>
+<section id="section-intro">
+<p>module pour la classe GrapheDeLieux et ses tests</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+module pour la classe GrapheDeLieux et ses tests
+&#34;&#34;&#34;
+
+
+import sys
+import math
+from projet.outils.Lieu import Lieu
+from projet.outils.Fils import Fils
+
+
+class GrapheDeLieux  :
+    &#34;&#34;&#34;  
+    Classe pour definir le graphe des lieux. Chaque lieu correspond a un sommet ds le graphe. 
+    Les sommets sont identifies par un numero unique a partir de 0.
+    &#34;&#34;&#34;
+    
+    # attributs
+    # //////////////////////////////////////////////
+    __lesSommets__ : list
+    &#34;&#34;&#34;  la liste des lieux composant le graphe &#34;&#34;&#34;
+    __nb__ : int
+    &#34;&#34;&#34;  le nb de lieux composant le graphe &#34;&#34;&#34;
+    __poidsMinTerre__ : float
+    &#34;&#34;&#34;  le poids minimum des aretes dans le graphe par les routes &#34;&#34;&#34;
+    __poidsMinAir__ : float
+    &#34;&#34;&#34;  le poids minimum des aretes dans le graphe par les airs &#34;&#34;&#34;
+    
+    # constructeur
+    # //////////////////////////////////////////////
+    def __init__(self) :
+        &#34;&#34;&#34;  constructeur d&#39;un graphe vide &#34;&#34;&#34;
+        self.__lesSommets__ = []
+        self.__nb__ = 0
+        self.__poidsMinTerre__ = sys.maxsize
+        self.__poidsMinAir__ = sys.maxsize
+    
+    
+    # methodes accesseurs
+    # //////////////////////////////////////////////
+    def getNbSommets(self) :
+        &#34;&#34;&#34;  recuperation du nb de sommets ds le graphe 
+        
+        :return nb de sommets ds le graphe
+        &#34;&#34;&#34;
+        return self.__nb__
+    
+    
+    def  getLesLieux(self) :
+        &#34;&#34;&#34;  recuperation de la liste des lieux composant le graphe
+        
+        :return liste des lieux composant le graphe
+        &#34;&#34;&#34;
+        return self.__lesSommets__
+    
+    
+    def getCoutArete(self, x : int, y : int) :
+        &#34;&#34;&#34;  recuperation du cout de l&#39;arete entre deux sommets du graphe
+        
+        :param x: premier sommet
+        
+        :param y: second sommet
+        
+        :return cout de l&#39;arete entre deux sommets x et y du graphe (0 si l&#39;arete n&#39;existe pas)
+        &#34;&#34;&#34;
+        for f in self.__lesSommets__[x].getFils() :
+            if (f.getNom() == y) :
+                return f.getPoids() 
+        return 0;
+    
+    
+    def getPoidsMinTerre(self) :
+        &#34;&#34;&#34;  recuperation du cout minimum des aretes du graphe 
+           (par les routes)
+           
+        :return cout minimum des aretes du graphe
+        &#34;&#34;&#34;   
+        return self.__poidsMinTerre__ ;
+    
+    
+    def getPoidsMinAir(self) :
+        &#34;&#34;&#34;  recuperation du cout minimum entre deux sommets du graphe 
+           (par les airs)
+           
+        :return cout minimum des aretes du graphe
+        &#34;&#34;&#34;   
+        return self.__poidsMinAir__ ;
+    
+    
+    def getAdjacents(self, x : int) :
+        &#34;&#34;&#34;  recuperation liste des sommets adjacents a un sommet donne
+        
+        :param x: sommet dont on cherche les adjacents
+        
+        :return liste des sommets adjacents a x
+        &#34;&#34;&#34;    
+        l = [] 
+        for f in self.__lesSommets__[x].getFils() :
+            l.append(f.getNom()) 
+        return l 
+    
+      
+    def getSommets(self) :
+        &#34;&#34;&#34;  recuperation liste des sommets du graphe
+        
+        :return liste des sommets du graphe
+        &#34;&#34;&#34;    
+        l = [] 
+        for i in range (0, self.__nb__) :
+            l.append(i) 
+        return l 
+    
+    
+    # methodes modifieurs
+    # //////////////////////////////////////////////
+    def setNbSommets(self, n : int) :
+        &#34;&#34;&#34; maj du nb de sommets du graphe 
+        
+        :param n: nb de sommets du graphe
+        &#34;&#34;&#34;
+        self.__nb__ = n
+    
+    
+    # methode pour affichage futur 
+    # //////////////////////////////////////////////
+    def __str__(self) :
+        &#34;&#34;&#34;  methode mettant le graphe  sous la forme d&#39;une 
+         chaine de caracteres en prevision d&#39;un futur affichage
+         
+        :return representation du graphe sous la forme d&#39;une chaine de caracteres
+        &#34;&#34;&#34;
+        s = &#34;Graphe avec &#34;+str(self.__nb__)+&#34; sommets : \n&#34; 
+        for l in  self.__lesSommets__ :
+            s = s + str(l) +&#34;\n&#34;
+        return s 
+    
+    
+    # methodes pour le calcul des distances
+    # //////////////////////////////////////////////
+    
+    # methode STATIC 
+    # //////////////////////////////////////////////
+    def __poidsAvDist__(g) :
+        &#34;&#34;&#34; methode STATIC de calcul du poids min d&#39;une arete ds un graphe en utilisant 
+         la distance euclidienne entre les sommets
+         
+        :param g: le graphe
+        
+        :return poids minimal d&#39;une arete ds le graphe
+        &#34;&#34;&#34;
+        poidsMin : float = sys.maxsize
+        for i in range( 0, len(g.__lesSommets__) - 1) :
+            for j in range(i+1, len(g.__lesSommets__)) :
+                poidsCourant : float = GrapheDeLieux.dist(i,j,g) 
+                if poidsCourant &lt; poidsMin :
+                   poidsMin = poidsCourant 
+        return poidsMin 
+    
+    
+    # methode STATIC 
+    # //////////////////////////////////////////////
+    def dist(x1 : int, x2 : int, x3, x4 = None) :
+        &#34;&#34;&#34;  methode STATIC pour recuperer la distance euclidienne entre deux 
+         lieux ou deux points d&#39;un espace 2D.
+         A utiliser avec un nb de parametres variable (soit 3, soit 4).
+         
+        :param x1: sommet ou abscisse premier point
+        
+        :param x2: sommet ou ordonnee premier point
+        
+        :param x3: graphe des lieux si x1 et x2 sont des lieux ou abscisse second point
+        
+        :param x4: rien ou ordonnee second point
+        
+        :return distance euclidienne entre les deux sommets x1 et x2 ou les 2 points (x1,x2) et (x3, x4)
+        &#34;&#34;&#34;
+        if (x3 != None and type(x3) == GrapheDeLieux) and (x4 == None) :
+           # cas ou on passe des lieux x1 et x2 d&#39;un graphe donne x3
+           a1 : int = x3.__lesSommets__[x1].getX()
+           o1 : int = x3.__lesSommets__[x1].getY()
+           a2 : int = x3.__lesSommets__[x2].getX()
+           o2 : int = x3.__lesSommets__[x2].getY()
+           return GrapheDeLieux.dist(a1,o1,a2,o2)
+        else :
+           if (type(x3) != int) or (x4 == None) : 
+              # cas ou les parametres passes seraient errones
+              return sys.maxsize
+           else :
+              a :float = (x3 - x1) * (x3 - x1)
+              b :float = (x4 - x2) * (x4 - x2)
+              val :float = math.sqrt(a + b)
+              return val
+    
+    
+    # methodes pour charger le graphe a partir d&#39;un fichier
+    # //////////////////////////////////////////////
+    
+      
+    def __loadGraphPourColor__(filename : str) :
+        &#34;&#34;&#34; methode STATIC pour recuperer les donnees ds des fichiers pour la coloration.
+         Ds ce cas là, 
+     
+        - il y a juste la liste des aretes dans le fichier
+        
+        - les sommets sont numerotes a partir de 1 =&gt; a ramener à partir de 0
+        
+        - pas de poids, ni de coordonnees
+        
+        :param filename: nom du fichier contenant les donnees
+        &#34;&#34;&#34;
+        g = GrapheDeLieux()
+        fic = open(filename, &#34;r&#34;)
+        nbSom : int = 0
+        lignes = fic.readlines()
+        for ligne in lignes :
+            s = ligne.split(&#34; &#34;)
+            if s[0] == &#34;e&#34; :        
+                # traiter les aretes         
+                a : int = int(s[1])-1
+                b : int = int(s[2])-1
+                g.__lesSommets__[a].addFils(Fils(b,0)) 
+                g.__lesSommets__[b].addFils(Fils(a,0))                                  
+            else :
+                if s[0]== &#34;p&#34;:        
+                    # la ligne commencant par p est avant ttes celles commencant par e          
+                    nbSom = int(s[2])
+                    g.setNbSommets(nbSom) 
+                    print(g.getNbSommets())
+                    # traiter les sommets
+                    for i in range(0, nbSom) :
+                       x : int = 0
+                       y : int = 0
+                       g.__lesSommets__.append(Lieu(i,x,y)) 
+        fic.close()
+        return(g)
+    
+    def __loadGraphAvPoids__(filename : str) :
+        &#34;&#34;&#34; methode STATIC pour recuperer les donnees ds des fichiers avec poids et coordonnees.
+         Ds ce cas-la, on a ds le fichier les infos suivantes :
+        
+        - le nb de sommets
+    
+        - puis la liste des coord en x et en y pour chaque sommet ds l&#39;ordre
+    
+        - puis la liste des aretes avec sommet depart, sommet arrivee et poids
+    
+          Attention, il faut dupliquer pour avoir tous les arcs
+      
+          Attention, les noms des sommets vont de 0 a nb-1
+          
+        :param filename: nom du fichier contenant les donnees
+        &#34;&#34;&#34;
+        g =  GrapheDeLieux()
+        poidsMin : float = sys.maxsize
+        fic = open(filename)
+        lignes = fic.readlines()
+        nb : int = int(lignes[0])
+        g.setNbSommets(nb) 
+        print(nb)
+        # lecture des sommets
+        for i in range(1, nb+1) : 
+            tmp = lignes[i].split(&#34; &#34;)
+            x : int = int(tmp[0])
+            y : int = int(tmp[1])
+            g.__lesSommets__.append(Lieu(i-1,x,y)) 
+        # lecture des aretes
+        for i in range(nb+1,len(lignes)) :
+            tmp = lignes[i].split(&#34; &#34;)
+            a : int = int(tmp[0])
+            b : int = int(tmp[1])
+            d : float = float(tmp[2])
+            if d &lt; poidsMin :
+               poidsMin = d 
+            g.__lesSommets__[a].addFils(Fils(b,d)) 
+            g.__lesSommets__[b].addFils(Fils(a,d)) 
+        fic.close()
+        g.__poidsMinTerre__ = poidsMin 
+        g.__poidsMinAir__ = GrapheDeLieux.__poidsAvDist__(g) 
+        return g
+    
+    # methode STATIC pour creer le graphe a partir d&#39;un fichier
+    # //////////////////////////////////////////////
+    def loadGraph(filename : str,  form : bool) :
+        &#34;&#34;&#34;   methode STATIC pour creer le graphe a partir d&#39;un fichier
+        
+        :param filename: nom du fichier contenant les donnees
+        
+        :param form: true si le fichier correspond a un graphe avec des coordonnees et des poids, 
+                     false sinon
+                     
+        :return le graphe des lieux cree a partir des donnees qui etaient ds le fichier
+        &#34;&#34;&#34;
+        if form == True :
+            return GrapheDeLieux.__loadGraphAvPoids__(filename) 
+        else :
+            return GrapheDeLieux.__loadGraphPourColor__(filename) 
+        
+
+class __testGrapheDeLieux__ : 
+    # TESTS
+    # //////////////////////////////////////////////
+    &#34;&#34;&#34;  
+    methode principale de test pour la classe GrapheDeLieux
+    &#34;&#34;&#34;
+    if __name__ == &#39;__main__&#39;:
+        
+        g = GrapheDeLieux.loadGraph(&#34;Data/town10.txt&#34;,True)
+        print(&#34;Cas 1 : le graphe contient des poids et des coordonnees :\n&#34;+str(g)) 
+        print(&#34;avec un poids min de (on attend 152.4958208392524) :&#34;+str(g.getPoidsMinTerre())) 
+        
+        g = GrapheDeLieux.loadGraph(&#34;Data/town30.txt&#34;,True)
+        print(&#34;Cas 1 : le graphe contient des poids et des coordonnees :\n&#34;+str(g)) 
+        print(&#34;avec un poids min de (on attend 16.3) :&#34;+str(g.getPoidsMinTerre())) 
+        
+        g = GrapheDeLieux.loadGraph(&#34;Data/pb-etape1/jean.col&#34;,False)
+        print(&#34;Cas 2 : le graphe ne contient pas de poids, ni de coordonnees :\n&#34;+str(g)) 
+        
+        g = GrapheDeLieux.loadGraph(&#34;Data/pb-etape1/flat20_3_0.col&#34;,False)
+        print(&#34;Cas 2 : le graphe ne contient pas de poids, ni de coordonnees :\n&#34;+str(g)) </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux"><code class="flex name class">
+<span>class <span class="ident">GrapheDeLieux</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Classe pour definir le graphe des lieux. Chaque lieu correspond a un sommet ds le graphe.
+Les sommets sont identifies par un numero unique a partir de 0.</p>
+<p>constructeur d'un graphe vide</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GrapheDeLieux  :
+    &#34;&#34;&#34;  
+    Classe pour definir le graphe des lieux. Chaque lieu correspond a un sommet ds le graphe. 
+    Les sommets sont identifies par un numero unique a partir de 0.
+    &#34;&#34;&#34;
+    
+    # attributs
+    # //////////////////////////////////////////////
+    __lesSommets__ : list
+    &#34;&#34;&#34;  la liste des lieux composant le graphe &#34;&#34;&#34;
+    __nb__ : int
+    &#34;&#34;&#34;  le nb de lieux composant le graphe &#34;&#34;&#34;
+    __poidsMinTerre__ : float
+    &#34;&#34;&#34;  le poids minimum des aretes dans le graphe par les routes &#34;&#34;&#34;
+    __poidsMinAir__ : float
+    &#34;&#34;&#34;  le poids minimum des aretes dans le graphe par les airs &#34;&#34;&#34;
+    
+    # constructeur
+    # //////////////////////////////////////////////
+    def __init__(self) :
+        &#34;&#34;&#34;  constructeur d&#39;un graphe vide &#34;&#34;&#34;
+        self.__lesSommets__ = []
+        self.__nb__ = 0
+        self.__poidsMinTerre__ = sys.maxsize
+        self.__poidsMinAir__ = sys.maxsize
+    
+    
+    # methodes accesseurs
+    # //////////////////////////////////////////////
+    def getNbSommets(self) :
+        &#34;&#34;&#34;  recuperation du nb de sommets ds le graphe 
+        
+        :return nb de sommets ds le graphe
+        &#34;&#34;&#34;
+        return self.__nb__
+    
+    
+    def  getLesLieux(self) :
+        &#34;&#34;&#34;  recuperation de la liste des lieux composant le graphe
+        
+        :return liste des lieux composant le graphe
+        &#34;&#34;&#34;
+        return self.__lesSommets__
+    
+    
+    def getCoutArete(self, x : int, y : int) :
+        &#34;&#34;&#34;  recuperation du cout de l&#39;arete entre deux sommets du graphe
+        
+        :param x: premier sommet
+        
+        :param y: second sommet
+        
+        :return cout de l&#39;arete entre deux sommets x et y du graphe (0 si l&#39;arete n&#39;existe pas)
+        &#34;&#34;&#34;
+        for f in self.__lesSommets__[x].getFils() :
+            if (f.getNom() == y) :
+                return f.getPoids() 
+        return 0;
+    
+    
+    def getPoidsMinTerre(self) :
+        &#34;&#34;&#34;  recuperation du cout minimum des aretes du graphe 
+           (par les routes)
+           
+        :return cout minimum des aretes du graphe
+        &#34;&#34;&#34;   
+        return self.__poidsMinTerre__ ;
+    
+    
+    def getPoidsMinAir(self) :
+        &#34;&#34;&#34;  recuperation du cout minimum entre deux sommets du graphe 
+           (par les airs)
+           
+        :return cout minimum des aretes du graphe
+        &#34;&#34;&#34;   
+        return self.__poidsMinAir__ ;
+    
+    
+    def getAdjacents(self, x : int) :
+        &#34;&#34;&#34;  recuperation liste des sommets adjacents a un sommet donne
+        
+        :param x: sommet dont on cherche les adjacents
+        
+        :return liste des sommets adjacents a x
+        &#34;&#34;&#34;    
+        l = [] 
+        for f in self.__lesSommets__[x].getFils() :
+            l.append(f.getNom()) 
+        return l 
+    
+      
+    def getSommets(self) :
+        &#34;&#34;&#34;  recuperation liste des sommets du graphe
+        
+        :return liste des sommets du graphe
+        &#34;&#34;&#34;    
+        l = [] 
+        for i in range (0, self.__nb__) :
+            l.append(i) 
+        return l 
+    
+    
+    # methodes modifieurs
+    # //////////////////////////////////////////////
+    def setNbSommets(self, n : int) :
+        &#34;&#34;&#34; maj du nb de sommets du graphe 
+        
+        :param n: nb de sommets du graphe
+        &#34;&#34;&#34;
+        self.__nb__ = n
+    
+    
+    # methode pour affichage futur 
+    # //////////////////////////////////////////////
+    def __str__(self) :
+        &#34;&#34;&#34;  methode mettant le graphe  sous la forme d&#39;une 
+         chaine de caracteres en prevision d&#39;un futur affichage
+         
+        :return representation du graphe sous la forme d&#39;une chaine de caracteres
+        &#34;&#34;&#34;
+        s = &#34;Graphe avec &#34;+str(self.__nb__)+&#34; sommets : \n&#34; 
+        for l in  self.__lesSommets__ :
+            s = s + str(l) +&#34;\n&#34;
+        return s 
+    
+    
+    # methodes pour le calcul des distances
+    # //////////////////////////////////////////////
+    
+    # methode STATIC 
+    # //////////////////////////////////////////////
+    def __poidsAvDist__(g) :
+        &#34;&#34;&#34; methode STATIC de calcul du poids min d&#39;une arete ds un graphe en utilisant 
+         la distance euclidienne entre les sommets
+         
+        :param g: le graphe
+        
+        :return poids minimal d&#39;une arete ds le graphe
+        &#34;&#34;&#34;
+        poidsMin : float = sys.maxsize
+        for i in range( 0, len(g.__lesSommets__) - 1) :
+            for j in range(i+1, len(g.__lesSommets__)) :
+                poidsCourant : float = GrapheDeLieux.dist(i,j,g) 
+                if poidsCourant &lt; poidsMin :
+                   poidsMin = poidsCourant 
+        return poidsMin 
+    
+    
+    # methode STATIC 
+    # //////////////////////////////////////////////
+    def dist(x1 : int, x2 : int, x3, x4 = None) :
+        &#34;&#34;&#34;  methode STATIC pour recuperer la distance euclidienne entre deux 
+         lieux ou deux points d&#39;un espace 2D.
+         A utiliser avec un nb de parametres variable (soit 3, soit 4).
+         
+        :param x1: sommet ou abscisse premier point
+        
+        :param x2: sommet ou ordonnee premier point
+        
+        :param x3: graphe des lieux si x1 et x2 sont des lieux ou abscisse second point
+        
+        :param x4: rien ou ordonnee second point
+        
+        :return distance euclidienne entre les deux sommets x1 et x2 ou les 2 points (x1,x2) et (x3, x4)
+        &#34;&#34;&#34;
+        if (x3 != None and type(x3) == GrapheDeLieux) and (x4 == None) :
+           # cas ou on passe des lieux x1 et x2 d&#39;un graphe donne x3
+           a1 : int = x3.__lesSommets__[x1].getX()
+           o1 : int = x3.__lesSommets__[x1].getY()
+           a2 : int = x3.__lesSommets__[x2].getX()
+           o2 : int = x3.__lesSommets__[x2].getY()
+           return GrapheDeLieux.dist(a1,o1,a2,o2)
+        else :
+           if (type(x3) != int) or (x4 == None) : 
+              # cas ou les parametres passes seraient errones
+              return sys.maxsize
+           else :
+              a :float = (x3 - x1) * (x3 - x1)
+              b :float = (x4 - x2) * (x4 - x2)
+              val :float = math.sqrt(a + b)
+              return val
+    
+    
+    # methodes pour charger le graphe a partir d&#39;un fichier
+    # //////////////////////////////////////////////
+    
+      
+    def __loadGraphPourColor__(filename : str) :
+        &#34;&#34;&#34; methode STATIC pour recuperer les donnees ds des fichiers pour la coloration.
+         Ds ce cas là, 
+     
+        - il y a juste la liste des aretes dans le fichier
+        
+        - les sommets sont numerotes a partir de 1 =&gt; a ramener à partir de 0
+        
+        - pas de poids, ni de coordonnees
+        
+        :param filename: nom du fichier contenant les donnees
+        &#34;&#34;&#34;
+        g = GrapheDeLieux()
+        fic = open(filename, &#34;r&#34;)
+        nbSom : int = 0
+        lignes = fic.readlines()
+        for ligne in lignes :
+            s = ligne.split(&#34; &#34;)
+            if s[0] == &#34;e&#34; :        
+                # traiter les aretes         
+                a : int = int(s[1])-1
+                b : int = int(s[2])-1
+                g.__lesSommets__[a].addFils(Fils(b,0)) 
+                g.__lesSommets__[b].addFils(Fils(a,0))                                  
+            else :
+                if s[0]== &#34;p&#34;:        
+                    # la ligne commencant par p est avant ttes celles commencant par e          
+                    nbSom = int(s[2])
+                    g.setNbSommets(nbSom) 
+                    print(g.getNbSommets())
+                    # traiter les sommets
+                    for i in range(0, nbSom) :
+                       x : int = 0
+                       y : int = 0
+                       g.__lesSommets__.append(Lieu(i,x,y)) 
+        fic.close()
+        return(g)
+    
+    def __loadGraphAvPoids__(filename : str) :
+        &#34;&#34;&#34; methode STATIC pour recuperer les donnees ds des fichiers avec poids et coordonnees.
+         Ds ce cas-la, on a ds le fichier les infos suivantes :
+        
+        - le nb de sommets
+    
+        - puis la liste des coord en x et en y pour chaque sommet ds l&#39;ordre
+    
+        - puis la liste des aretes avec sommet depart, sommet arrivee et poids
+    
+          Attention, il faut dupliquer pour avoir tous les arcs
+      
+          Attention, les noms des sommets vont de 0 a nb-1
+          
+        :param filename: nom du fichier contenant les donnees
+        &#34;&#34;&#34;
+        g =  GrapheDeLieux()
+        poidsMin : float = sys.maxsize
+        fic = open(filename)
+        lignes = fic.readlines()
+        nb : int = int(lignes[0])
+        g.setNbSommets(nb) 
+        print(nb)
+        # lecture des sommets
+        for i in range(1, nb+1) : 
+            tmp = lignes[i].split(&#34; &#34;)
+            x : int = int(tmp[0])
+            y : int = int(tmp[1])
+            g.__lesSommets__.append(Lieu(i-1,x,y)) 
+        # lecture des aretes
+        for i in range(nb+1,len(lignes)) :
+            tmp = lignes[i].split(&#34; &#34;)
+            a : int = int(tmp[0])
+            b : int = int(tmp[1])
+            d : float = float(tmp[2])
+            if d &lt; poidsMin :
+               poidsMin = d 
+            g.__lesSommets__[a].addFils(Fils(b,d)) 
+            g.__lesSommets__[b].addFils(Fils(a,d)) 
+        fic.close()
+        g.__poidsMinTerre__ = poidsMin 
+        g.__poidsMinAir__ = GrapheDeLieux.__poidsAvDist__(g) 
+        return g
+    
+    # methode STATIC pour creer le graphe a partir d&#39;un fichier
+    # //////////////////////////////////////////////
+    def loadGraph(filename : str,  form : bool) :
+        &#34;&#34;&#34;   methode STATIC pour creer le graphe a partir d&#39;un fichier
+        
+        :param filename: nom du fichier contenant les donnees
+        
+        :param form: true si le fichier correspond a un graphe avec des coordonnees et des poids, 
+                     false sinon
+                     
+        :return le graphe des lieux cree a partir des donnees qui etaient ds le fichier
+        &#34;&#34;&#34;
+        if form == True :
+            return GrapheDeLieux.__loadGraphAvPoids__(filename) 
+        else :
+            return GrapheDeLieux.__loadGraphPourColor__(filename) </code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.dist"><code class="name flex">
+<span>def <span class="ident">dist</span></span>(<span>x1: int, x2: int, x3, x4=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>methode STATIC pour recuperer la distance euclidienne entre deux
+lieux ou deux points d'un espace 2D.
+A utiliser avec un nb de parametres variable (soit 3, soit 4).</p>
+<p>:param x1: sommet ou abscisse premier point</p>
+<p>:param x2: sommet ou ordonnee premier point</p>
+<p>:param x3: graphe des lieux si x1 et x2 sont des lieux ou abscisse second point</p>
+<p>:param x4: rien ou ordonnee second point</p>
+<p>:return distance euclidienne entre les deux sommets x1 et x2 ou les 2 points (x1,x2) et (x3, x4)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dist(x1 : int, x2 : int, x3, x4 = None) :
+    &#34;&#34;&#34;  methode STATIC pour recuperer la distance euclidienne entre deux 
+     lieux ou deux points d&#39;un espace 2D.
+     A utiliser avec un nb de parametres variable (soit 3, soit 4).
+     
+    :param x1: sommet ou abscisse premier point
+    
+    :param x2: sommet ou ordonnee premier point
+    
+    :param x3: graphe des lieux si x1 et x2 sont des lieux ou abscisse second point
+    
+    :param x4: rien ou ordonnee second point
+    
+    :return distance euclidienne entre les deux sommets x1 et x2 ou les 2 points (x1,x2) et (x3, x4)
+    &#34;&#34;&#34;
+    if (x3 != None and type(x3) == GrapheDeLieux) and (x4 == None) :
+       # cas ou on passe des lieux x1 et x2 d&#39;un graphe donne x3
+       a1 : int = x3.__lesSommets__[x1].getX()
+       o1 : int = x3.__lesSommets__[x1].getY()
+       a2 : int = x3.__lesSommets__[x2].getX()
+       o2 : int = x3.__lesSommets__[x2].getY()
+       return GrapheDeLieux.dist(a1,o1,a2,o2)
+    else :
+       if (type(x3) != int) or (x4 == None) : 
+          # cas ou les parametres passes seraient errones
+          return sys.maxsize
+       else :
+          a :float = (x3 - x1) * (x3 - x1)
+          b :float = (x4 - x2) * (x4 - x2)
+          val :float = math.sqrt(a + b)
+          return val</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getAdjacents"><code class="name flex">
+<span>def <span class="ident">getAdjacents</span></span>(<span>self, x: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation liste des sommets adjacents a un sommet donne</p>
+<p>:param x: sommet dont on cherche les adjacents</p>
+<p>:return liste des sommets adjacents a x</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAdjacents(self, x : int) :
+    &#34;&#34;&#34;  recuperation liste des sommets adjacents a un sommet donne
+    
+    :param x: sommet dont on cherche les adjacents
+    
+    :return liste des sommets adjacents a x
+    &#34;&#34;&#34;    
+    l = [] 
+    for f in self.__lesSommets__[x].getFils() :
+        l.append(f.getNom()) 
+    return l </code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getCoutArete"><code class="name flex">
+<span>def <span class="ident">getCoutArete</span></span>(<span>self, x: int, y: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation du cout de l'arete entre deux sommets du graphe</p>
+<p>:param x: premier sommet</p>
+<p>:param y: second sommet</p>
+<p>:return cout de l'arete entre deux sommets x et y du graphe (0 si l'arete n'existe pas)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCoutArete(self, x : int, y : int) :
+    &#34;&#34;&#34;  recuperation du cout de l&#39;arete entre deux sommets du graphe
+    
+    :param x: premier sommet
+    
+    :param y: second sommet
+    
+    :return cout de l&#39;arete entre deux sommets x et y du graphe (0 si l&#39;arete n&#39;existe pas)
+    &#34;&#34;&#34;
+    for f in self.__lesSommets__[x].getFils() :
+        if (f.getNom() == y) :
+            return f.getPoids() 
+    return 0;</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getLesLieux"><code class="name flex">
+<span>def <span class="ident">getLesLieux</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation de la liste des lieux composant le graphe</p>
+<p>:return liste des lieux composant le graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  getLesLieux(self) :
+    &#34;&#34;&#34;  recuperation de la liste des lieux composant le graphe
+    
+    :return liste des lieux composant le graphe
+    &#34;&#34;&#34;
+    return self.__lesSommets__</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getNbSommets"><code class="name flex">
+<span>def <span class="ident">getNbSommets</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation du nb de sommets ds le graphe </p>
+<p>:return nb de sommets ds le graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNbSommets(self) :
+    &#34;&#34;&#34;  recuperation du nb de sommets ds le graphe 
+    
+    :return nb de sommets ds le graphe
+    &#34;&#34;&#34;
+    return self.__nb__</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinAir"><code class="name flex">
+<span>def <span class="ident">getPoidsMinAir</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation du cout minimum entre deux sommets du graphe
+(par les airs)</p>
+<p>:return cout minimum des aretes du graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPoidsMinAir(self) :
+    &#34;&#34;&#34;  recuperation du cout minimum entre deux sommets du graphe 
+       (par les airs)
+       
+    :return cout minimum des aretes du graphe
+    &#34;&#34;&#34;   
+    return self.__poidsMinAir__ ;</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinTerre"><code class="name flex">
+<span>def <span class="ident">getPoidsMinTerre</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation du cout minimum des aretes du graphe
+(par les routes)</p>
+<p>:return cout minimum des aretes du graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPoidsMinTerre(self) :
+    &#34;&#34;&#34;  recuperation du cout minimum des aretes du graphe 
+       (par les routes)
+       
+    :return cout minimum des aretes du graphe
+    &#34;&#34;&#34;   
+    return self.__poidsMinTerre__ ;</code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.getSommets"><code class="name flex">
+<span>def <span class="ident">getSommets</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>recuperation liste des sommets du graphe</p>
+<p>:return liste des sommets du graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSommets(self) :
+    &#34;&#34;&#34;  recuperation liste des sommets du graphe
+    
+    :return liste des sommets du graphe
+    &#34;&#34;&#34;    
+    l = [] 
+    for i in range (0, self.__nb__) :
+        l.append(i) 
+    return l </code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.loadGraph"><code class="name flex">
+<span>def <span class="ident">loadGraph</span></span>(<span>filename: str, form: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>methode STATIC pour creer le graphe a partir d'un fichier</p>
+<p>:param filename: nom du fichier contenant les donnees</p>
+<p>:param form: true si le fichier correspond a un graphe avec des coordonnees et des poids,
+false sinon</p>
+<p>:return le graphe des lieux cree a partir des donnees qui etaient ds le fichier</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loadGraph(filename : str,  form : bool) :
+    &#34;&#34;&#34;   methode STATIC pour creer le graphe a partir d&#39;un fichier
+    
+    :param filename: nom du fichier contenant les donnees
+    
+    :param form: true si le fichier correspond a un graphe avec des coordonnees et des poids, 
+                 false sinon
+                 
+    :return le graphe des lieux cree a partir des donnees qui etaient ds le fichier
+    &#34;&#34;&#34;
+    if form == True :
+        return GrapheDeLieux.__loadGraphAvPoids__(filename) 
+    else :
+        return GrapheDeLieux.__loadGraphPourColor__(filename) </code></pre>
+</details>
+</dd>
+<dt id="projet.outils.GrapheDeLieux.GrapheDeLieux.setNbSommets"><code class="name flex">
+<span>def <span class="ident">setNbSommets</span></span>(<span>self, n: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>maj du nb de sommets du graphe </p>
+<p>:param n: nb de sommets du graphe</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setNbSommets(self, n : int) :
+    &#34;&#34;&#34; maj du nb de sommets du graphe 
+    
+    :param n: nb de sommets du graphe
+    &#34;&#34;&#34;
+    self.__nb__ = n</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="projet.outils" href="index.html">projet.outils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux" href="#projet.outils.GrapheDeLieux.GrapheDeLieux">GrapheDeLieux</a></code></h4>
+<ul class="two-column">
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.dist" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.dist">dist</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getAdjacents" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getAdjacents">getAdjacents</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getCoutArete" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getCoutArete">getCoutArete</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getLesLieux" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getLesLieux">getLesLieux</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getNbSommets" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getNbSommets">getNbSommets</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinAir" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinAir">getPoidsMinAir</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinTerre" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getPoidsMinTerre">getPoidsMinTerre</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.getSommets" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.getSommets">getSommets</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.loadGraph" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.loadGraph">loadGraph</a></code></li>
+<li><code><a title="projet.outils.GrapheDeLieux.GrapheDeLieux.setNbSommets" href="#projet.outils.GrapheDeLieux.GrapheDeLieux.setNbSommets">setNbSommets</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

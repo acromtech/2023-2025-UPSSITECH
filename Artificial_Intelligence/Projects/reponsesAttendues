@@ -1,0 +1,140 @@
+Etape 1 :
+=============
+sur town10 avec 3 couleurs : true
+sur town10 avec 2 couleurs : false
+sur town10 avec 4 couleurs : true
+
+sur flat20_3_0.col avec 4 couleurs :true
+sur flat20_3_0.col avec 3 couleurs :true
+sur flat20_3_0.col avec 2 couleurs :false
+
+sur jean.col avec 10 couleurs :true
+sur jean.col avec 9 couleurs :false
+sur jean.col avec 3 couleurs :false
+
+Etape 2 :
+=============
+CAS 1 :
+-------
+sur 10 villes de 0 à 9 :  [9, 8, 4, 1, 0], poids = 1190.971503412202
+sur 10 villes de 5 à 9 :  [9, 8, 6, 5], poids = 858.6177055898913
+sur 10 villes de 2 à 9 : [9, 8, 6, 3, 2], poids = 1090.639192762493
+sur 10 villes de 1 à 7 : [7, 6, 3, 1], poids = 889.1949043390727
+
+sur 30 (26) villes de 0 à 25 : [25, 24, 19, 16, 12, 5, 3, 0], poids = 1856.5
+
+sur 150 (146) villes de 0 à 145 : [145, 133, 111, 89, 69, 45, 5, 0], poids = 1143.0000000000002
+
+sur 1000 (998) villes de 0 à 997 : [997, 964, 829, 646, 386, 261, 126, 0], poids = 726.7
+
+CAS 2 :
+-------
+sur 10 villes : [0, 1, 3, 4, 8, 9, 7, 6, 5, 2, 0], poids = 3792.190362007193
+
+CAS 3 :
+-------
+sur 6 villes : [0, 1, 2, 3, 5, 4, 0], poids = 1360.6495955560758
+sur 7 villes : [0, 1, 2, 3, 6, 5, 4, 0], poids = 1638.459980067224
+sur 8 villes : [0, 4, 5, 7, 6, 3, 2, 1, 0], poids = 1729.6228205017967
+sur 9 villes : [0, 1, 2, 3, 6, 7, 5, 8, 4, 0], poids = 1855.2162397331167
+sur 10 villes : [0, 1, 2, 3, 6, 7, 5, 8, 9, 4, 0], poids = 2026.2675322208256
+sur 11 villes : [0, 2, 10, 6, 9, 3, 4, 7, 1, 8, 5, 0], poids = 2204.349
+
+
+Etape 3 :
+=============
+HC, Tabou : sur 10 villes, pas moins de 2026
+Sur les autres ???
+
+Etape 4 :
+=============
+sur town10 avec 3 couleurs : OK avec :
+	| 0 = 1 | 1 = 2 | 2 = 2 | 3 = 1 | 4 = 3 | 5 = 1 | 6 = 2 | 7 = 3 | 8 = 1 | 9 = 2 |
+sur town10 avec 2 couleurs : NOK
+sur town10 avec 4 couleurs : OK avec : 
+	| 0 = 1 | 1 = 2 | 2 = 2 | 3 = 1 | 4 = 3 | 5 = 1 | 6 = 2 | 7 = 3 | 8 = 1 | 9 = 2 |
+
+sur flat20_3_0.col avec 4 couleurs :OK avec :
+	| 0 = 1 | 1 = 2 | 2 = 3 | 3 = 1 | 4 = 1 | 5 = 1 | 6 = 2 | 7 = 2 | 8 = 2 | 9 = 1 
+	| 10 = 1 | 11 = 3 | 12 = 3 | 13 = 2 | 14 = 3 | 15 = 3 | 16 = 2 | 17 = 2 | 18 = 3 
+	| 19 = 1 |
+sur flat20_3_0.col avec 3 couleurs :OK avec :
+	| 0 = 1 | 1 = 2 | 2 = 3 | 3 = 1 | 4 = 1 | 5 = 1 | 6 = 2 | 7 = 2 | 8 = 2 | 9 = 1 
+	| 10 = 1 | 11 = 3 | 12 = 3 | 13 = 2 | 14 = 3 | 15 = 3 | 16 = 2 | 17 = 2 | 18 = 3 
+	| 19 = 1 |
+sur flat20_3_0.col avec 2 couleurs :NOK
+
+sur jean.col avec 10 couleurs :OK avec :
+	| 0 = 1 | 1 = 4 | 2 = 2 | 3 = 5 | 4 = 6 | 5 = 5 | 6 = 10 | 7 = 1 | 8 = 4 | 9 = 2 
+	| 10 = 3 | 11 = 1 | 12 = 1 | 13 = 2 | 14 = 5 | 15 = 1 | 16 = 3 | 17 = 1 | 18 = 9 
+	| 19 = 7 | 20 = 1 | 21 = 4 | 22 = 1 | 23 = 1 | 24 = 6 | 25 = 1 | 26 = 8 | 27 = 3 
+	| 28 = 3 | 29 = 4 | 30 = 2 | 31 = 1 | 32 = 1 | 33 = 1 | 34 = 2 | 35 = 1 | 36 = 1 
+	| 37 = 6 | 38 = 5 | 39 = 4 | 40 = 1 | 41 = 1 | 42 = 2 | 43 = 5 | 44 = 2 | 45 = 4 
+	| 46 = 3 | 47 = 3 | 48 = 1 | 49 = 6 | 50 = 1 | 51 = 1 | 52 = 2 | 53 = 1 | 54 = 7 
+	| 55 = 2 | 56 = 4 | 57 = 6 | 58 = 2 | 59 = 3 | 60 = 2 | 61 = 2 | 62 = 5 | 63 = 4 
+	| 64 = 1 | 65 = 8 | 66 = 2 | 67 = 7 | 68 = 3 | 69 = 2 | 70 = 1 | 71 = 2 | 72 = 7 
+	| 73 = 1 | 74 = 3 | 75 = 1 | 76 = 4 | 77 = 3 | 78 = 3 | 79 = 1 |
+sur jean.col avec 3 couleurs :NOK
+sur jean.col avec 9 couleurs :NOK
+
+Etape 4 : Bonus le pb du zebre
+=============
+animal 	chien = 3, renard = 5, cheval = 4, escargot = 2, zèbre = 1,
+couleur 	bleu = 2, vert = 5, rouge = 4, blanc = 1, jaune = 3,
+boisson 	café = 5, jus = 1, lait = 3, thé = 2, eau = 4,
+nationalité 	anglais = 4, italien = 2, japonais = 5, norvégien = 1, espagnol = 3,
+profession 	diplomate = 3, docteur = 4, peintre = 5, sculpteur = 2, violiniste = 1
+
+ou alors :
+
+Maison n°1 : blanc, norvégien, violoniste, zèbre, jus
+Maison n°2 : bleu, italien, sculpteur, escargot, thé
+Maison n°3 : jaune, espagnol, diplomate, chien, lait
+Maison n°4 : rouge, anglais, docteur, cheval, eau
+Maison n°5 : vert, japonais, peintre, renard, café
+
+Etape 5 :
+=============
+sur 6 villes : best tour = 0,1,2,3,5,4,0
+# pour un poids autour de 1360
+
+sur 7 villes : best tour = 0,1,2,3,6,5,4,0
+# pour un poids autour de 1638
+
+sur 8 villes : best tour = 0,1,2,3,6,7,5,4,0
+# pour un poids autour de 1729
+
+sur 9 villes : best tour = 0,1,2,3,6,7,5,8,4,0
+# pour un poids autour de 1855 
+
+sur 10 villes : best tour = 0, 1, 2, 3, 6, 7, 5, 8, 9, 4, 0
+# pour un poids autour de 2026 
+
+sur 11 villes : best tour = 0,2,10,6,9,3,4,7,1,8,5,0
+# pour un poids autour de = 2204
+
+sur 12 villes : best tour = 0,2,6,10,11,9,3,4,7,1,8,5,0
+# pour un poids autour de = 2231
+
+sur 13 villes : best tour = 0,2,6,10,11,9,3,4,7,12,1,8,5,0
+# pour un poids autour de = 2247
+
+sur 14 villes : best tour = 0,2,6,10,11,9,4,3,1,12,7,13,8,5,0
+# pour un poids autour de = 2311
+
+sur 15 villes : best tour = 0,2,6,10,11,9,4,3,1,12,7,14,13,8,5,0
+# pour un poids autour de = 2317
+
+sur 16 villes : best tour = 0,2,6,10,11,9,4,3,1,12,7,15,14,13,8,5,0
+# pour un poids autour de = 2353
+
+sur 17 villes : best tour = 0,2,6,10,11,9,4,3,1,12,7,15,16,14,13,8,5,0
+# pour un poids autour de = 2369
+
+sur 18 villes : best tour = 0,2,6,10,11,9,4,3,1,12,7,15,17,16,14,13,8,5,0
+# pour un poids autour de = 2376
+
+sur 19 villes : best tour = 0,5,8,13,14,16,17,15,7,12,1,3,4,9,11,10,6,18,2,0
+# pour un poids autour de = 2405
+
+
