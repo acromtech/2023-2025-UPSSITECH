@@ -4,13 +4,15 @@
 #include <list>
 #include "Document.h"
 
+using namespace std;
+
 class Biblio {
 private:
-    std::list<Document*> tab;
+    list<Document*> tab;
 
 public:
     void ajouter(Document* D);
-    Document* rechercher(const std::string& T);
+    Document* rechercher(const string& T);
     void afficher();
 };
 

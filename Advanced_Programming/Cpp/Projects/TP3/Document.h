@@ -3,17 +3,19 @@
 
 #include <string>
 
+using namespace std;
+
 class Document {
 private:
-    std::string title;
-    std::string* summary;
-    std::string author;
+    string title;
+    string* summary;
+    string author;
 
 public:
     Document();
-    Document(const std::string& title, const std::string& summary, const std::string& author);
+    Document(const string& title, const string& summary, const string& author);
     Document(const Document& other);
-    virtual ~Document();  // Déclarer le destructeur comme virtuel
+    virtual ~Document();  // On déclare le destructeur comme virtuel
 
     virtual void display() const;
     Document clone() const;

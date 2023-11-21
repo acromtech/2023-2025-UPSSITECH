@@ -1,11 +1,13 @@
 #include "Biblio.h"
 #include <iostream>
 
+using namespace std;
+
 void Biblio::ajouter(Document* D) {
     tab.push_back(D);
 }
 
-Document* Biblio::rechercher(const std::string& T) {
+Document* Biblio::rechercher(const string& T) {
     for (Document* doc : tab) {
         if (doc->getTitle() == T) {
             return doc;
@@ -15,9 +17,9 @@ Document* Biblio::rechercher(const std::string& T) {
 }
 
 void Biblio::afficher() {
-    std::cout << "Contenu de la bibliothèque :\n";
+    cout << "Contenu de la bibliothèque :\n";
     for (Document* doc : tab) {
         doc->display();
-        std::cout << "---------------------\n";
+        cout << "---------------------\n";
     }
 }

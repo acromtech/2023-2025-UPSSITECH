@@ -1,22 +1,24 @@
 #include "Document.h"
 #include <iostream>
 
+using namespace std;
+
 Document::Document() : summary(nullptr) {}
 
-Document::Document(const std::string& title, const std::string& summary, const std::string& author)
-    : title(title), summary(new std::string(summary)), author(author) {}
+Document::Document(const string& title, const string& summary, const string& author)
+    : title(title), summary(new string(summary)), author(author) {}
 
 Document::Document(const Document& other)
-    : title(other.title), summary(new std::string(*other.summary)), author(other.author) {}
+    : title(other.title), summary(new string(*other.summary)), author(other.author) {}
 
 Document::~Document() {
     delete summary;
 }
 
 void Document::display() const {
-    std::cout << "Title: " << title << std::endl;
-    std::cout << "Summary: " << *summary << std::endl;
-    std::cout << "Author: " << author << std::endl;
+    cout << "Title: " << title << endl;
+    cout << "Summary: " << *summary << endl;
+    cout << "Author: " << author << endl;
 }
 
 Document Document::clone() const {
@@ -25,10 +27,10 @@ Document Document::clone() const {
 
 Document& Document::operator=(const Document& other) {
     if (this != &other) {  // Vérification contre l'auto-attribution
-        // Copiez les membres de other dans this
+        // Copie les membres de other dans this
         title = other.title;
-        delete summary;  // Supprimez le résumé existant
-        summary = new std::string(*other.summary);  // Créez un nouveau résumé
+        delete summary;  // Supprime le résumé existant
+        summary = new string(*other.summary);  // Crée un nouveau résumé
         author = other.author;
     }
     return *this;

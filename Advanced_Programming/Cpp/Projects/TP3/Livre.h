@@ -3,18 +3,20 @@
 
 #include "Document.h"
 
+using namespace std;
+
 class Livre : public Document {
 private:
-    std::string editeur;
+    string editeur;
     int anneeParution;
 
 public:
     Livre();
-    Livre(const std::string& title, const std::string& summary, const std::string& author,
-          const std::string& editeur, int anneeParution);
+    Livre(const string& title, const string& summary, const string& author,
+          const string& editeur, int anneeParution);
     Livre(const Livre& other);
 
-    void display() const override;  // Utiliser l'annotation override
+    void display() const override;  // On iutilise l'annotation override
     Livre clone() const;
 
     // Opérateur d'affectation
