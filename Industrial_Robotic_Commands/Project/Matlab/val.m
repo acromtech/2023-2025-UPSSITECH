@@ -1,0 +1,10 @@
+g=-9.81
+Beff=1/80;
+Jm=1/100;
+m=15; %kg
+r=1/200;
+Jeff=Jm + (r^2) *m;
+Km_R=0.3;
+A=1/2;  % Ev/O1
+Kp=(4*Jeff)/((A^2) *Km_R);
+Kd=(A*Kp)-(Beff/Km_R);
