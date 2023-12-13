@@ -1,0 +1,178 @@
+//----------------------------------------------------------------------------------------------
+//EXERCICE 1
+PROCEDURE note_etudiant() //On choisi de faire une procédure car on a pas besoin de renvoyer un paramètre.
+DPR
+    note:entier 
+    FAIRE
+    DFTQ
+        LIRE(note) 
+    FFTQ
+	TANT QUE(note<0 OU note>20) 
+    SI(note<10) ALORS ECRIRE("Insuffisant") 
+    SINON SI(note<12)ALORS ECRIRE("Passable") 
+    SINON SI(note<14)ALORS ECRIRE("AB") 
+    SINON SI(note<16)ALORS ECRIRE("B") 
+    SINON ECRIRE("TB") 
+FPR
+//----------------------------------------------------------------------------------------------
+//EXERCICE 2
+PROCEDURE table()
+DPR
+    i,chiffre,res:entier
+	res<-0
+    LIRE(chiffre)
+    POUR i DE 1 A 10 [PARPASDE 1]
+    DP
+        res<-chiffre*i 
+        ECRIRE(chiffre,"X",i,"=",res)
+    FP
+FPR
+//----------------------------------------------------------------------------------------------
+//EXERCICE 3
+PROCEDURE tab_tri(N:entier,tab:Tableau[N]de entier)
+DPR
+	i,j,tmp:entier
+	POUR i DE 1 A N [PARPASDE 1]
+	DP
+		j<-i 
+		TANT QUE(j>0 ET tab[j-1]>tab[j]) FAIRE
+		DTQ
+			tmp<-tab[j] 
+			tab[j]<-tab[j-1] 
+			tab[j-1]<-tmp 
+			j<-j-1 
+		FTQ
+	FP
+FPR
+//----------------------------------------------------------------------------------------------
+//EXERCICE 4
+PROCEDURE remplissage_tab(T:Tableau[12][8]de entier)
+DPR
+    lig,col,val:entier
+    POUR lig DE 0 A 11 [PARPASDE 1]
+    DP
+        POUR col DE 0 A 7 [PARPASDE 1]
+        DP
+            ECRIRE("valeur ligne",lig,"colonne",col) 
+            LIRE(val) 
+            T[lig][col]<-val 
+        FP
+    FP
+FPR
+
+PROCEDURE plus_grande_val(T:Tableau[12][8]de entier,x:entier,y:entier)
+DPR
+    lig,col:entier
+    x<-0
+	y<-0
+    POUR lig DE 0 A 11 [PARPASDE 1]
+    DP
+		POUR col DE 0 A 7 [PARPASDE 1]
+        DP
+            SI(T[x][y]<T[lig][col])ALORS
+            DSI
+                x<-lig 
+                y<-col 
+            FSI
+        FP
+    FP
+FPR
+
+PROGRAMME PRINCIPAL
+DPP
+	T:Tableau[12][8]de entier
+    lig,col:entier
+    remplissage_tab(T) 
+    plus_grande_val(T,lig,col) 
+    ECRIRE("la plus grande valeur est aux coordonnees[",lig,";",col,"]")
+FPP
+//----------------------------------------------------------------------------------------------
+//EXERCICE 5
+//5.1
+Type
+	employe=enregistrement
+		nom:Tableau[20]de caractere
+		prenom:Tableau[20]de caractere
+		salaire:entier
+		anciennete:entier
+	finenreg
+//----------------------------------------------------------------------------------------------
+//5.2
+NB_EMPLOYE<-5:entier
+base_employes:Tableau[NB_EMPLOYE]de employe
+//----------------------------------------------------------------------------------------------
+//5.3
+PROCEDURE saisie_employe(unEmploye:employe)
+DPR
+    ECRIRE("nom de l'employe : ")
+    LIRE(unEmploye.nom[0])
+    
+    ECRIRE("prenom de l'employe : ")
+    LIRE(unEmploye.prenom[0])
+    
+    ECRIRE("salaire de l'employe : ")
+    LIRE(unEmploye.salaire)
+    
+    ECRIRE("anciennete de l'employe : ")
+    LIRE(unEmploye.anciennete)
+FPR
+//----------------------------------------------------------------------------------------------
+//5.4
+PROCEDURE maj_salaire(size:entier,base_employes:Tableau[size]de employe)
+DPR
+	i:entier
+    POUR i DE 0 A size [PARPASDE 1]
+    DP
+        SI(base_employes[i].anciennete>4)ALORS
+			base_employes[i].salaire<-((base_employes[i].salaire)*1.02)+200  
+    FP
+FPR
+//----------------------------------------------------------------------------------------------
+//5.5
+PROGRAMME PRINCIPAL
+DPP
+	i,j,tmp:entier
+	tab:Tableau[NB_EMPLOYE][2] De entier //0 ancienneté ET 1 le rang
+
+	POUR i DE 0 A NB_EMPLOYE [PARPASDE 1]
+	DP
+		ECRIRE("Employe n°",i)
+		saisie_employe(base_employes[i]) 
+		tab[i][0]<-base_employes[i].anciennete 
+		tab[i][1]<-i  // pour le tri des nom des employe (le rang)
+	FP
+	maj_salaire(NB_EMPLOYE,base_employes)
+
+	POUR i DE 1 A NB_EMPLOYE [PARPASDE 1]
+	DP
+		j<-i 
+		TANT QUE(j>0 ET tab[j-1][0]>tab[j][0])
+		DTQ
+			tmp<-tab[j][0] 
+			tab[j][0]<-tab[j-1][0] 
+			tab[j-1][0]<-tmp 
+			
+			tmp<-tab[j][1] 
+			tab[j][1]<-tab[j-1][1] 
+			tab[j-1][1]<-tmp 
+			
+			j<-j-1
+		FTQ
+	FP
+FPP
+//----------------------------------------------------------------------------------------------
+//5.6
+Type
+	date_embauche=enregistrement
+		jour:entier
+		mois:entier
+		annee:entier
+	finenreg
+Type
+	employe=enregistrement
+		nom:Tableau[20]de caractere
+		prenom:Tableau[20]de caractere
+		salaire:entier
+		anciennete:date_embauche
+	finenreg
+// l’instruction qui permet de saisir l’année de l’embauche : unEmploye.anciennete.annee

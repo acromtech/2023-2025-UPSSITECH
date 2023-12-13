@@ -1,0 +1,189 @@
+//----------------------------------------------------------------------------------------------
+//EXERCICE 1
+void note_etudiant()
+{
+    int note;
+    do
+    {
+        scanf("%d",&note);
+    }while(note<0 || note>20);
+    if(note<10) printf("Insuffisant");
+    else if(note<12) printf("Passable");
+    else if(note<14) printf("AB");
+    else if(note<16) printf("B");
+    else printf("TB");
+}
+int main()
+{
+    note_etudiant();
+}
+//On choisi de faire une procédure car on a pas besoin de renvoyer un paramètre.
+//----------------------------------------------------------------------------------------------
+//EXERCICE 2
+void table()
+{
+    int i,chiffre,res;
+    scanf("%d",&chiffre);
+    for(i=1,res=0;i<=10;i++)
+    {
+        res=chiffre*i;
+        printf("%d X %d = %d",chiffre,i,res);
+    }
+}
+int main()
+{
+	table();
+}
+//----------------------------------------------------------------------------------------------
+//EXERCICE 3
+void tab_tri(int *tab, int size)
+{
+	int i,j,tmp;
+	for(i=1;i<=size;i++)
+	{
+		j=i;
+		while(j>0&&tab[j-1]>tab[j])
+		{
+			tmp=tab[j];
+			tab[j]=tab[j-1];
+			tab[j-1]=tmp;
+			j--;
+		}
+	}
+	for(i=0;i<size;i++) printf("%4d", tab[i]);//espion
+}
+
+int main()
+{
+    int tab1[9]={10,5,1,3,18,2,1,56,3};
+    tab_tri(tab1,sizeof(tab1)/sizeof(int));
+}
+//----------------------------------------------------------------------------------------------
+//EXERCICE 4
+void remplissage_tab(int T[12][8])
+{
+    int lig,col,val;
+    for(lig=0;lig<12;lig++)
+    {
+        for(col=0;col<8;col++)
+        {
+            printf("valeur ligne %d colonne %d : ",lig,col);
+            scanf("%d",&val);
+            T[lig][col]=val;
+        }
+    }
+}
+
+void plus_grande_val(int T[12][8],int*x,int*y)
+{
+    int lig,col,val;
+    *x=0;*y=0;
+    for(lig=0;lig<12;lig++)
+    {
+        for(col=0;col<8;col++)
+        {
+            if(T[*x][*y]<T[lig][col])
+            {
+                *x=lig;
+                *y=col;
+            }
+        }
+    }
+}
+
+int main()
+{
+	int T[12][8];
+    int lig=0,col=0;
+    remplissage_tab(T);
+    plus_grande_val(T,&lig,&col);
+    printf("la plus grande valeur est aux coordonnees (%d,%d)",lig,col);
+}
+//----------------------------------------------------------------------------------------------
+//EXERCICE 5
+//5.1
+typedef struct employe{
+    char nom[20];
+    char prenom[20];
+    int salaire;
+    int anciennete;
+}employe;
+//----------------------------------------------------------------------------------------------
+//5.2
+const int NB_EMPLOYE=5;
+employe base_employes[NB_EMPLOYE];
+//----------------------------------------------------------------------------------------------
+//5.3
+void saisie_employe(employe *unEmploye) //5.3
+{
+    printf("nom de l'employe : ");
+    scanf("%s",&unEmploye->nom[0]);
+    
+    printf("prenom de l'employe : ");
+    scanf("%s",&unEmploye->prenom[0]);
+    
+    printf("salaire de l'employe : ");
+    scanf("%d",&unEmploye->salaire);
+    
+    printf("anciennete de l'employe : ");
+    scanf("%d",&unEmploye->anciennete);
+    
+    printf("%s/%s/%d/%d\n",unEmploye->nom,unEmploye->prenom,unEmploye->salaire,unEmploye->anciennete);
+}
+//----------------------------------------------------------------------------------------------
+//5.4
+void maj_salaire(int size, employe base_employes[size]) //5.4
+{
+    for(int i=0;i<size;i++)
+    {
+        if(base_employes[i].anciennete>4) base_employes[i].salaire=((base_employes[i].salaire)*1.02)+200;
+        printf("%s/%s/%d/%d\n",base_employes[i].nom,base_employes[i].prenom,base_employes[i].salaire,base_employes[i].anciennete);
+    }
+}
+//----------------------------------------------------------------------------------------------
+//5.5
+int i,j,tmp;
+int tab[NB_EMPLOYE][2]; //"0" ancienneté ET "1" le rang
+
+for(i=0;i<NB_EMPLOYE;i++)
+{
+	printf("Employe n°%d\n",i);
+	saisie_employe(&base_employes[i]);
+	tab[i][0]=base_employes[i].anciennete;
+	tab[i][1]=i; // pour le tri des nom des employe (le rang)
+	printf("%s/%s/%d/%d\n",base_employes[i].nom,base_employes[i].prenom,base_employes[i].salaire,base_employes[i].anciennete);
+}
+maj_salaire(NB_EMPLOYE,base_employes); //5.4
+
+for(i=1;i<=NB_EMPLOYE;i++)
+{
+	j=i;
+	while(j>0&&tab[j-1][0]>tab[j][0])
+	{
+		tmp=tab[j][0];
+		tab[j][0]=tab[j-1][0];
+		tab[j-1][0]=tmp;
+		
+		tmp=tab[j][1];
+		tab[j][1]=tab[j-1][1];
+		tab[j-1][1]=tmp;
+		
+		j--;
+	}
+}
+for(i=NB_EMPLOYE-1;i>=0;i--) printf("%d:%d:%s\n",tab[i][1],base_employes[tab[i][1]].anciennete,base_employes[tab[i][1]].nom);//espion
+//----------------------------------------------------------------------------------------------
+//5.6
+typedef struct date_embauche{
+		int jour;
+		int mois;
+		int annee;
+}date_embauche;
+typedef struct employe{
+	char nom[20];
+	char prenom[20];
+	int salaire;
+	date_embauche anciennete;
+}employe;
+// l’instruction qui permet de saisir l’année de l’embauche : unEmploye.anciennete.annee
+}
