@@ -1,0 +1,88 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 14:39:40  April 17, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		monte-charge_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY MAX7000S
+set_global_assignment -name DEVICE "EPM7128SLC84-7"
+set_global_assignment -name TOP_LEVEL_ENTITY securite
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:39:40  APRIL 17, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name MAX7000_DEVICE_IO_STANDARD TTL
+set_location_assignment PIN_27 -to E[0]
+set_location_assignment PIN_6 -to AP[0]
+set_location_assignment PIN_8 -to AP[1]
+set_location_assignment PIN_9 -to AP[2]
+set_location_assignment PIN_10 -to AP[3]
+set_location_assignment PIN_36 -to descend
+set_location_assignment PIN_58 -to dizaines[6]
+set_location_assignment PIN_60 -to dizaines[5]
+set_location_assignment PIN_61 -to dizaines[4]
+set_location_assignment PIN_63 -to dizaines[3]
+set_location_assignment PIN_64 -to dizaines[2]
+set_location_assignment PIN_65 -to dizaines[1]
+set_location_assignment PIN_67 -to dizaines[0]
+set_location_assignment PIN_22 -to ET[3]
+set_location_assignment PIN_20 -to ET[2]
+set_location_assignment PIN_17 -to ET[1]
+set_location_assignment PIN_15 -to ET[0]
+set_location_assignment PIN_40 -to montee
+set_location_assignment PIN_25 -to P1m
+set_location_assignment PIN_18 -to P2d
+set_location_assignment PIN_21 -to P2m
+set_location_assignment PIN_4 -to P3d
+set_location_assignment PIN_16 -to P3m
+set_location_assignment PIN_5 -to P4d
+set_location_assignment PIN_11 -to PortOuverte
+set_location_assignment PIN_69 -to unites[6]
+set_location_assignment PIN_70 -to unites[5]
+set_location_assignment PIN_73 -to unites[4]
+set_location_assignment PIN_74 -to unites[3]
+set_location_assignment PIN_76 -to unites[2]
+set_location_assignment PIN_75 -to unites[1]
+set_location_assignment PIN_77 -to unites[0]
+set_location_assignment PIN_28 -to E[1]
+set_location_assignment PIN_29 -to E[2]
+set_location_assignment PIN_31 -to E[4]
+set_location_assignment PIN_30 -to E[3]
+set_location_assignment PIN_83 -to Horloge
+set_global_assignment -name VHDL_FILE db/securite.vhd
+set_global_assignment -name VHDL_FILE db/cabine.vhd
+set_global_assignment -name VHDL_FILE db/memorisation.vhd

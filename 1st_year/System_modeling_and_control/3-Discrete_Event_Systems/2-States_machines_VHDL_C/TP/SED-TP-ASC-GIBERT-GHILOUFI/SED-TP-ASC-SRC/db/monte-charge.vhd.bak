@@ -1,0 +1,68 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY Vhdl1 IS
+	PORT(
+	    .....
+	    .....
+	    unites, dizaines        : OUT STD_LOGIC_VECTOR (6 downto 0));
+        
+END ....;
+
+ARCHITECTURE ... OF .... IS
+
+constant zero   : STD_LOGIC_vector (6 downto 0) := "0000001";
+constant un     : STD_LOGIC_vector (6 downto 0) := "1001111";
+constant deux   : STD_LOGIC_vector (6 downto 0) := "0010010";
+constant trois  : STD_LOGIC_vector (6 downto 0) := "0000110";
+constant quatre : STD_LOGIC_vector (6 downto 0) := "1001100";
+constant cinq   : STD_LOGIC_vector (6 downto 0) := "0100100";
+constant six    : STD_LOGIC_vector (6 downto 0) := "0100000";
+constant sept   : STD_LOGIC_vector (6 downto 0) := "0001111";
+constant huit   : STD_LOGIC_vector (6 downto 0) := "0000000";
+constant neuf   : STD_LOGIC_vector (6 downto 0) := "0000100";
+constant erreur : STD_LOGIC_vector (6 downto 0) := "0110000";
+constant eteint : STD_LOGIC_vector (6 downto 0) := "1111111";
+
+
+	TYPE Etat IS (...);
+	SIGNAL ...      : Etat;
+BEGIN
+--  Description du Bloc  F
+	PROCESS 
+	  Begin
+		Case ... IS
+		-- traitement des etats 0,1,2,3
+		  When ... =>
+			   IF ... THEN ... ; 
+            ELSIF ... THEN ... ; 
+            ELSE  ...  ;End IF; 
+ 
+ 		       End Case; 
+      End Process;
+
+-- Description du Bloc M
+	PROCESS (...)
+	 Begin
+	  ...
+	 End PROCESS;
+
+-- Description du Bloc G
+ 
+
+
+   -- sorties pour pilotage des afficheurs de la carte
+with EtatPresent select
+ unites <= zero   when ...  | ... ,
+	       un     when ...  | ... ,
+	  
+	       neuf   when ...  | ... ,
+	       erreur when others;
+	       
+dizaines <= eteint when (EtatPresent <  ... ) else
+            un     when (EtatPresent >  ... ) 
+            else erreur;	       
+			
+
+END ... ;
+

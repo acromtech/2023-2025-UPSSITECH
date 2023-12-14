@@ -1,0 +1,312 @@
+Analysis & Synthesis report for monte-charge
+Wed May 10 23:47:28 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |securite|M2_EtatPresent
+  9. State Machine - |securite|M1_EtatPresent
+ 10. User-Specified and Inferred Latches
+ 11. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++-----------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed May 10 23:47:28 2023           ;
+; Quartus II 64-Bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name               ; monte-charge                                    ;
+; Top-level Entity Name       ; securite                                        ;
+; Family                      ; MAX7000S                                        ;
+; Total macrocells            ; 62                                              ;
+; Total pins                  ; 31                                              ;
++-----------------------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                               ;
++----------------------------------------------------------------------------+----------------+---------------+
+; Option                                                                     ; Setting        ; Default Value ;
++----------------------------------------------------------------------------+----------------+---------------+
+; Device                                                                     ; EPM7128SLC84-7 ;               ;
+; Top-level entity name                                                      ; securite       ; monte-charge  ;
+; Family name                                                                ; MAX7000S       ; Cyclone IV GX ;
+; Use smart compilation                                                      ; Off            ; Off           ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On             ; On            ;
+; Enable compact report table                                                ; Off            ; Off           ;
+; Create Debugging Nodes for IP Cores                                        ; Off            ; Off           ;
+; Preserve fewer node names                                                  ; On             ; On            ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off            ; Off           ;
+; Verilog Version                                                            ; Verilog_2001   ; Verilog_2001  ;
+; VHDL Version                                                               ; VHDL_1993      ; VHDL_1993     ;
+; State Machine Processing                                                   ; Auto           ; Auto          ;
+; Safe State Machine                                                         ; Off            ; Off           ;
+; Extract Verilog State Machines                                             ; On             ; On            ;
+; Extract VHDL State Machines                                                ; On             ; On            ;
+; Ignore Verilog initial constructs                                          ; Off            ; Off           ;
+; Iteration limit for constant Verilog loops                                 ; 5000           ; 5000          ;
+; Iteration limit for non-constant Verilog loops                             ; 250            ; 250           ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On             ; On            ;
+; Infer RAMs from Raw Logic                                                  ; On             ; On            ;
+; Parallel Synthesis                                                         ; On             ; On            ;
+; NOT Gate Push-Back                                                         ; On             ; On            ;
+; Power-Up Don't Care                                                        ; On             ; On            ;
+; Remove Duplicate Registers                                                 ; On             ; On            ;
+; Ignore CARRY Buffers                                                       ; Off            ; Off           ;
+; Ignore CASCADE Buffers                                                     ; Off            ; Off           ;
+; Ignore GLOBAL Buffers                                                      ; Off            ; Off           ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off            ; Off           ;
+; Ignore LCELL Buffers                                                       ; Auto           ; Auto          ;
+; Ignore SOFT Buffers                                                        ; Off            ; Off           ;
+; Limit AHDL Integers to 32 Bits                                             ; Off            ; Off           ;
+; Optimization Technique                                                     ; Speed          ; Speed         ;
+; Allow XOR Gate Usage                                                       ; On             ; On            ;
+; Auto Logic Cell Insertion                                                  ; On             ; On            ;
+; Parallel Expander Chain Length                                             ; 4              ; 4             ;
+; Auto Parallel Expanders                                                    ; On             ; On            ;
+; Auto Open-Drain Pins                                                       ; On             ; On            ;
+; Auto Resource Sharing                                                      ; Off            ; Off           ;
+; Maximum Fan-in Per Macrocell                                               ; 100            ; 100           ;
+; Use LogicLock Constraints during Resource Balancing                        ; On             ; On            ;
+; Ignore translate_off and synthesis_off directives                          ; Off            ; Off           ;
+; Report Parameter Settings                                                  ; On             ; On            ;
+; Report Source Assignments                                                  ; On             ; On            ;
+; Report Connectivity Checks                                                 ; On             ; On            ;
+; HDL message level                                                          ; Level2         ; Level2        ;
+; Suppress Register Optimization Related Messages                            ; Off            ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000           ; 5000          ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000           ; 5000          ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100            ; 100           ;
+; Block Design Naming                                                        ; Auto           ; Auto          ;
+; Synthesis Effort                                                           ; Auto           ; Auto          ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On             ; On            ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off            ; Off           ;
+; Analysis & Synthesis Message Level                                         ; Medium         ; Medium        ;
+; Disable Register Merging Across Hierarchies                                ; Auto           ; Auto          ;
+; Synthesis Seed                                                             ; 1              ; 1             ;
++----------------------------------------------------------------------------+----------------+---------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; db/securite.vhd                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/agib3/OneDrive/2022-2023-UPSSITECH_1A/SYSTEMES_A_EVENEMENT_DISCRETS/SED-M2/TP/SED-TP-ASC-GIBERT-GHILOUFI/SED-TP-ASC-SRC/db/securite.vhd ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary       ;
++----------------------+----------------------------+
+; Resource             ; Usage                      ;
++----------------------+----------------------------+
+; Logic cells          ; 62                         ;
+; Total registers      ; 9                          ;
+; I/O pins             ; 31                         ;
+; Shareable expanders  ; 16                         ;
+; Parallel expanders   ; 4                          ;
+; Maximum fan-out node ; M1_EtatPresent.state_bit_1 ;
+; Maximum fan-out      ; 47                         ;
+; Total fan-out        ; 434                        ;
+; Average fan-out      ; 3.98                       ;
++----------------------+----------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                 ;
++----------------------------+------------+------+---------------------+--------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+------------+------+---------------------+--------------+
+; |securite                  ; 62         ; 31   ; |securite           ; work         ;
++----------------------------+------------+------+---------------------+--------------+
+
+
+Encoding Type:  Minimal Bits
++----------------------------------------------------------------------------------------------------------------+
+; State Machine - |securite|M2_EtatPresent                                                                       ;
++-------------------------+----------------------------+----------------------------+----------------------------+
+; Name                    ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_0 ;
++-------------------------+----------------------------+----------------------------+----------------------------+
+; M2_EtatPresent.M2_Etat5 ; 0                          ; 0                          ; 0                          ;
+; M2_EtatPresent.M2_Etat2 ; 0                          ; 0                          ; 1                          ;
+; M2_EtatPresent.M2_Etat3 ; 0                          ; 1                          ; 0                          ;
+; M2_EtatPresent.M2_Etat4 ; 0                          ; 1                          ; 1                          ;
+; M2_EtatPresent.M2_Etat1 ; 1                          ; 0                          ; 0                          ;
++-------------------------+----------------------------+----------------------------+----------------------------+
+
+
+Encoding Type:  Minimal Bits
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |securite|M1_EtatPresent                                                                                                                                  ;
++--------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+
+; Name                     ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_0 ;
++--------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+
+; M1_EtatPresent.M1_Etat5  ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ;
+; M1_EtatPresent.M1_Etat2  ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ;
+; M1_EtatPresent.M1_Etat3  ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ;
+; M1_EtatPresent.M1_Etat4  ; 0                          ; 0                          ; 0                          ; 1                          ; 1                          ;
+; M1_EtatPresent.M1_Etat1  ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ;
+; M1_EtatPresent.M1_Etat6  ; 0                          ; 0                          ; 1                          ; 0                          ; 1                          ;
+; M1_EtatPresent.M1_Etat7  ; 0                          ; 0                          ; 1                          ; 1                          ; 0                          ;
+; M1_EtatPresent.M1_Etat8  ; 0                          ; 0                          ; 1                          ; 1                          ; 1                          ;
+; M1_EtatPresent.M1_Etat9  ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ;
+; M1_EtatPresent.M1_Etat10 ; 0                          ; 1                          ; 0                          ; 0                          ; 1                          ;
+; M1_EtatPresent.M1_Etat11 ; 0                          ; 1                          ; 0                          ; 1                          ; 0                          ;
+; M1_EtatPresent.M1_Etat12 ; 0                          ; 1                          ; 0                          ; 1                          ; 1                          ;
+; M1_EtatPresent.M1_Etat13 ; 0                          ; 1                          ; 1                          ; 0                          ; 0                          ;
+; M1_EtatPresent.M1_Etat14 ; 0                          ; 1                          ; 1                          ; 0                          ; 1                          ;
+; M1_EtatPresent.M1_Etat15 ; 0                          ; 1                          ; 1                          ; 1                          ; 0                          ;
+; M1_EtatPresent.M1_Etat16 ; 0                          ; 1                          ; 1                          ; 1                          ; 1                          ;
+; M1_EtatPresent.M1_Etat17 ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ;
+; M1_EtatPresent.M1_Etat18 ; 1                          ; 0                          ; 0                          ; 0                          ; 1                          ;
+; M1_EtatPresent.M1_Etat19 ; 1                          ; 0                          ; 0                          ; 1                          ; 0                          ;
++--------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; M1_EtatSuivant.M1_Etat2_1751                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat4_1673                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat6_1595                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat8_1517                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat10_1439                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat12_1361                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat14_1283                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat16_1205                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat18_1127                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat3_1712                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat7_1556                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat11_1400                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat15_1244                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat19_1088                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat1_1790                        ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat13_1322                       ; Selector25          ; yes                    ;
+; M1_EtatSuivant.M1_Etat9_1478                        ; Selector25          ; yes                    ;
+; M3_EtatSuivant                                      ; M3_EtatSuivant      ; yes                    ;
+; M1_EtatSuivant.M1_Etat17_1166                       ; Selector25          ; yes                    ;
+; M2_EtatSuivant.M2_Etat2_1030                        ; Selector17          ; yes                    ;
+; M2_EtatSuivant.M2_Etat4_992                         ; Selector17          ; yes                    ;
+; M2_EtatSuivant.M2_Etat3_1011                        ; Selector17          ; yes                    ;
+; M2_EtatSuivant.M2_Etat1_1049                        ; Selector17          ; yes                    ;
+; Number of user-specified and inferred latches = 23  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed May 10 23:47:27 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off monte-charge -c monte-charge
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file db/securite.vhd
+    Info (12022): Found design unit 1: securite-ar
+    Info (12023): Found entity 1: securite
+Info (12021): Found 2 design units, including 1 entities, in source file db/cabine.vhd
+    Info (12022): Found design unit 1: cabine-ar
+    Info (12023): Found entity 1: cabine
+Info (12021): Found 2 design units, including 1 entities, in source file db/memorisation.vhd
+    Info (12022): Found design unit 1: memorisation-ar
+    Info (12023): Found entity 1: memorisation
+Info (12127): Elaborating entity "securite" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at securite.vhd(52): signal "M1_EtatPresent" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at securite.vhd(50): inferring latch(es) for signal or variable "M1_EtatSuivant", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at securite.vhd(93): signal "M2_EtatPresent" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at securite.vhd(91): inferring latch(es) for signal or variable "M2_EtatSuivant", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at securite.vhd(110): signal "M3_EtatPresent" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at securite.vhd(108): inferring latch(es) for signal or variable "M3_EtatSuivant", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "M3_EtatSuivant" at securite.vhd(108)
+Info (10041): Inferred latch for "M2_EtatSuivant.M2_Etat5" at securite.vhd(91)
+Info (10041): Inferred latch for "M2_EtatSuivant.M2_Etat4" at securite.vhd(91)
+Info (10041): Inferred latch for "M2_EtatSuivant.M2_Etat3" at securite.vhd(91)
+Info (10041): Inferred latch for "M2_EtatSuivant.M2_Etat2" at securite.vhd(91)
+Info (10041): Inferred latch for "M2_EtatSuivant.M2_Etat1" at securite.vhd(91)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat19" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat18" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat17" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat16" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat15" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat14" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat13" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat12" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat11" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat10" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat9" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat8" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat7" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat6" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat5" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat4" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat3" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat2" at securite.vhd(50)
+Info (10041): Inferred latch for "M1_EtatSuivant.M1_Etat1" at securite.vhd(50)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "dizaines[0]" is stuck at VCC
+    Warning (13410): Pin "dizaines[1]" is stuck at VCC
+    Warning (13410): Pin "dizaines[2]" is stuck at VCC
+    Warning (13410): Pin "dizaines[3]" is stuck at VCC
+    Warning (13410): Pin "dizaines[6]" is stuck at VCC
+Info (280013): Promoted pin-driven signal(s) to global signal
+    Info (280014): Promoted clock signal driven by pin "Horloge" to global clock signal
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "E[3]"
+    Warning (15610): No output dependent on input pin "E[4]"
+Info (21057): Implemented 109 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21063): Implemented 62 macrocells
+    Info (21073): Implemented 16 shareable expanders
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4603 megabytes
+    Info: Processing ended: Wed May 10 23:47:28 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

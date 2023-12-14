@@ -1,0 +1,571 @@
+TimeQuest Timing Analyzer report for monte-charge
+Wed May 10 23:47:32 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'Horloge'
+ 12. Hold: 'Horloge'
+ 13. Minimum Pulse Width: 'Horloge'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Setup Transfers
+ 19. Hold Transfers
+ 20. Report TCCS
+ 21. Report RSKM
+ 22. Unconstrained Paths
+ 23. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; monte-charge                                                      ;
+; Device Family      ; MAX7000S                                                          ;
+; Device Name        ; EPM7128SLC84-7                                                    ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Slow Model                                                        ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Horloge    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Horloge } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 42.02 MHz ; 42.02 MHz       ; Horloge    ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Setup Summary                     ;
++---------+---------+---------------+
+; Clock   ; Slack   ; End Point TNS ;
++---------+---------+---------------+
+; Horloge ; -22.800 ; -186.800      ;
++---------+---------+---------------+
+
+
++---------------------------------+
+; Hold Summary                    ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; Horloge ; 8.000 ; 0.000         ;
++---------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; Horloge ; -2.500 ; -45.000       ;
++---------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'Horloge'                                                                                                                        ;
++---------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; -22.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.800 ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.800     ;
+; -22.000 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -22.000 ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 20.000     ;
+; -18.600 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -18.600 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 16.600     ;
+; -17.800 ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.800 ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.800 ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.800 ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.800 ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.800 ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.800     ;
+; -17.000 ; M3_EtatPresent             ; M3_EtatPresent             ; Horloge      ; Horloge     ; 1.000        ; 0.000      ; 15.000     ;
++---------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'Horloge'                                                                                                                        ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; 8.000  ; M3_EtatPresent             ; M3_EtatPresent             ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_4 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M2_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_1 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 8.000  ; M1_EtatPresent.state_bit_3 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 10.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_1 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.000 ; M1_EtatPresent.state_bit_4 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.000     ;
+; 13.800 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_0 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_2 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 13.800 ; M1_EtatPresent.state_bit_3 ; M2_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 15.800     ;
+; 18.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_2 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 20.800     ;
+; 18.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_1 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 20.800     ;
+; 18.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_0 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 20.800     ;
+; 18.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_3 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 20.800     ;
+; 18.800 ; M2_EtatPresent.state_bit_2 ; M1_EtatPresent.state_bit_4 ; Horloge      ; Horloge     ; 0.000        ; 0.000      ; 20.800     ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'Horloge'                                                                                    ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                         ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------+
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_0     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_0     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_1     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_1     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_2     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_2     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_3     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_3     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_4     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_4     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_0     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_0     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_1     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_1     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_2     ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_2     ;
+; -2.500 ; 0.500        ; 3.000          ; High Pulse Width ; Horloge ; Rise       ; M3_EtatPresent                 ;
+; -2.500 ; 0.500        ; 3.000          ; Low Pulse Width  ; Horloge ; Rise       ; M3_EtatPresent                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; Horloge|dataout                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; Horloge|dataout                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_0|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_0|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_1|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_1|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_3|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_3|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M1_EtatPresent.state_bit_4|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M1_EtatPresent.state_bit_4|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_0|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_0|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_1|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_1|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M2_EtatPresent.state_bit_2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M2_EtatPresent.state_bit_2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Horloge ; Rise       ; M3_EtatPresent|clk             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Horloge ; Rise       ; M3_EtatPresent|clk             ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Setup Times                                                               ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; AP[*]       ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  AP[0]      ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  AP[1]      ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  AP[2]      ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  AP[3]      ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+; E[*]        ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  E[1]       ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+;  E[2]       ; Horloge    ; 16.000 ; 16.000 ; Rise       ; Horloge         ;
+; ET[*]       ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
+;  ET[0]      ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
+;  ET[1]      ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
+;  ET[2]      ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
+;  ET[3]      ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
+; PortOuverte ; Horloge    ; 20.000 ; 20.000 ; Rise       ; Horloge         ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------------+
+; Hold Times                                                                  ;
++-------------+------------+---------+---------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise    ; Fall    ; Clock Edge ; Clock Reference ;
++-------------+------------+---------+---------+------------+-----------------+
+; AP[*]       ; Horloge    ; -6.000  ; -6.000  ; Rise       ; Horloge         ;
+;  AP[0]      ; Horloge    ; -6.000  ; -6.000  ; Rise       ; Horloge         ;
+;  AP[1]      ; Horloge    ; -6.000  ; -6.000  ; Rise       ; Horloge         ;
+;  AP[2]      ; Horloge    ; -6.000  ; -6.000  ; Rise       ; Horloge         ;
+;  AP[3]      ; Horloge    ; -11.000 ; -11.000 ; Rise       ; Horloge         ;
+; E[*]        ; Horloge    ; -11.000 ; -11.000 ; Rise       ; Horloge         ;
+;  E[1]       ; Horloge    ; -11.000 ; -11.000 ; Rise       ; Horloge         ;
+;  E[2]       ; Horloge    ; -11.000 ; -11.000 ; Rise       ; Horloge         ;
+; ET[*]       ; Horloge    ; -15.000 ; -15.000 ; Rise       ; Horloge         ;
+;  ET[0]      ; Horloge    ; -15.000 ; -15.000 ; Rise       ; Horloge         ;
+;  ET[1]      ; Horloge    ; -15.000 ; -15.000 ; Rise       ; Horloge         ;
+;  ET[2]      ; Horloge    ; -15.000 ; -15.000 ; Rise       ; Horloge         ;
+;  ET[3]      ; Horloge    ; -15.000 ; -15.000 ; Rise       ; Horloge         ;
+; PortOuverte ; Horloge    ; -11.000 ; -11.000 ; Rise       ; Horloge         ;
++-------------+------------+---------+---------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; descend      ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+; dizaines[*]  ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+;  dizaines[4] ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+;  dizaines[5] ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+; montee       ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+; unites[*]    ; Horloge    ; 13.500 ; 13.500 ; Rise       ; Horloge         ;
+;  unites[0]   ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+;  unites[1]   ; Horloge    ; 13.500 ; 13.500 ; Rise       ; Horloge         ;
+;  unites[2]   ; Horloge    ; 13.500 ; 13.500 ; Rise       ; Horloge         ;
+;  unites[3]   ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+;  unites[4]   ; Horloge    ; 10.300 ; 10.300 ; Rise       ; Horloge         ;
+;  unites[5]   ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
+;  unites[6]   ; Horloge    ; 9.500  ; 9.500  ; Rise       ; Horloge         ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; descend      ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+; dizaines[*]  ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  dizaines[4] ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  dizaines[5] ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+; montee       ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+; unites[*]    ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[0]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[1]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[2]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[3]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[4]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[5]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
+;  unites[6]   ; Horloge    ; 9.500 ; 9.500 ; Rise       ; Horloge         ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Horloge    ; Horloge  ; 9830     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Horloge    ; Horloge  ; 9830     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 48    ; 48   ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 54    ; 54   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed May 10 23:47:31 2023
+Info: Command: quartus_sta monte-charge -c monte-charge
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
+Warning (335095): TimeQuest Timing Analyzer does not support the analysis of latches as synchronous elements for the currently selected device family.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'monte-charge.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Horloge Horloge
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat1_1790~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat1_1790~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat3_1712~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat3_1712~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat7_1556~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat7_1556~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat1_1049~6|dataout"
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat1_1049~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat3_1011~6|dataout"
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat3_1011~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat4_992~6|dataout"
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat4_992~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat2_1030~6|dataout"
+    Warning (332126): Node "M2_EtatSuivant.M2_Etat2_1030~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat8_1517~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat8_1517~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat6_1595~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat6_1595~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat4_1673~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat4_1673~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat2_1751~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat2_1751~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat15_1244~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat15_1244~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat13_1322~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat13_1322~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat11_1400~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat11_1400~6|[2]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat9_1478~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat9_1478~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat16_1205~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat16_1205~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat14_1283~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat14_1283~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat12_1361~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat12_1361~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat10_1439~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat10_1439~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat19_1088~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat19_1088~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat18_1127~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat18_1127~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat17_1166~6|dataout"
+    Warning (332126): Node "M1_EtatSuivant.M1_Etat17_1166~6|[1]"
+Warning (332125): Found combinational loop of 2 nodes
+    Warning (332126): Node "M3_EtatSuivant~13|dataout"
+    Warning (332126): Node "M3_EtatSuivant~13|[2]"
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -22.800
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -22.800      -186.800 Horloge 
+Info (332146): Worst-case hold slack is 8.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     8.000         0.000 Horloge 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.500
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.500       -45.000 Horloge 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 73 warnings
+    Info: Peak virtual memory: 4506 megabytes
+    Info: Processing ended: Wed May 10 23:47:32 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

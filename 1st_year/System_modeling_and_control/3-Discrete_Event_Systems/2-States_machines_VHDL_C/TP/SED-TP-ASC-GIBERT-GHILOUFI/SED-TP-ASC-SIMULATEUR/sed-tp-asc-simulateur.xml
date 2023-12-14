@@ -1,0 +1,103 @@
+<MOORE Nom="sed-tp-asc-simulateur.xml" Projet="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\SYSTEMES_A_EVENEMENT_DISCRETS\SED-M2\TP\SED-TP-ASC-GIBERT-GHILOUFI\SED-TP-ASC-SIMULATEUR">
+<!--07/05/2023 22:04-->
+ <Onglet Nom="Gr1">
+  <Etat Nom="Q1" Xposition="34" Yposition="49" Initial="true" Action="" XpositionAction="54" YpositionAction="49" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="119" Yposition="49" Initial="false" Action="Appel4" XpositionAction="139" YpositionAction="49" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="d4+ap4" TReceptivite="0.5" P0x="41" P0y="36" P1x="49" P1y="25" P2x="89" P2y="18" P3x="108" P3y="38" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finAppel4" TReceptivite="0.7000000000000004" P0x="108" P0y="59" P1x="86" P1y="81" P2x="58" P2y="76" P3x="43" P3y="60" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr2">
+  <Etat Nom="Q1" Xposition="35" Yposition="46" Initial="true" Action="" XpositionAction="55" YpositionAction="46" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="131" Yposition="45" Initial="false" Action="Appel1" XpositionAction="151" YpositionAction="45" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="m1+ap1" TReceptivite="0.24000000000000007" P0x="46" P0y="36" P1x="67" P1y="20" P2x="101" P2y="28" P3x="117" P3y="37" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finAppel1" TReceptivite="0.7400000000000004" P0x="117" P0y="52" P1x="90" P1y="68" P2x="67" P2y="70" P3x="47" P3y="55" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr3">
+  <Etat Nom="Q1" Xposition="35" Yposition="60" Initial="true" Action="" XpositionAction="55" YpositionAction="60" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="123" Yposition="60" Initial="false" Action="Appel2" XpositionAction="143" YpositionAction="60" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="m2+d2+ap2" TReceptivite="0.5" P0x="42" P0y="46" P1x="52" P1y="29" P2x="89" P2y="20" P3x="113" P3y="48" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finAppel2" TReceptivite="0.7100000000000004" P0x="112" P0y="70" P1x="97" P1y="88" P2x="56" P2y="81" P3x="45" P3y="70" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr4">
+  <Etat Nom="Q1" Xposition="35" Yposition="51" Initial="true" Action="" XpositionAction="55" YpositionAction="51" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="133" Yposition="51" Initial="false" Action="Arret" XpositionAction="153" YpositionAction="50" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="e1" TReceptivite="0.45000000000000023" P0x="44" P0y="39" P1x="63" P1y="19" P2x="102" P2y="23" P3x="121" P3y="40" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="e2" TReceptivite="0.6200000000000003" P0x="119" P0y="57" P1x="97" P1y="68" P2x="76" P2y="80" P3x="47" P3y="59" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr5">
+  <Etat Nom="Q1" Xposition="405" Yposition="433" Initial="false" Action="AF0" XpositionAction="340" YpositionAction="458" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="404" Yposition="307" Initial="false" Action="AF1" XpositionAction="368" YpositionAction="327" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="406" Yposition="174" Initial="false" Action="AF1,AF0" XpositionAction="345" YpositionAction="195" Couleur="#000000"/>
+  <Etat Nom="Q4" Xposition="406" Yposition="34" Initial="false" Action="AF2" XpositionAction="374" YpositionAction="56" Couleur="#000000"/>
+  <Etat Nom="Q5" Xposition="403" Yposition="494" Initial="true" Action="D=!e1" XpositionAction="426" YpositionAction="497" Couleur="#000000"/>
+  <Etat Nom="Q6" Xposition="404" Yposition="371" Initial="false" Action="M=!Arret,flH1,flH2,flH3,flH4,AF0" XpositionAction="229" YpositionAction="375" Couleur="#000000"/>
+  <Etat Nom="Q7" Xposition="218" Yposition="304" Initial="false" Action="D=!Arret,flB1,flB2,flB3,flB4,AF1" XpositionAction="45" YpositionAction="308" Couleur="#000000"/>
+  <Etat Nom="Q8" Xposition="405" Yposition="241" Initial="false" Action="M=!Arret,flH1,flH2,flH3,flH4,AF1" XpositionAction="234" YpositionAction="244" Couleur="#000000"/>
+  <Etat Nom="Q9" Xposition="214" Yposition="173" Initial="false" Action="D=!Arret,flB1,flB2,flB3,flB4,AF1,AF0" XpositionAction="20" YpositionAction="177" Couleur="#000000"/>
+  <Etat Nom="Q10" Xposition="406" Yposition="106" Initial="false" Action="M=!Arret,flH1,flH2,flH3,flH4,AF1,AF0" XpositionAction="213" YpositionAction="111" Couleur="#000000"/>
+  <Etat Nom="Q11" Xposition="212" Yposition="34" Initial="false" Action="D=!Arret,flB1,flB2,flB3,flB4,AF2" XpositionAction="43" YpositionAction="37" Couleur="#000000"/>
+  <Etat Nom="Q12" Xposition="504" Yposition="493" Initial="false" Action="AF0" XpositionAction="524" YpositionAction="496" Couleur="#000000"/>
+  <Etat Nom="Q13" Xposition="505" Yposition="435" Initial="false" Action="AF0,finAppel1" XpositionAction="529" YpositionAction="438" Couleur="#000000"/>
+  <Etat Nom="Q14" Xposition="508" Yposition="367" Initial="false" Action="AF1" XpositionAction="537" YpositionAction="371" Couleur="#000000"/>
+  <Etat Nom="Q15" Xposition="506" Yposition="311" Initial="false" Action="AF1,finAppel2" XpositionAction="530" YpositionAction="312" Couleur="#000000"/>
+  <Etat Nom="Q16" Xposition="507" Yposition="238" Initial="false" Action="AF1,AF0" XpositionAction="529" YpositionAction="237" Couleur="#000000"/>
+  <Etat Nom="Q17" Xposition="506" Yposition="177" Initial="false" Action="AF1,AF0,finAppel3" XpositionAction="530" YpositionAction="179" Couleur="#000000"/>
+  <Etat Nom="Q18" Xposition="509" Yposition="95" Initial="false" Action="AF2" XpositionAction="528" YpositionAction="91" Couleur="#000000"/>
+  <Etat Nom="Q19" Xposition="509" Yposition="37" Initial="false" Action="AF2,finAppel4" XpositionAction="532" YpositionAction="41" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q6" Receptivite="Appel2+Appel3+Appel4" TReceptivite="0.2800000000000001" P0x="405" P0y="418" P1x="405" P1y="412" P2x="405" P2y="391" P3x="404" P3y="385" Couleur="#000000"/>
+  <Arc Origine="Q6" Destination="Q2" Receptivite="et2" TReceptivite="0.5" P0x="404" P0y="356" P1x="404" P1y="349" P2x="404" P2y="328" P3x="404" P3y="322" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q8" Receptivite="Appel3+Appel4" TReceptivite="0.46000000000000024" P0x="404" P0y="292" P1x="404" P1y="285" P2x="404" P2y="263" P3x="404" P3y="255" Couleur="#000000"/>
+  <Arc Origine="Q8" Destination="Q3" Receptivite="et3" TReceptivite="0.5" P0x="405" P0y="226" P1x="405" P1y="218" P2x="405" P2y="196" P3x="405" P3y="188" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q10" Receptivite="Appel4" TReceptivite="0.36000000000000015" P0x="405" P0y="159" P1x="405" P1y="151" P2x="405" P2y="128" P3x="405" P3y="120" Couleur="#000000"/>
+  <Arc Origine="Q10" Destination="Q4" Receptivite="et4" TReceptivite="0.5" P0x="406" P0y="91" P1x="406" P1y="82" P2x="406" P2y="58" P3x="406" P3y="49" Couleur="#000000"/>
+  <Arc Origine="Q4" Destination="Q11" Receptivite="Appel3+Appel2+Appel1" TReceptivite="0.9000000000000006" P0x="391" P0y="34" P1x="341" P1y="34" P2x="277" P2y="34" P3x="227" P3y="33" Couleur="#000000"/>
+  <Arc Origine="Q11" Destination="Q3" Receptivite="et3" TReceptivite="0.6500000000000004" P0x="201" P0y="44" P1x="107" P1y="144" P2x="308" P2y="152" P3x="391" P3y="170" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q9" Receptivite="Appel2+Appel1" TReceptivite="0.8200000000000005" P0x="391" P0y="174" P1x="342" P1y="174" P2x="279" P2y="174" P3x="228" P3y="173" Couleur="#000000"/>
+  <Arc Origine="Q9" Destination="Q2" Receptivite="et2" TReceptivite="0.5700000000000003" P0x="205" P0y="185" P1x="143" P1y="276" P2x="319" P2y="286" P3x="389" P3y="303" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q7" Receptivite="Appel1" TReceptivite="0.7700000000000005" P0x="389" P0y="307" P1x="343" P1y="307" P2x="282" P2y="308" P3x="232" P3y="304" Couleur="#000000"/>
+  <Arc Origine="Q7" Destination="Q1" Receptivite="et1" TReceptivite="0.6100000000000003" P0x="211" P0y="317" P1x="158" P1y="426" P2x="311" P2y="429" P3x="390" P3y="432" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q12" Receptivite="Appel1" TReceptivite="0.36000000000000015" P0x="417" P0y="440" P1x="437" P1y="452" P2x="470" P2y="472" P3x="491" P3y="485" Couleur="#000000"/>
+  <Arc Origine="Q5" Destination="Q1" Receptivite="et1" TReceptivite="0.4400000000000002" P0x="403" P0y="479" P1x="404" P1y="473" P2x="404" P2y="453" P3x="404" P3y="447" Couleur="#000000"/>
+  <Arc Origine="Q12" Destination="Q13" Receptivite="po" TReceptivite="0.2900000000000001" P0x="504" P0y="478" P1x="504" P1y="473" P2x="504" P2y="453" P3x="504" P3y="449" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q14" Receptivite="Appel2" TReceptivite="0.4000000000000002" P0x="417" P0y="314" P1x="438" P1y="326" P2x="472" P2y="346" P3x="495" P3y="359" Couleur="#000000"/>
+  <Arc Origine="Q14" Destination="Q15" Receptivite="po" TReceptivite="0.3100000000000001" P0x="506" P0y="352" P1x="506" P1y="348" P2x="506" P2y="329" P3x="506" P3y="326" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q16" Receptivite="Appel3" TReceptivite="0.37000000000000016" P0x="418" P0y="182" P1x="438" P1y="195" P2x="471" P2y="216" P3x="494" P3y="230" Couleur="#000000"/>
+  <Arc Origine="Q16" Destination="Q17" Receptivite="po" TReceptivite="0.3000000000000001" P0x="506" P0y="223" P1x="506" P1y="217" P2x="506" P2y="197" P3x="506" P3y="192" Couleur="#000000"/>
+  <Arc Origine="Q4" Destination="Q18" Receptivite="Appel4" TReceptivite="0.3000000000000001" P0x="418" P0y="41" P1x="439" P1y="53" P2x="473" P2y="73" P3x="496" P3y="87" Couleur="#000000"/>
+  <Arc Origine="Q18" Destination="Q19" Receptivite="po" TReceptivite="0.35000000000000014" P0x="509" P0y="80" P1x="509" P1y="76" P2x="509" P2y="56" P3x="509" P3y="52" Couleur="#000000"/>
+  <Arc Origine="Q13" Destination="Q1" Receptivite="!po" TReceptivite="0.6200000000000003" P0x="490" P0y="434" P1x="470" P1y="434" P2x="437" P2y="433" P3x="420" P3y="433" Couleur="#000000"/>
+  <Arc Origine="Q15" Destination="Q2" Receptivite="!po" TReceptivite="0.5" P0x="491" P0y="310" P1x="471" P1y="310" P2x="437" P2y="308" P3x="418" P3y="307" Couleur="#000000"/>
+  <Arc Origine="Q17" Destination="Q3" Receptivite="!po" TReceptivite="0.5" P0x="491" P0y="176" P1x="471" P1y="176" P2x="438" P2y="175" P3x="420" P3y="174" Couleur="#000000"/>
+  <Arc Origine="Q19" Destination="Q4" Receptivite="!po" TReceptivite="0.5" P0x="494" P0y="36" P1x="474" P1y="35" P2x="440" P2y="34" P3x="421" P3y="33" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr6">
+  <Etat Nom="Q1" Xposition="35" Yposition="56" Initial="true" Action="" XpositionAction="52" YpositionAction="48" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="132" Yposition="55" Initial="false" Action="Appel3" XpositionAction="152" YpositionAction="55" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="m3+d3+ap3" TReceptivite="0.35000000000000014" P0x="44" P0y="44" P1x="66" P1y="20" P2x="101" P2y="28" P3x="120" P3y="45" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finAppel3" TReceptivite="0.7000000000000004" P0x="121" P0y="66" P1x="109" P1y="80" P2x="55" P2y="85" P3x="43" P3y="68" Couleur="#000000"/>
+ </Onglet>
+ <PseudoES>
+  <Pseudo Nom="demandeOuverturePorteE1"/>
+  <Pseudo Nom="demandeOuverturePorteE2"/>
+  <Pseudo Nom="demandeOuverturePorteE3"/>
+  <Pseudo Nom="demandeOuverturePorteE4"/>
+  <Pseudo Nom="demandeFermeturePorteE1"/>
+  <Pseudo Nom="demandeFermeturePorteE2"/>
+  <Pseudo Nom="demandeFermeturePorteE3"/>
+  <Pseudo Nom="demandeFermeturePorteE4"/>
+  <Pseudo Nom="ap1Mem"/>
+  <Pseudo Nom="ap2Mem"/>
+  <Pseudo Nom="ap3Mem"/>
+  <Pseudo Nom="ap4Mem"/>
+  <Pseudo Nom="finApi"/>
+  <Pseudo Nom="Arret"/>
+  <Pseudo Nom="Appel1"/>
+  <Pseudo Nom="Appel2"/>
+  <Pseudo Nom="Appel3"/>
+  <Pseudo Nom="Appel4"/>
+  <Pseudo Nom="finAppel1"/>
+  <Pseudo Nom="finAppel2"/>
+  <Pseudo Nom="finAppel3"/>
+  <Pseudo Nom="finAppel4"/>
+ </PseudoES>
+</MOORE>

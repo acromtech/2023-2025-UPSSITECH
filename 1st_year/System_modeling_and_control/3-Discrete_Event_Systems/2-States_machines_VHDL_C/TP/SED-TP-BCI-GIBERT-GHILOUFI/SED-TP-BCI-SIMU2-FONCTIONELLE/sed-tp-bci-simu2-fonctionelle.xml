@@ -1,0 +1,61 @@
+<MOORE Nom="sed-tp-bci-simu2-fonctionelle.xml" Projet="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\SYSTEMES_A_EVENEMENT_DISCRETS\SED-M2\TP\SED-TP-BCI-GIBERT-GHILOUFI\SED-TP-BCI-SIMU2-FONCTIONELLE">
+<!--07/05/2023 12:46-->
+ <Onglet Nom="Gr1">
+  <Etat Nom="Q1" Xposition="34" Yposition="78" Initial="true" Action="A5" XpositionAction="32" YpositionAction="49" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="36" Yposition="155" Initial="false" Action="A5" XpositionAction="58" YpositionAction="159" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="37" Yposition="226" Initial="false" Action="A5" XpositionAction="56" YpositionAction="235" Couleur="#000000"/>
+  <Etat Nom="Q4" Xposition="37" Yposition="295" Initial="false" Action="A5" XpositionAction="57" YpositionAction="308" Couleur="#000000"/>
+  <Etat Nom="Q5" Xposition="37" Yposition="360" Initial="false" Action="A3,A5,TempoA3" XpositionAction="58" YpositionAction="373" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="C7" TReceptivite="0.5" P0x="34" P0y="93" P1x="34" P1y="103" P2x="34" P2y="129" P3x="34" P3y="140" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q3" Receptivite="C4" TReceptivite="0.5" P0x="36" P0y="170" P1x="36" P1y="178" P2x="36" P2y="201" P3x="36" P3y="211" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q4" Receptivite="!C8.C5" TReceptivite="0.5" P0x="37" P0y="241" P1x="37" P1y="248" P2x="37" P2y="271" P3x="36" P3y="280" Couleur="#000000"/>
+  <Arc Origine="Q4" Destination="Q5" Receptivite="C6" TReceptivite="0.5" P0x="37" P0y="310" P1x="37" P1y="317" P2x="37" P2y="339" P3x="36" P3y="345" Couleur="#000000"/>
+  <Arc Origine="Q5" Destination="Q1" Receptivite="finTempoA3" TReceptivite="0.5300000000000002" P0x="51" P0y="360" P1x="257" P1y="368" P2x="233" P2y="18" P3x="48" P3y="73" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q4" Receptivite="C4" TReceptivite="0.5" P0x="48" P0y="77" P1x="184" P1y="74" P2x="202" P2y="291" P3x="51" P3y="294" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q1" Receptivite="C8.C5" TReceptivite="0.5" P0x="51" P0y="222" P1x="129" P1y="202" P2x="108" P2y="98" P3x="48" P3y="81" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr2">
+  <Etat Nom="Q1" Xposition="35" Yposition="52" Initial="true" Action="" XpositionAction="40" YpositionAction="30" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="38" Yposition="121" Initial="false" Action="TempoGoulotte" XpositionAction="59" YpositionAction="123" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="36" Yposition="194" Initial="false" Action="A2,TempoA2,A2Mem" XpositionAction="52" YpositionAction="211" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="demarreTempoGoulotte" TReceptivite="0.5200000000000002" P0x="35" P0y="67" P1x="35" P1y="75" P2x="36" P2y="98" P3x="36" P3y="106" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q3" Receptivite="finTempoGoulotte.!C3" TReceptivite="0.5500000000000003" P0x="37" P0y="135" P1x="37" P1y="145" P2x="36" P2y="169" P3x="35" P3y="179" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q1" Receptivite="finTempoA2.C3" TReceptivite="0.47000000000000025" P0x="51" P0y="194" P1x="218" P1y="194" P2x="239" P2y="51" P3x="49" P3y="51" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr3">
+  <Etat Nom="Q1" Xposition="35" Yposition="58" Initial="true" Action="" XpositionAction="55" YpositionAction="58" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="131" Yposition="57" Initial="false" Action="A6,TempoA6" XpositionAction="151" YpositionAction="57" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="Ca.Cb" TReceptivite="0.5" P0x="44" P0y="69" P1x="55" P1y="83" P2x="105" P2y="106" P3x="123" P3y="70" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finTempoA6" TReceptivite="0.6700000000000004" P0x="123" P0y="44" P1x="108" P1y="20" P2x="65" P2y="24" P3x="44" P3y="46" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr4">
+  <Etat Nom="Q1" Xposition="186" Yposition="64" Initial="true" Action="A4" XpositionAction="128" YpositionAction="100" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="186" Yposition="126" Initial="false" Action="A1,A4,demarreTempoGoulotte" XpositionAction="20" YpositionAction="131" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="302" Yposition="35" Initial="false" Action="A4" XpositionAction="322" YpositionAction="35" Couleur="#000000"/>
+  <Etat Nom="Q4" Xposition="304" Yposition="100" Initial="false" Action="A4" XpositionAction="324" YpositionAction="100" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q3" Receptivite="C1" TReceptivite="0.6200000000000003" P0x="197" P0y="73" P1x="208" P1y="83" P2x="204" P2y="98" P3x="194" P3y="113" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="C2" TReceptivite="0.26000000000000006" P0x="200" P0y="60" P1x="224" P1y="54" P2x="262" P2y="44" P3x="287" P3y="38" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q4" Receptivite="C1" TReceptivite="0.4000000000000002" P0x="302" P0y="50" P1x="302" P1y="56" P2x="303" P2y="77" P3x="303" P3y="85" Couleur="#000000"/>
+  <Arc Origine="Q4" Destination="Q1" Receptivite="!C1" TReceptivite="0.5" P0x="289" P0y="95" P1x="264" P1y="88" P2x="225" P2y="75" P3x="200" P3y="68" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q1" Receptivite="!C1" TReceptivite="0.4000000000000002" P0x="176" P0y="114" P1x="166" P1y="101" P2x="163" P2y="81" P3x="173" P3y="72" Couleur="#000000"/>
+ </Onglet>
+ <Temporisateurs>
+  <Tempo Nom="Tempo1" Duree="1500" Fin="finTempo1"/>
+  <Tempo Nom="Tempo2" Duree="500" Fin="finTempo2"/>
+  <Tempo Nom="Tempo3" Duree="1000" Fin="finTempo3"/>
+  <Tempo Nom="Tempo4" Duree="500" Fin="finTempo4"/>
+  <Tempo Nom="TempoA3" Duree="500" Fin="finTempoA3"/>
+  <Tempo Nom="TempoA6" Duree="500" Fin="finTempoA6"/>
+  <Tempo Nom="TempoGoulotte" Duree="1500" Fin="finTempoGoulotte"/>
+  <Tempo Nom="TempoA2" Duree="500" Fin="finTempoA2"/>
+ </Temporisateurs>
+ <PseudoES>
+  <Pseudo Nom="finTempo1Mem"/>
+  <Pseudo Nom="A2Mem"/>
+  <Pseudo Nom="Tempo1Mem"/>
+  <Pseudo Nom="demarreTempoGoulotte"/>
+  <Pseudo Nom="finTempo1Mem"/>
+  <Pseudo Nom="A2Mem"/>
+  <Pseudo Nom="Tempo1Mem"/>
+ </PseudoES>
+</MOORE>

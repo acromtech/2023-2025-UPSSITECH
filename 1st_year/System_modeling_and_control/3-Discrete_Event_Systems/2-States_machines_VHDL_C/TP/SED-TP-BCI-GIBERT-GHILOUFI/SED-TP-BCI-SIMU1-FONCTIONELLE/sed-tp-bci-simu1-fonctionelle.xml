@@ -1,0 +1,44 @@
+<MOORE Nom="sed-tp-bci-simu1-fonctionelle.xml" Projet="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\SYSTEMES_A_EVENEMENT_DISCRETS\SED-M2\TP\SED-TP-BCI-GIBERT-GHILOUFI\SED-TP-BCI-SIMU1-FONCTIONELLE">
+<!--07/05/2023 03:54-->
+ <Onglet Nom="Gr1">
+  <Etat Nom="Q1" Xposition="78" Yposition="64" Initial="true" Action="A4" XpositionAction="20" YpositionAction="100" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="194" Yposition="35" Initial="false" Action="A4" XpositionAction="214" YpositionAction="35" Couleur="#000000"/>
+  <Etat Nom="Q4" Xposition="196" Yposition="100" Initial="false" Action="A4" XpositionAction="216" YpositionAction="100" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="78" Yposition="137" Initial="false" Action="A1,A4,demarreTempoGoulotte" XpositionAction="98" YpositionAction="137" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="C2" TReceptivite="0.26000000000000006" P0x="92" P0y="60" P1x="116" P1y="54" P2x="154" P2y="44" P3x="179" P3y="38" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q4" Receptivite="C1" TReceptivite="0.4000000000000002" P0x="194" P0y="50" P1x="194" P1y="56" P2x="195" P2y="77" P3x="195" P3y="85" Couleur="#000000"/>
+  <Arc Origine="Q4" Destination="Q1" Receptivite="!C1" TReceptivite="0.5" P0x="181" P0y="95" P1x="156" P1y="88" P2x="117" P2y="75" P3x="92" P3y="68" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q3" Receptivite="C1" TReceptivite="0.5" P0x="88" P0y="75" P1x="101" P1y="89" P2x="96" P2y="116" P3x="87" P3y="125" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q1" Receptivite="!C1" TReceptivite="0.5" P0x="66" P0y="127" P1x="55" P1y="118" P2x="51" P2y="89" P3x="66" P3y="74" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr2">
+  <Etat Nom="Q1" Xposition="35" Yposition="58" Initial="true" Action="" XpositionAction="55" YpositionAction="58" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="131" Yposition="57" Initial="false" Action="A6,TempoA6" XpositionAction="151" YpositionAction="56" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="Ca.Cb" TReceptivite="0.5" P0x="44" P0y="69" P1x="55" P1y="83" P2x="105" P2y="106" P3x="123" P3y="70" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q1" Receptivite="finTempoA6" TReceptivite="0.6700000000000004" P0x="123" P0y="44" P1x="108" P1y="20" P2x="65" P2y="24" P3x="44" P3y="46" Couleur="#000000"/>
+ </Onglet>
+ <Onglet Nom="Gr3">
+  <Etat Nom="Q1" Xposition="35" Yposition="52" Initial="true" Action="" XpositionAction="40" YpositionAction="30" Couleur="#000000"/>
+  <Etat Nom="Q2" Xposition="36" Yposition="124" Initial="false" Action="TempoGoulotte" XpositionAction="54" YpositionAction="125" Couleur="#000000"/>
+  <Etat Nom="Q3" Xposition="37" Yposition="190" Initial="false" Action="A2,TempoA2" XpositionAction="55" YpositionAction="207" Couleur="#000000"/>
+  <Arc Origine="Q1" Destination="Q2" Receptivite="demarreTempoGoulotte" TReceptivite="0.48000000000000026" P0x="35" P0y="67" P1x="35" P1y="76" P2x="35" P2y="100" P3x="35" P3y="109" Couleur="#000000"/>
+  <Arc Origine="Q2" Destination="Q3" Receptivite="finTempoGoulotte.!C3" TReceptivite="0.5500000000000003" P0x="35" P0y="138" P1x="35" P1y="146" P2x="36" P2y="168" P3x="36" P3y="175" Couleur="#000000"/>
+  <Arc Origine="Q3" Destination="Q1" Receptivite="finTempoA2.C3" TReceptivite="0.5100000000000002" P0x="51" P0y="191" P1x="214" P1y="204" P2x="245" P2y="32" P3x="49" P3y="50" Couleur="#000000"/>
+ </Onglet>
+ <Temporisateurs>
+  <Tempo Nom="Tempo1" Duree="1500" Fin="finTempo1"/>
+  <Tempo Nom="Tempo2" Duree="500" Fin="finTempo2"/>
+  <Tempo Nom="Tempo3" Duree="1000" Fin="finTempo3"/>
+  <Tempo Nom="Tempo4" Duree="500" Fin="finTempo4"/>
+  <Tempo Nom="TempoA3" Duree="500" Fin="finTempoA3"/>
+  <Tempo Nom="TempoA6" Duree="500" Fin="finTempoA6"/>
+  <Tempo Nom="TempoGoulotte" Duree="1500" Fin="finTempoGoulotte"/>
+  <Tempo Nom="TempoA2" Duree="500" Fin="finTempoA2"/>
+ </Temporisateurs>
+ <PseudoES>
+  <Pseudo Nom="finTempo1Mem"/>
+  <Pseudo Nom="A2Mem"/>
+  <Pseudo Nom="Tempo1Mem"/>
+  <Pseudo Nom="demarreTempoGoulotte"/>
+ </PseudoES>
+</MOORE>
