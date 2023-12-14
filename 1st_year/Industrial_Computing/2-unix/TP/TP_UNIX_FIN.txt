@@ -1,0 +1,147 @@
+36- Lancer les commandes suivantes puis afficher la liste des processus : (a) head & (b) cat & (c) tail &
+
+alexis@alexis-VirtualBox:~$ ps
+    PID TTY          TIME CMD
+   3239 pts/0    00:00:00 bash
+   5065 pts/0    00:00:00 ps
+alexis@alexis-VirtualBox:~$ head &
+[1] 5068
+alexis@alexis-VirtualBox:~$ cat &
+[2] 5069
+
+[1]+  Stopped                 head
+alexis@alexis-VirtualBox:~$ tail &
+[3] 5070
+
+[2]+  Stopped                 cat
+alexis@alexis-VirtualBox:~$ ps
+    PID TTY          TIME CMD
+   3239 pts/0    00:00:00 bash
+   5068 pts/0    00:00:00 head
+   5069 pts/0    00:00:00 cat
+   5070 pts/0    00:00:00 tail
+   5071 pts/0    00:00:00 ps
+
+[3]+  Stopped                 tail
+
+
+
+37- Exécuter ensuite les commandes ci-dessous et comparer les résultats. Consulter le document en ligne
+sous Moodle et le manuel en ligne pour expliquer le comportement de chacune des commandes : (a) ps (b)
+ps –ef | grep $USER (c) jobs (d) jobs –l
+
+(a) ps : affiche les principales caracteristiques des processus courants appartenant a l’utilisateur qui effectue la commande
+alexis@alexis-VirtualBox:~$ ps
+    PID TTY          TIME CMD
+   3239 pts/0    00:00:00 bash
+   5068 pts/0    00:00:00 head
+   5069 pts/0    00:00:00 cat
+   5070 pts/0    00:00:00 tail
+   5076 pts/0    00:00:00 ps
+
+(b) ps –ef | grep $USER : recherche dans l'ensemble de TOUTES les caracteristiques des processus ACTIFS celles qui sont relatives a l’utilisateur qui effectue la commande
+alexis@alexis-VirtualBox:~$ ps –ef | grep $USER
+error: garbage option
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+
+(c) jobs : affiche le numero (entre []), l’etat, la commande associee a chaque tache du shell courant ; la tache courante est marquee par +,
+alexis@alexis-VirtualBox:~$ jobs
+[1]   Stopped                 head
+[2]-  Stopped                 cat
+[3]+  Stopped                 tail
+
+(d) jobs –l : affiche le numero (entre []), l’etat, la commande associee a chaque tache du shell courant et le PID du processus associe. (Mais cette commande n'as pas l'air de fonctionner sur ma VM)
+alexis@alexis-VirtualBox:~$ jobs –l
+bash: jobs: –l: no such job
+
+
+
+38- Supprimer le processus correspondant à la commande head & en utilisant la commande kill et le PID.
+alexis@alexis-VirtualBox:~$ ps
+    PID TTY          TIME CMD
+   3239 pts/0    00:00:00 bash
+   5068 pts/0    00:00:00 head
+   5069 pts/0    00:00:00 cat
+   5070 pts/0    00:00:00 tail
+   5318 pts/0    00:00:00 ps
+alexis@alexis-VirtualBox:~$ kill 5068
+alexis@alexis-VirtualBox:~$ ps
+    PID TTY          TIME CMD
+   3239 pts/0    00:00:00 bash
+   5069 pts/0    00:00:00 cat
+   5070 pts/0    00:00:00 tail
+   5318 pts/0    00:00:00 ps
+
+
+39- Supprimer le processus correspondant à la commande tail & en utilisant la commande kill et le numéro
+de la tâche. Ce numéro est différent du PID, comment peut-on l’obtenir ?
+
+On utilise la commande "jobs" :
+
+alexis@alexis-VirtualBox:~$ jobs
+[2]-  Stopped                 cat
+[3]+  Stopped                 tail
+alexis@alexis-VirtualBox:~$ kill %3
+[3]+  Terminated              tail
+alexis@alexis-VirtualBox:~$ jobs
+[2]+  Stopped                 cat
+
+
+40- Passer le processus cat & au premier plan, saisir une ligne, observer puis interrompre le processus
+correspondant.
+
+alexis@alexis-VirtualBox:~$ fg %2
+cat
+blabla
+^Z
+[1]+  Stopped                 cat
+
+
+41- Lancer la commande ./boucle.csh en arrière plan, consulter la liste des processus. Mettre le processus
+correspondant au premier plan et l’interrompre en utilisant la commande appropriée.
+
+
+
+42- Lancer la commande ./boucle.csh en premier plan, suspendre le processus en utilisant la commande
+appropriée. Vérifier que le processus est toujours présent. Quel est son PID. Quel est son PPID ? Vérifier
+également qu’il correspond à une tâche. Quel est le numéro de la tâche ? Supprimer ce processus.
+
+alexis@alexis-VirtualBox:~/TP_UNIX/Script_Unix$ ./boucle.bash
+1
+...
+1 
+1 
+^Z
+[1]+  Stopped                 ./boucle.bash
+alexis@alexis-VirtualBox:~/TP_UNIX/Script_Unix$ ps
+    PID TTY          TIME CMD
+   5691 pts/0    00:00:00 bash
+   5754 pts/0    00:00:00 boucle.bash
+   5756 pts/0    00:00:00 ps
+alexis@alexis-VirtualBox:~/TP_UNIX/Script_Unix$ ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    5691    5680  0  80   0 -  4853 do_wai pts/0    00:00:00 bash
+0 T  1000    5754    5691  0  80   0 -  4533 do_sig pts/0    00:00:00 boucle.bas
+0 R  1000    5757    5691  0  80   0 -  5013 -      pts/0    00:00:00 ps
+
+Le PID de la tâche "boucle.bash" : 5754
+Le PPID de la tâche "boucle.bash" : 5691
+
+alexis@alexis-VirtualBox:~/TP_UNIX/Script_Unix$ jobs
+[1]+  Stopped                 ./boucle.bash
+
+Le numéro de la tâche "boucle.bash" : 1
+
+alexis@alexis-VirtualBox:~/TP_UNIX/Script_Unix$ kill %1
+[1]+  Terminated              ./boucle.bash
+
+
+43- Exécuter la commande history > mon_historique. Afficher le contenu du fichier mon_historique, copiercoller le contenu à la fin du fichier TP1_VOTRE_NOM.txt ouvert en début de séance.

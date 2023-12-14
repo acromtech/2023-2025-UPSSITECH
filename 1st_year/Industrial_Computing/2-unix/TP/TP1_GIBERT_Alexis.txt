@@ -1,0 +1,195 @@
+    1  cd/
+    2  cd /
+    3  ls
+    4  cd /
+    5  ls -a
+    6  ls .
+    7  ls ..
+    8  ls ~
+    9  ls
+   10  ls .
+   11  ls ..
+   12  ls ~
+   13  ls /
+   14  cd home
+   15  mkdir TP_UNIX
+   16  ls
+   17  cd ..
+   18  cd home
+   19  cd /
+   20  ls
+   21  cd usr
+   22  ls
+   23  cd home/Document
+   24  cd home
+   25  ls
+   26  cd ..
+   27  ld
+   28  ls
+   29  /home
+   30  cd home
+   31  ls
+   32  cd home/gbl3344a
+   33  cd gbl3344a
+   34  ls
+   35  mkdir TP_UNIX
+   36  ls
+   37  cd TP_UNIX/
+   38  cd /
+   39  pwd
+   40  cd ~
+   41  pwd
+   42  cd TP_UNIX/
+   43  pwd
+   44  cd ..
+   45  mkdir Script_Unix
+   46  cd Script_Unix/
+   47  pwd
+   48  cd ..
+   49  ls
+   50  cd Downloads/
+   51  ls
+   52  mv boucle\ \(2\).csh TP ..
+   53  mv boucle\ \(2\).csh ..
+   54  cd ..
+   55  mv boucle\ \(2\).csh Script_Unix/
+   56  ls
+   57  cd TP_UNIX/
+   58  cd ..
+   59  cd Downloads/
+   60  mv boucle\ \(2\).csh ..
+   61  cd ..
+   62  mv boucle\ \(2\).csh TP_UNIX/
+   63  cd TP_UNIX/
+   64  mv boucle\ \(2\).csh Script_Unix/
+   65  cd Script_Unix/
+   66  ls
+   67  cd ~
+   68  ls
+   69  ls -F
+   70  ls -l
+   71  ls -R
+   72  cd TP_UNIX/
+   73  cd Script_Unix/
+   74  pwd
+   75  ls
+   76  ls -al
+   77  cat boucle\ \(2\).csh 
+   78  cat mon_script\ \(1\).csh 
+   79  chmod 600 mon_script\ \(1\).csh 
+   80  ls -al
+   81  run mon_script\ \(1\).csh 
+   82  mon_script\ \(1\).csh 
+   83  ./mon_script\ \(1\).csh 
+   84  chmod u+x mon_script\ \(1\).csh 
+   85  ./mon_script\ \(1\).csh 
+   86  ls-l
+   87  ls -l
+   88  ./mon_script\ \(1\).csh 
+   89  chmod 777 ./mon_script\ \(1\).csh 
+   90  ls -l
+   91  chmod go-rwx ./mon_script\ \(1\).csh 
+   92  ls -l
+   93  chmod go+r ./boucle\ \(2\).csh 
+   94  ls -l
+   95  chmod go+rwx ./boucle\ \(2\).csh 
+   96  ls -l
+   97  chmod go+r ./boucle\ \(2\).csh 
+   98  ls -l
+   99  chmod go=r ./boucle\ \(2\).csh 
+  100  ls -l
+  101  cat
+  102  cat > mon_message ; echo "blablabla..."
+  103  cat > mon_message echo "blablabla..."
+  104  cat > mon_message
+  105  			echo "bla bla bla ......."
+  106  cat > mon_message
+  107  cat < mon_message
+  108  cat >> mon_message
+  109  cat < mon_message
+  110  ./mon_script\ \(1\).csh > resultat_mon_script.txt
+  111  exit
+  112  jupiter notebook
+  113  jupyter notebook
+  114  ls
+  115  cd TP_UNIX/
+  116  cd Script_Unix/
+  117  ./new_script.csh
+  118  cat < resultat_mon_script.txt
+  119  ./new_script.csh
+  120  ./new_script.csh >& resultat_new_script.txt
+  121  ./mon_script.csh > resultat_mon_script.txt
+  122  ./mon_script.bash > resultat_mon_script.txt
+  123  sudo ./mon_script.bash > resultat_mon_script.txt
+  124  ls -l ./mon_script.bash 
+  125  chmod 744 ./mon_script.bash 
+  126  ls -l ./mon_script.bash 
+  127  ./mon_script.bash > resultat_mon_script.txt
+  128  cat < resultat_mon_script.txt
+  129  ls
+  130  cd ..
+  131  jupyter notebook
+  132  ls
+  133  cd TP_UNIX/
+  134  ls
+  135  cd Script_Unix/
+  136  ls
+  137  ./new_script.csh
+  138  ./new_script.csh >& resultat_new_script.txt
+  139  cat > resultat_new_script.txt 
+  140  cat < resultat_new_script.txt 
+  141  ./new_script.csh
+  142  ./new_script.csh >& resultat_new_script.txt
+  143  cat < resultat_new_script.txt 
+  144  wc mon_message
+  145  ls -l*
+  146  ls -l
+  147  ls -l | wc
+  148  ls -l | wc -l
+  149  ls -l | wc -w
+  150  ls -l | wc -c
+  151  cat mon_message | wc 
+  152  cat mon_message | wc -lc
+  153  exit
+  154  gedit
+  155  ls
+  156  gedit&
+  157  ls
+  158  ps
+  159  kill
+  160  kill 6991
+  161  ps
+  162  ./boucle.csh
+  163  ls
+  164  cd TP_UNIX/
+  165  cd Script_Unix/
+  166  ./boucle.csh
+  167  ./boucle.bash
+  168  chmod u+x boucle.bash
+  169  ./boucle.bash
+  170  head &
+  171  ps
+  172  cat & 
+  173  ps
+  174  tail &
+  175  ps
+  176  ps –ef | grep $USER
+  177  jobs
+  178  jobs –l
+  179  jupiter notebook
+  180  jupyter notebook
+  181  cd TP_UNIX/
+  182  cd Script_Unix/
+  183  ./boucle.bash 
+  184  bg
+  185  ./boucle.bash 
+  186  cd TP_UNIX/
+  187  cd Script_Unix/
+  188  ./boucle.bash 
+  189  bg
+  190  ./boucle.bash 
+  191  bg &
+  192  history > mon_historique
+  193  jobs
+  194  fg
+  195  history > mon_historique

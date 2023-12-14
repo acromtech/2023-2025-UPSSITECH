@@ -1,0 +1,17 @@
+int np (int l,int L,int N)
+{
+  int nb_possibilite=0;
+  if (N%2==0 && N!=0)//pair
+    nb_possibilite*=l+np(l,L,N-l);
+  else if (N%2!=0)//impair
+    nb_possibilite*=L+np(l,L,N-L);
+  else//N=0
+    return nb_possibilite;
+}
+
+int main ()
+{
+  int l=2,L=1,N=64,nbp=0;
+  nbp=np(l,L,N);
+  printf("le nombre de possibilite:%d",nbp);
+}

@@ -1,0 +1,1519 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{NOTEBOOK\_TP\_IMAGE\_GIBERT\_ALEXIS}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{TP Programmation en C : Introduction au traitement
+d'images}\label{tp-programmation-en-c-introduction-au-traitement-dimages}
+
+L'objectif de ce notebook est de vous permettre de faire un compte-rendu
+de votre TP traitement d'image. Il s'agit une fois votre programme mis
+au point de copier coller le code, et le résultats de vos tests.
+
+\subsubsection{ATTENTION :}\label{attention}
+
+\begin{itemize}
+\item
+  N'oubliez pas de travailler sous le répertoire sauvegardé sur le
+  serveur dont le chemin est de la forme : /home/abc1234a/Documents
+\item
+  Lors de QCM vous devrez réutiliser votre code.Il faut donc pouvoir le
+  retrouver.
+\end{itemize}
+
+\subsubsection{NOM ETUDIANT : GIBERT
+ALEXIS}\label{nom-etudiant-gibert-alexis}
+
+    \subsection{PARTIE 1- Editer, compiler et tester un
+programme}\label{partie-1--editer-compiler-et-tester-un-programme}
+
+    \section{PROGRAMME
+transform\_image.c}\label{programme-transform_image.c}
+
+\textbf{COPIER-COLLER ICI}
+
+\textbf{(a) le résultat de la commande date}
+
+\begin{verbatim}
+gbl3344a@u3-201-11d:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ date
+jeu. 20 oct. 2022 09:43:59 CEST
+\end{verbatim}
+
+\textbf{(b) le code source correspondant}
+
+\begin{verbatim}
+#include <stdio.h>
+
+void main(){
+  int nbl,nbc,pxlc=0;
+
+  scanf("%d",&nbl);
+  scanf("%d",&nbc);
+
+  for(int i=0;i<nbl;i++){
+    for(int j=0;j<nbc;j++){
+      scanf("%d",&pxlc);
+      printf("%5d",((pxlc*4)/256));
+    }
+    printf("\n\r");
+  }
+}
+\end{verbatim}
+
+\textbf{(c) la commande de compilation et son résultat}
+
+\begin{verbatim}
+gbl3344a@u3-201-11d:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc transform_image.c -o transform_image.out
+\end{verbatim}
+
+\textbf{(d) le résultat des tests sur les fichiers de données}
+
+\begin{verbatim}
+gbl3344a@u3-201-11d:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ./transform_image.out < ./Data/image1.dat   
+    0    0    0    0    0    0    0    0
+    0    0    0    0    0    2    2    0
+    0    0    0    0    2    2    0    0
+    0    0    0    0    0    2    2    0
+    0    1    0    0    0    2    0    0
+    0    1    0    0    0    2    0    0
+    0    1    1    0    2    2    2    0
+    0    0    0    0    0    0    0    0
+gbl3344a@u3-201-11d:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ./transform_image.out < ./Data/image2.dat
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    1    1    1    1    1    1    1    1    0    0    0    0
+    0    0    0    0    1    1    1    1    1    1    1    1    0    0    0    0
+    0    0    0    0    1    1    1    1    1    1    1    1    0    0    0    0
+    0    0    0    0    1    1    1    1    1    1    1    1    0    0    0    0
+    0    0    0    0    1    1    1    1    1    1    1    1    0    0    0    0!
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+\end{verbatim}
+
+\textbf{(e) le contenu du répertoire TPC (fichiers et sous-répertoires)}
+
+\begin{verbatim}
+gbl3344a@u3-201-11d:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ls
+Data                 NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  transform_image.c
+erreur_compil        Test                                   transform_image.out
+MODULE_IMAGE_V0.tar  TP-image_2021.pdf
+\end{verbatim}
+
+    \subsection{PARTIE 2- Visualisation du résultat
+(optionnel)!}\label{partie-2--visualisation-du-ruxe9sultat-optionnel}
+
+\textbf{Avant la commande "imagesc(im2)" pour l'image 1}
+
+\begin{figure}
+\centering
+\includegraphics{attachment:Capture\%20d\%E2\%80\%99\%C3\%A9cran_2022-10-27_08-18-02.png}
+\caption{Capture\%20d\%E2\%80\%99\%C3\%A9cran\_2022-10-27\_08-18-02.png}
+\end{figure}
+
+\textbf{Après la commande "imagesc(im2)" pour l'image 1}
+
+\begin{figure}
+\centering
+\includegraphics{attachment:Capture\%20d\%E2\%80\%99\%C3\%A9cran_2022-10-27_08-16-46.png}
+\caption{Capture\%20d\%E2\%80\%99\%C3\%A9cran\_2022-10-27\_08-16-46.png}
+\end{figure}
+
+\textbf{Avant la commande "imagesc(im2)" pour l'image 2}
+
+\begin{figure}
+\centering
+\includegraphics{attachment:Capture\%20d\%E2\%80\%99\%C3\%A9cran_2022-10-27_08-20-58.png}
+\caption{Capture\%20d\%E2\%80\%99\%C3\%A9cran\_2022-10-27\_08-20-58.png}
+\end{figure}
+
+\textbf{Après la commande "imagesc(im2)" pour l'image 2}
+
+\begin{figure}
+\centering
+\includegraphics{attachment:Capture\%20d\%E2\%80\%99\%C3\%A9cran_2022-10-27_08-21-38.png}
+\caption{Capture\%20d\%E2\%80\%99\%C3\%A9cran\_2022-10-27\_08-21-38.png}
+\end{figure}
+
+    \subsection{PARTIE 3- Généraliser un traitement, traiter les cas
+d'erreur}\label{partie-3--guxe9nuxe9raliser-un-traitement-traiter-les-cas-derreur}
+
+\textbf{COPIER-COLLER ICI}
+
+\subsubsection{(a) le résultat de la commande
+date!}\label{a-le-ruxe9sultat-de-la-commande-date}
+
+alexis@alexis-VirtualBox:/\$ date sam. 29 oct. 2022 19:31:25 CEST
+
+\subsubsection{(b) le code source
+correspondant}\label{b-le-code-source-correspondant}
+
+\begin{verbatim}
+#include <stdio.h>
+#include <math.h>
+
+void main(){
+  int nbl,nbc,pxlc=0;
+  int niveau;
+  
+  scanf("%d",&niveau);
+  
+  if(niveau<256){
+    if((int)log2(niveau)==log2(niveau)){
+      
+      scanf("%d",&nbl);
+      scanf("%d",&nbc);
+      
+      for(int i=0;i<nbl;i++){
+        for(int j=0;j<nbc;j++){
+          scanf("%d",&pxlc);
+          printf("%5d",((pxlc*niveau)/256));
+        }
+        printf("\n\r");
+      }
+    }
+    else printf("Erreur 1 : le niveau de gris est supérieur à 256");
+  }
+  else printf("Erreur 2 : le niveau de gris n’est pas une puissance de 2");
+}
+\end{verbatim}
+
+\subsubsection{(c) la commande de compilation et son
+résultat}\label{c-la-commande-de-compilation-et-son-ruxe9sultat}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Data/image1_gen.dat
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Data/image1.dat
+    0    0    0    0    0    0    0    0
+    0    2    2    0    0    9    9    0
+    0    2    2    0    9    9    0    0
+    0    0    0    0    0    9    9    0
+    0    5    0    0    0   10    0    0
+    0    5    0    0    0   10    0    0
+    0    5    5    0   10   10   10    0
+    0    0    0    0    0    0    0    0
+\end{verbatim}
+
+\subsubsection{(d) le résultat des tests -- question
+15}\label{d-le-ruxe9sultat-des-tests-question-15}
+
+\textbf{test\_0.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+0
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_0.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_0.res 
+Erreur 2 : le niveau de gris n’est pas une puissance de 2
+\end{verbatim}
+
+\textbf{test\_2.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+2
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_2.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_2.res 
+    0    0    0    0    0    0    0    0
+    0    0    0    0    0    1    1    0
+    0    0    0    0    1    1    0    0
+    0    0    0    0    0    1    1    0
+    0    0    0    0    0    1    0    0
+    0    0    0    0    0    1    0    0
+    0    0    0    0    1    1    1    0
+    0    0    0    0    0    0    0    0
+\end{verbatim}
+
+\textbf{test\_4.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+4
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_4.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_4.res 
+    0    0    0    0    0    0    0    0
+    0    0    0    0    0    2    2    0
+    0    0    0    0    2    2    0    0
+    0    0    0    0    0    2    2    0
+    0    1    0    0    0    2    0    0
+    0    1    0    0    0    2    0    0
+    0    1    1    0    2    2    2    0
+    0    0    0    0    0    0    0    0
+\end{verbatim}
+
+\textbf{test\_15.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+15
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_15.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_15.res 
+Erreur 2 : le niveau de gris n’est pas une puissance de 2
+\end{verbatim}
+
+\textbf{test\_32.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+32
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_32.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_32.res 
+    0    0    0    0    0    0    0    0
+    0    4    4    0    0   18   18    0
+    0    4    4    0   18   18    0    0
+    0    0    0    0    0   18   18    0
+    0   11    0    0    0   21    0    0
+    0   11    0    0    0   21    0    0
+    0   11   11    0   21   21   21    0
+    0    0    0    0    0    0    0    0
+\end{verbatim}
+
+\textbf{test\_260.res}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat > ./Programs/niveau
+260
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_260.res
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cat < ./Test/test_260.res
+Erreur 1 : le niveau de gris est supérieur à 256
+\end{verbatim}
+
+\subsubsection{(e) le contenu du répertoire TPC (fichiers et
+sous-répertoires)}\label{e-le-contenu-du-ruxe9pertoire-tpc-fichiers-et-sous-ruxe9pertoires}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ ls -R
+.:
+GIBERT_ALEXIS_TP_IMAGE  GIBERT_ALEXIS_TP_IMAGE.tar
+
+./GIBERT_ALEXIS_TP_IMAGE:
+Data                                   Pictures  TP-image_2021.pdf
+MODULE_IMAGE_V0.tar                    Programs
+NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  Test
+
+./GIBERT_ALEXIS_TP_IMAGE/Data:
+image1_4N.dat  image1_gen.dat         image2_4N.dat  image2_without_lc.dat
+image1.dat     image1_without_lc.dat  image2.dat     mon_image_seule.dat
+
+./GIBERT_ALEXIS_TP_IMAGE/Pictures:
+'Capture d’écran_2022-10-27_08-16-46.png'
+'Capture d’écran_2022-10-27_08-18-02.png'
+'Capture d’écran_2022-10-27_08-20-58.png'
+'Capture d’écran_2022-10-27_08-21-38.png'
+
+./GIBERT_ALEXIS_TP_IMAGE/Programs:
+erreur_compil  transform_image.c      transform_image_gen.out
+niveau         transform_image_gen.c  transform_image.out
+
+./GIBERT_ALEXIS_TP_IMAGE/Test:
+test_0.res  test_15.res  test_260.res  test_2.res  test_32.res  test_4.res
+\end{verbatim}
+
+    \subsection{PARTIE 4- Notion de module et de compilation
+séparée}\label{partie-4--notion-de-module-et-de-compilation-suxe9paruxe9e}
+
+\textbf{COPIER-COLLER ICI}
+
+\subsubsection{(a) le résultat de la commande
+date}\label{a-le-ruxe9sultat-de-la-commande-date}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ date
+sam. 29 oct. 2022 20:08:33 CEST
+\end{verbatim}
+
+\subsubsection{(b) le contenu du répertoire TPC (fichiers et
+sous-répertoires)}\label{b-le-contenu-du-ruxe9pertoire-tpc-fichiers-et-sous-ruxe9pertoires}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ ls -R
+.:
+GIBERT_ALEXIS_MODULE_IMAGE  GIBERT_ALEXIS_TP_IMAGE.tar
+GIBERT_ALEXIS_TP_IMAGE      TP-image_2021.pdf
+
+./GIBERT_ALEXIS_MODULE_IMAGE:
+Data  MODULE_IMAGE  MODULE_IMAGE_V0.tar  Test
+
+./GIBERT_ALEXIS_MODULE_IMAGE/Data:
+
+./GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE:
+ferrane_module_image.c  ferrane_module_image.h  main.c  Makefile
+
+./GIBERT_ALEXIS_MODULE_IMAGE/Test:
+
+./GIBERT_ALEXIS_TP_IMAGE:
+Data  NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  Pictures  Programs  Test
+
+./GIBERT_ALEXIS_TP_IMAGE/Data:
+image1_4N.dat  image1_gen.dat         image2_4N.dat  image2_without_lc.dat
+image1.dat     image1_without_lc.dat  image2.dat     mon_image_seule.dat
+
+./GIBERT_ALEXIS_TP_IMAGE/Pictures:
+'Capture d’écran_2022-10-27_08-16-46.png'
+'Capture d’écran_2022-10-27_08-18-02.png'
+'Capture d’écran_2022-10-27_08-20-58.png'
+'Capture d’écran_2022-10-27_08-21-38.png'
+
+./GIBERT_ALEXIS_TP_IMAGE/Programs:
+erreur_compil  transform_image.c      transform_image_gen.out
+niveau         transform_image_gen.c  transform_image.out
+
+./GIBERT_ALEXIS_TP_IMAGE/Test:
+test_0.res  test_15.res  test_260.res  test_2.res  test_32.res  test_4.res
+\end{verbatim}
+
+\textbf{Question 20 :} - Le fichier "ferrane\_module\_image.h" contient
+la déclaration de la fonction "void test\_prog(void);" - Le fihier
+"ferrane\_module\_image.c" contient la définition de la fonction
+déclarée dans le fichier "ferrane\_module\_image.h" soit le contenu de
+la fonction "void test\_prog(void);". - Le fichier "main.c" utilise la
+fonction "void test\_prog(void);" a travers le fichier
+"ferrane\_module\_image.h" grâce la déclaration "\#include
+"ferrane\_module\_image.h"".
+
+\subsubsection{(c) le contenu du Makefile de la question
+21}\label{c-le-contenu-du-makefile-de-la-question-21}
+
+\textbf{Question 21 :}
+
+Contenu du makefile :
+
+\begin{verbatim}
+mon_module_image.out: mon_module_image.o main.o
+    gcc -o mon_module_image.out mon_module_image.o main.o
+mon_module_image.o: ferrane_module_image.c 
+    gcc -c ferrane_module_image.c -o mon_module_image.o  -W -Wall -ansi -pedantic
+main.o: main.c ferrane_module_image.h
+    gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+clean:
+    rm -rf *.o
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Le "Makefile" contient un script qui suit le procesus suivant
+  :}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Les dépendances "main.c" et "ferrane\_module\_image.h" sont rangées
+    dans la cible intermédiaire "main.o" puis la compile
+  \item
+    La dépendance "ferrane\_module\_image.c" est rangé dans la cible
+    intermédiaire "mon\_module\_image.o" puis la compile
+  \item
+    Les dépendances "mon\_module\_image.o" "main.o" sont rangées dans la
+    cible finale "mon\_module\_image.out" puis la compile
+  \item
+    (Par la suite les fichiers intermédiaires .o pourront être supprimés
+    en utilisant la commande "make clean")
+  \end{itemize}
+\item
+  \textbf{Les options utilisées :}
+
+  \begin{itemize}
+  \item
+    \texttt{-W},\texttt{-Wall} et \texttt{-pedantic} sont des options
+    relatives aux "warning". Celles-ci activent tous les "warning"
+    relatif au fichier compilé et conseille l'utilisateur afin de parrer
+    une éventuelle erreur.
+  \item
+    \texttt{-ansi} (nécessite \texttt{-pedantic}) spécifie la norme à
+    laquelle le code doit se conformer. Actuellement, CPP connaît les
+    normes C et C++~; d'autres pourraient être ajoutés à l'avenir.
+    L'option \texttt{-ansi} est équivalente à \texttt{-std=c89}, soit la
+    norme "c89".
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{(d) les réponses aux questions 22, 23,
+24}\label{d-les-ruxe9ponses-aux-questions-22-23-24}
+
+\textbf{Question 22 :}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE$ make mon_module_image.out
+gcc -c ferrane_module_image.c -o mon_module_image.o  -W -Wall -ansi -pedantic
+gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+gcc -o mon_module_image.out mon_module_image.o main.o
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE$ ls
+ferrane_module_image.c  main.c  Makefile            mon_module_image.out
+ferrane_module_image.h  main.o  mon_module_image.o
+\end{verbatim}
+
+On observe que le script a executé les différentes commandes présentées
+précédemment et a généré : - La dépendence intermédiaire "main.o" - La
+dépendence intermédiaire "mon\_module\_image.o" - La dépendance finale /
+exécutable "mon\_module\_image.out"
+
+\textbf{Question 23 :}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE$ ./mon_module_image.out
+DEBUT DE TEST MODULE 
+TEST DU MODULE : FERRANE_MODULE_IMAGE
+DEBUT DE TEST MODULE 
+\end{verbatim}
+
+On remarque que la fonction du fichier "ferrane\_module\_image.c" a bien
+été exécuté au travers du fichier "main.c" et du fichier
+"ferrane\_module\_image.h".
+
+\textbf{Question 24 :}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE$ make clean
+rm -rf *.o
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE$ ls
+ferrane_module_image.c  main.c    mon_module_image.out
+ferrane_module_image.h  Makefile
+\end{verbatim}
+
+On remarque que les fichiers .o ont bien été supprimé.
+
+\textbf{Question 25 :}
+
+Par la suite, pour traiter la suite des questions, on renomme le
+répertoire "MODULE\_IMAGE" en "MODULE\_IMAGE\_V0" puis on le copie en
+prenant soin de renommer la copie : "MODULE\_IMAGE\_V1"
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE$ mv MODULE_IMAGE MODULE_IMAGE_V0
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE$ ls
+Data  MODULE_IMAGE_V0  MODULE_IMAGE_V0.tar  Test
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE$ cp -r MODULE_IMAGE_V0 MODULE_IMAGE_V1
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE$ ls
+Data  MODULE_IMAGE_V0  MODULE_IMAGE_V0.tar  MODULE_IMAGE_V1  Test
+\end{verbatim}
+
+\textbf{Question 26 :}
+
+Ainsi, dans le répertoire "MODULE\_IMAGE\_V1" afin de ce retrouver avec
+l'arborescence - main.c - Makefile - votre\_nom\_module\_image.c -
+votre\_nom\_module\_image.h
+
+on utilisera les commandes suivantes :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE$ cd MODULE_IMAGE_V1
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ ls
+ferrane_module_image.c  main.c    mon_module_image.out
+ferrane_module_image.h  Makefile
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ mv ferrane_module_image.c gibert_module_image.c
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ mv ferrane_module_image.h gibert_module_image.h
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ rm mon_module_image.out
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ ls
+gibert_module_image.c  gibert_module_image.h  main.c  Makefile
+\end{verbatim}
+
+\textbf{Question 27 :}
+
+Si on tente de compiler le Makefile on remarque que :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+make: *** No rule to make target 'ferrane_module_image.c', needed by 'mon_module_image.o'. Stop.
+\end{verbatim}
+
+Puisque le fait d'avoir renommé les fichier .c et .h a pour effet de
+rompre les liens interne du Makefile.
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat Makefile 
+mon_module_image.out: mon_module_image.o main.o
+    gcc -o mon_module_image.out mon_module_image.o main.o
+
+mon_module_image.o: ferrane_module_image.c 
+    gcc -c ferrane_module_image.c -o mon_module_image.o  -W -Wall -ansi -pedantic
+
+main.o: main.c ferrane_module_image.h
+    gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+    
+clean:
+    rm -rf *.o
+\end{verbatim}
+
+Il va donc falloir re-créer les liens en modifiant le script du
+Makefile. Pour cela j'ai installé l'application nano qui va me permettre
+de modifier le fichier Makefile tout en restant dans le shell linux.
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ sudo apt-get install nano
+[sudo] password for alexis: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+nano is already the newest version (4.8-1ubuntu1).
+nano set to manually installed.
+The following packages were automatically installed and are no longer required:
+  linux-headers-5.13.0-28-generic linux-hwe-5.13-headers-5.13.0-28
+  linux-image-5.13.0-28-generic linux-modules-5.13.0-28-generic
+  linux-modules-extra-5.13.0-28-generic pandoc-data
+Use 'sudo apt autoremove' to remove them.
+0 to upgrade, 0 to newly install, 0 to remove and 306 not to upgrade.
+\end{verbatim}
+
+Ainsi à l'aide de la commande "nano Makefile" je peut alors éditer le
+fichier Makefile.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+\begin{minipage}[b]{0.47\columnwidth}\centering\strut
+Le fichier Makefile dans nano (avant modification)\strut
+\end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering\strut
+Le fichier Makefile dans nano (après modification)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO1.jpg}\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO2.jpg}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Nouvelle erreur :}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -c gibert_module_image.c -o mon_module_image.o  -W -Wall -ansi -pedantic
+gibert_module_image.c:3:10: fatal error: ferrane_module_image.h: No such file or directory
+    3 | #include "ferrane_module_image.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:5: mon_module_image.o] Error 1
+\end{verbatim}
+
+Il va donc falloir modifier l'include du fichier
+"gibert\_module\_image.c" et du fichier "main.c" :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ nano gibert_module_image.c
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ nano main.c
+\end{verbatim}
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+\begin{minipage}[b]{0.47\columnwidth}\centering\strut
+Le fichier .c dans nano (avant modification)\strut
+\end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering\strut
+Le fichier .c dans nano (après modification)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO3.jpg}\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO4.jpg}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO5.jpg}\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering\strut
+\includegraphics{attachment:TP_IMAGE_NANO6.jpg}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Ainsi maintenant tout ce compile correctement :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+gcc -o mon_module_image.out mon_module_image.o main.o
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ ls
+gibert_module_image.c  main.c  Makefile            mon_module_image.out
+gibert_module_image.h  main.o  mon_module_image.o
+\end{verbatim}
+
+On vérifie ensuite que l'arborescence correspond a celle souhaitée :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ ls -R
+.:
+GIBERT_ALEXIS_MODULE_IMAGE  TP_IMAGE_NANO1.jpg  TP_IMAGE_NANO5.jpg
+GIBERT_ALEXIS_TP_IMAGE      TP_IMAGE_NANO2.jpg  TP_IMAGE_NANO6.jpg
+GIBERT_ALEXIS_TP_IMAGE.tar  TP_IMAGE_NANO3.jpg
+TP-image_2021.pdf           TP_IMAGE_NANO4.jpg
+
+./GIBERT_ALEXIS_MODULE_IMAGE:
+Data  MODULE_IMAGE_V0  MODULE_IMAGE_V0.tar  MODULE_IMAGE_V1  Test
+
+...
+
+./GIBERT_ALEXIS_TP_IMAGE:
+Data  NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  Pictures  Programs  Test
+
+...
+\end{verbatim}
+
+On se retrouve avec un arborescence quasi-similaire mis a part que j'ai
+choisi de ranger les programmes et les images dans des repertoires. Pour
+être en accord avec la consigne je vais donc : - Déplacer le notebook
+dans le répertoire racine du TP soit le répertoire "TPC"
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ mv ./GIBERT_ALEXIS_TP_IMAGE/NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb ~/TPC
+alexis@alexis-VirtualBox:~/TPC$ ls
+GIBERT_ALEXIS_MODULE_IMAGE             TP-image_2021.pdf   TP_IMAGE_NANO4.jpg
+GIBERT_ALEXIS_TP_IMAGE                 TP_IMAGE_NANO1.jpg  TP_IMAGE_NANO5.jpg
+GIBERT_ALEXIS_TP_IMAGE.tar             TP_IMAGE_NANO2.jpg  TP_IMAGE_NANO6.jpg
+NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  TP_IMAGE_NANO3.jpg
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Remonter d'un étage les fichiers du répertoire "Programs" et avant de
+  le supprimer
+\end{itemize}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ cd GIBERT_ALEXIS_TP_IMAGE/
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ls
+Data  Pictures  Programs  Test
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ mv ./Programs/** ~/TPC/GIBERT_ALEXIS_TP_IMAGE
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ls
+Data           Pictures  transform_image.c        transform_image.out
+erreur_compil  Programs  transform_image_gen.c
+niveau         Test      transform_image_gen.out
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ rmdir Programs/
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Regrouper l'ensemble des photos au sein d'un seul et même répertoire
+  Pitures situé dans le répertoire TPC
+\end{itemize}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ mv ./Pictures ~/TPC
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ ls
+Data           niveau  transform_image.c      transform_image_gen.out
+erreur_compil  Test    transform_image_gen.c  transform_image.out
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_TP_IMAGE$ cd ..
+alexis@alexis-VirtualBox:~/TPC$ ls
+GIBERT_ALEXIS_MODULE_IMAGE             Pictures            TP_IMAGE_NANO3.jpg
+GIBERT_ALEXIS_TP_IMAGE                 TP-image_2021.pdf   TP_IMAGE_NANO4.jpg
+GIBERT_ALEXIS_TP_IMAGE.tar             TP_IMAGE_NANO1.jpg  TP_IMAGE_NANO5.jpg
+NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb  TP_IMAGE_NANO2.jpg  TP_IMAGE_NANO6.jpg
+alexis@alexis-VirtualBox:~/TPC$ mv ./*.jpg ./Pictures/
+alexis@alexis-VirtualBox:~/TPC$ ls
+GIBERT_ALEXIS_MODULE_IMAGE  NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb
+GIBERT_ALEXIS_TP_IMAGE      Pictures
+\end{verbatim}
+
+Ainsi on a bien l'arborescence souhaitée
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC$ ls -R
+.:
+GIBERT_ALEXIS_MODULE_IMAGE  NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb
+GIBERT_ALEXIS_TP_IMAGE      Pictures
+GIBERT_ALEXIS_TP_IMAGE.tar  TP-image_2021.pdf
+
+./GIBERT_ALEXIS_MODULE_IMAGE:
+Data  MODULE_IMAGE_V0  MODULE_IMAGE_V0.tar  MODULE_IMAGE_V1  Test
+
+...
+
+./GIBERT_ALEXIS_TP_IMAGE:
+Data           niveau  transform_image.c      transform_image_gen.out
+erreur_compil  Test    transform_image_gen.c  transform_image.out
+...
+\end{verbatim}
+
+\subsubsection{~(e) le résultat de la commande
+history}\label{e-le-ruxe9sultat-de-la-commande-history}
+
+alexis@alexis-VirtualBox:\textasciitilde{}/TPC\$ history
+
+\begin{verbatim}
+...
+  211  cd TPC/Programs/
+  212  gcc transform_image_gen.c -o transform_image_gen.out
+  213  gcc transform_image_gen.c -o transform_image_gen.out -lm
+  214  cat niveau ./Data/image1.dat | ./Program/transform_image.out > image_gen.dat
+  215  cd ..
+  216  cat niveau ./Data/image1.dat | ./Program/transform_image.out > image_gen.dat
+  217  cat niveau ./Data/image1.dat | ./Programs/transform_image.out > image_gen.dat
+  218  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image.out > image_gen.dat
+  219  ls -l
+  220  cd Programs
+  221  ls -l
+  222  chmod transform_image_gen.out u+x
+  223  chmod transform_image_gen.out -u+x
+  224  ls -l
+  225  chmod transform_image_gen.out -u+rwx
+  226  ls -l
+  227  cd ..
+  228  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image.out > image_gen.dat
+  229  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > image_gen.dat
+  230  cat ./Programs/niveau ./Data/image1_without_lc.dat | ./Programs/transform_image_gen.out > image_gen.dat
+  231  gcc transform_image_gen.c -o transform_image_gen.out -lm
+  232  gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+  233  cat ./Programs/niveau ./Data/image1_without_lc.dat | ./Programs/transform_image_gen.out > image_gen.dat
+  234  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > image_gen.dat
+  235  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Data/image_gen.dat
+  236  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Data/image1_gen.dat
+  237  gcc ./Programs/transform_image_gen.c -o ./Programs/transform_image_gen.out -lm
+  238  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Data/image1_gen.dat
+  239  cat > ./Programs/niveau
+  240  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_0.res
+  241  cat < ./Test/test_0.res 
+  242  cat > ./Programs/niveau
+  243  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_4.res
+  244  cat < ./Test/test_4.res 
+  245  cat > ./Programs/niveau
+  246  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_2.res
+  247  cat < ./Test/test_2.res 
+  248  cat > ./Programs/niveau
+  249  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_15.res
+  250  cat < ./Test/test_15.res 
+  251  cat > ./Programs/niveau
+  252  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_32.res
+  253  cat < ./Test/test_32.res 
+  254  cat > ./Programs/niveau
+  255  cat ./Programs/niveau ./Data/image1.dat | ./Programs/transform_image_gen.out > ./Test/test_260.res
+  256  cat < ./Test/test_260.res 
+  257  tar -cvf GIBERT_ALEXIS_TP_IMAGE.tar GIBERT_Alexis_TP_IMAGE
+  258  tar -cvf GIBERT_ALEXIS_TP_IMAGE.tar GIBERT_ALEXIS_TP_IMAGE
+  259  date
+  260  cd..
+  261  cd ..
+  262  sudo apt install anaconda
+  263  sudo apt-get install anaconda
+  264  cd Downloads/
+  265  sudo apt install anaconda
+  266  sudo apt-get install anaconda
+  267  sudo install Anaconda3-2022.10-Linux-x86_64.sh 
+  268  sudo apt install Anaconda3-2022.10-Linux-x86_64.sh 
+  269*  Anaconda3-2022.10-Linux-x86_64.sh 
+  270  cat > Anaconda3-2022.10-Linux-x86_64.sh 
+  271  cat Anaconda3-2022.10-Linux-x86_64.sh 
+  272  cd /tmp
+  273  curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+  274  sudo apt install curl
+  275  curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+  276  sha256sum Anaconda3-5.2.0-Linux-x86_64.sh
+  277  bash Anaconda3-5.2.0-Linux-x86_64.sh
+  278  jupyter notebook
+  279  sudo apt install jupyter
+  280  jupyter notebook
+  281  cd ..
+  282  date
+  283  cd ~
+  284  ls
+  285  cd TPC
+  286  ls
+  287  cd GIBERT_ALEXIS_TP_IMAGE/
+  288  cat < ./Data/image1_gen.dat 
+  289  cat < ./Test/test_0.res 
+  290  cd ..
+  291  ls
+  292  ls -a
+  293  man ls
+  294  ls -l
+  295  tree
+  296  ls -r
+  297  ls -R
+  298  mkdir GIBERT_ALEXIS_MODULE_IMAGE
+  299  ls
+  300  cd GIBERT_ALEXIS_MODULE_IMAGE/
+  301  mkdir Data
+  302  mkdir Test
+  303  ls
+  304  tar -xvf MODULE_IMAGE_V0.tar
+  305  cd ..
+  306  date
+  307  ls -R
+  308  cd GIBERT_ALEXIS_MODULE_IMAGE/
+  309  ls
+  310  cd MODULE_IMAGE/
+  311  make mon_module_image.out
+  312  ls
+  313  sudo apt-get install http://pandoc.org/installing.html
+  314  sudo dpkg -i $DEB
+  315  cd /
+  316  sudo dpkg -i $DEB
+  317  cd ~/Downloads/
+  318  sudo dpkg -i $DEB
+  319  ls
+  320  sudo dpkg -i pandoc-2.19.2-1-amd64.deb 
+  321  tar xvzf pandoc-2.19.2-linux-amd64.tar.gz --strip-components 1 -C ./~/.local
+  322  tar xvzf pandoc-2.19.2-linux-amd64.tar.gz --strip-components 1 -C ~/.local/
+  323  ar p pandoc-2.19.2-linux-amd64.tar.gz data.tar.gz | tar xvz --strip-components 2 -C ~/.local
+  324  ar p pandoc-2.19.2-1-amd64.deb data.tar.gz | tar xvz --strip-components 2 -C ~/.local
+  325  apt-get install texlive
+  326  sudo apt-get install texlive
+  327  sudo apt-get install haskell-platform
+  328  ./mon_module_image.out
+  329  cd ..
+  330  cd TPC/GIBERT_ALEXIS_MODULE_IMAGE/
+  331  ls
+  332  cd MODULE_IMAGE/
+  333  ./mon_module_image.out
+  334  make clean
+  335  ls
+  336  cd ..
+  337  cp MODULE_IMAGE MODULE_IMAGE_V0
+  338  mv MODULE_IMAGE MODULE_IMAGE_V0
+  339  ls
+  340  cp MODULE_IMAGE_V0 ./MODULE_IMAGE_V1
+  341  cp MODULE_IMAGE_V0 /MODULE_IMAGE_V1
+  342  cp MODULE_IMAGE_V0 MODULE_IMAGE_V1
+  343  cd ..
+  344  cp ./GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V0 ./GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1
+  345  cd GIBERT_ALEXIS_MODULE_IMAGE/
+  346  cp -r MODULE_IMAGE_V0 MODULE_IMAGE_V1
+  347  ls
+  348  cd MODULE_IMAGE_V1
+  349  ls
+  350  mv ferrane_module_image.c gibert_module_image.c
+  351  mv ferrane_module_image.h gibert_module_image.h
+  352  rm mon_module_image.out 
+  353  ls
+  354  make mon_module_image.out
+  355  cat Makefile 
+  356  sudo apt-get install nano
+  357  nano Makefile 
+  358  make mon_module_image.out
+  359  nano gibert_module_image.c
+  360  make mon_module_image.out
+  361  nano gibert_module_image.c
+  362  nano gibert_module_image.h
+  363  make mon_module_image.out
+  364  rm mon_module_image.out 
+  365  ls
+  366  rm mon_module_image.o 
+  367  make mon_module_image.out
+  368  nano main.c
+  369  make mon_module_image.out
+  370  ls
+  371  cd ..
+  372  ls -r
+  373  ls -R
+  374  ls -d
+  375  ls -Rd
+  376  ls -F
+  377  ls -RF
+  ...
+  409  cd GIBERT_ALEXIS_MODULE_IMAGE/
+  410  ls
+  411  cd MODULE_IMAGE_V0
+  412  cd ..
+  413  ls
+  414  mv ./GIBERT_ALEXIS_TP_IMAGE/NOTEBOOK_TP_IMAGE_GIBERT_ALEXIS.ipynb ~/TPC
+  415  ls
+  416  GIBERT_ALEXIS_TP_IMAGE/
+  417  cd GIBERT_ALEXIS_TP_IMAGE/
+  418  ls
+  419  mv ./Programs/** ~/TPC/GIBERT_ALEXIS_TP_IMAGE
+  420  ls
+  421  rm Programs/
+  422  rmdir Programs/
+  423  mv ./Pictures ~/TPC
+  424  ls
+  425  cd ..
+  426  ls
+  427  mv ./*.jpg ./Pictures/
+  428  ls
+  429  ls -R [GIBERT_ALEXIS]
+  430  ls -R [GIBERT_ALEXIS]*
+  431  ls -R
+  432  ls -Rd
+  433  ls -d
+  434  ls -dR
+  435  ls -R -d
+  436  history
+\end{verbatim}
+
+    \subsection{MODULE MODULE\_IMAGE\_V1}\label{module-module_image_v1}
+
+\textbf{COPIER-COLLER ICI}
+
+\subsubsection{~(a) le résultat de la commande
+date}\label{a-le-ruxe9sultat-de-la-commande-date}
+
+\subsubsection{(b) le code source du programme fichier .c et
+.h}\label{b-le-code-source-du-programme-fichier-.c-et-.h}
+
+Première version du fichier \texttt{gibert\_module\_image.c} :
+
+\begin{figure}
+\centering
+\includegraphics{attachment:TP_IMAGE_NANO9.jpg}
+\caption{TP\_IMAGE\_NANO9.jpg}
+\end{figure}
+
+\paragraph{\texorpdfstring{Problème lié a la déclaration \texttt{int} à
+l'intérieur de la boucle
+\texttt{for}}{Problème lié a la déclaration int à l'intérieur de la boucle for}}\label{probluxe8me-liuxe9-a-la-duxe9claration-int-uxe0-lintuxe9rieur-de-la-boucle-for}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+main.c: In function ‘main’:
+main.c:15:2: error: C++ style comments are not allowed in ISO C90
+   15 |  //lecture sur l'entréee standard
+      |  ^
+main.c:15:2: note: (this will be reported only once per input file)
+main.c:16:10: error: redeclaration of ‘i’ with no linkage
+   16 |  for(int i=0;i<10;i++) scanf("%d",&tab_niveau[i]);
+      |          ^
+main.c:13:10: note: previous declaration of ‘i’ was here
+   13 |  int res,i;
+      |          ^
+main.c:16:2: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   16 |  for(int i=0;i<10;i++) scanf("%d",&tab_niveau[i]);
+      |  ^~~
+main.c:16:2: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+make: *** [Makefile:8: main.o] Error 1
+\end{verbatim}
+
+\begin{quote}
+\textbf{Solution :} Le Makefile semble rétissant a la déclaration à
+l'intérieur de boucle. Même si c'est moins optimisé, il m'a donc fallut
+monter la déclaration au niveau des déclations générales de la fonction.
+\end{quote}
+
+\paragraph{Problème lié aux
+commentaires}\label{probluxe8me-liuxe9-aux-commentaires}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+main.c: In function ‘main’:
+main.c:15:2: error: C++ style comments are not allowed in ISO C90
+   15 |  //lecture sur l'entréee standard
+      |  ^
+main.c:15:2: note: (this will be reported only once per input file)
+make: *** [Makefile:8: main.o] Error 1
+\end{verbatim}
+
+\begin{quote}
+\textbf{Solution :} Le Makefile est rétissant au commentaires monoligne
+avec la syntaxe \texttt{//}. Ainsi, pour mettre des commentaires il
+\textgreater{}faut donc obligatoirement précéder le commentaire de
+\texttt{/*} et le terminer par \texttt{*/}
+\end{quote}
+
+\paragraph{\texorpdfstring{Problème lié au \texttt{log2()} contenu dans
+la bibliothèque
+\texttt{math.h}}{Problème lié au log2() contenu dans la bibliothèque math.h}}\label{probluxe8me-liuxe9-au-log2-contenu-dans-la-bibliothuxe8que-math.h}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -o main.o -c main.c -W -Wall -ansi -pedantic
+gcc -o mon_module_image.out mon_module_image.o main.o
+/usr/bin/ld: mon_module_image.o: in function `afficher_image_codee':
+gibert_module_image.c:(.text+0x55): undefined reference to `log2'
+/usr/bin/ld: gibert_module_image.c:(.text+0x66): undefined reference to `log2'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:2: mon_module_image.out] Error 1
+\end{verbatim}
+
+\textbf{Test 1 :} J'ai utilisé la commande
+\texttt{sudo\ apt-get\ update} puis la commande
+\texttt{sudo\ apt-get\ upgrade} pour mettre a jour tous les packages sur
+Ubuntu.
+
+\begin{quote}
+\textbf{Résultat :} La même erreur survient.
+\end{quote}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -o mon_module_image.out mon_module_image.o main.o
+/usr/bin/ld: mon_module_image.o: in function `afficher_image_codee':
+gibert_module_image.c:(.text+0x55): undefined reference to `log2'
+/usr/bin/ld: gibert_module_image.c:(.text+0x66): undefined reference to `log2'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:2: mon_module_image.out] Error 1
+\end{verbatim}
+
+\textbf{Test 2 (Solution) :} Après avoir analysé le Makefile et les
+différentes options j'ai compris que l'erreur venait - de l'option
+\texttt{-lm} a rajouter dans les fichiers nécessitant la librairie
+math.h - de l'option \texttt{-ansi} puisque elle force le standard "c89"
+alors que la fonction \texttt{log2()} appartient au standard "c99"
+
+ainsi il faut modifier le makefile de la manière suivante :
+
+\begin{verbatim}
+  GNU nano 4.8                                  Makefile                                             
+mon_module_image.out: mon_module_image.o main.o
+        gcc -o mon_module_image.out mon_module_image.o main.o -lm -std=c99
+
+mon_module_image.o: gibert_module_image.c
+        gcc -lm -std=c99 -c gibert_module_image.c -o mon_module_image.o -W -Wall -pedantic
+
+main.o: main.c gibert_module_image.h
+        gcc -o main.o -c main.c -std=c99 -W -Wall -pedantic
+
+clean:
+        rm -rf *.o
+\end{verbatim}
+
+\textbf{Soit le code source final du fichier
+\texttt{gibert\_module\_image.c} :}
+
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "gibert_module_image.h"
+
+/* AUTEUR : ALEXIS GIBERT                       */
+/* DATE CREATION : 30/10/2022                      */
+/*-------------------------------------------------*/
+
+/* DEFINITIONS DES FONCTIONS déclarées dans le .h */
+
+void test_prog(void)
+{
+    printf("TEST DU MODULE : GIBERT_MODULE_IMAGE\n");
+}
+
+int afficher_image_codee(int niveau){
+  int nbl,nbc,pxlc=0,i,j;
+  if(niveau<256){
+    if((int)log2(niveau)==log2(niveau)){
+      scanf("%d",&nbl);
+      scanf("%d",&nbc);
+      for(i=0;i<nbl;i++){
+        for(j=0;j<nbc;j++){
+          scanf("%d",&pxlc);
+          printf("%5d",((pxlc*niveau)/256));
+        }
+        printf("\n\r");
+      }
+    }
+    else return 0;
+  }
+  else return -1;
+  return 1;
+}
+\end{verbatim}
+
+\textbf{Soit le code source final du fichier
+\texttt{gibert\_module\_image.h} :}
+
+\begin{verbatim}
+#ifndef MODULE_IMAGE_H_INCLUS     /*--  Inclusion conditionnelle --> si pas déjà inclus           */
+#define MODULE_IMAGE_H_INCLUS     /*--  alors créer la constante symbolique MODULE_IMAGE_H_INCLUS */
+
+/* AUTEUR : ALEXIS GIBERT                       */
+/* DATE CREATION : 30/10/2022                      */
+/*-------------------------------------------------*/
+
+/* DECLARATIONS DES FONCTIONS */
+
+void test_prog(void);
+int afficher_image_codee(int niveau);
+
+#endif
+\end{verbatim}
+
+\textbf{Soit le code source final du fichier \texttt{main.c} :}
+
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "gibert_module_image.h"
+
+/* AUTEUR : GIBERT ALEXIS                       */
+/* DATE CREATION : 30/10/2022                      */
+/*-------------------------------------------------*/
+
+int main(void)
+{
+    int niveau,res;
+
+    scanf("%d",&niveau);
+
+    printf("\n\rTest avec niveau [%d]\n\r",niveau);
+    res=afficher_image_codee(niveau);
+    if(res==-1) printf("Erreur 1 : le niveau de gris est supérieur à 256\n\r");
+    else if(res==0) printf("Erreur 2 : le niveau de gris n’est pas une puissance de 2\n\r");
+    else if(res==1) printf("Traitement effectué\n\r");
+    else printf("Erreur 3 : Valeur inconnue renvoyée par la fonction\n\r");
+    return EXIT_SUCCESS;
+}
+\end{verbatim}
+
+\subsubsection{(c) la compilation et son
+résultat}\label{c-la-compilation-et-son-ruxe9sultat}
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ make mon_module_image.out
+gcc -lm -std=c99 -c gibert_module_image.c -o mon_module_image.o -W -Wall -pedantic
+gcc -o main.o -c main.c -std=c99 -W -Wall -pedantic
+gcc -o mon_module_image.out mon_module_image.o main.o -lm -std=c99
+\end{verbatim}
+
+\subsubsection{(d) les résultats des tests
+effectués}\label{d-les-ruxe9sultats-des-tests-effectuuxe9s}
+
+Après déplacement du fichier \texttt{image1.dat} dans le répertoire
+\texttt{\textasciitilde{}/TPC/GIBERT\_ALEXIS\_MODULE\_IMAGE/Data/image1.dat}
+on obtient les résultats suivants :
+
+\begin{verbatim}
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat save ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [0]
+Erreur 2 : le niveau de gris n’est pas une puissance de 2
+
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat niveau ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [2]
+    0    0    0    0    0    0    0    0
+    0    0    0    0    0    1    1    0
+    0    0    0    0    1    1    0    0
+    0    0    0    0    0    1    1    0
+    0    0    0    0    0    1    0    0
+    0    0    0    0    0    1    0    0
+    0    0    0    0    1    1    1    0
+    0    0    0    0    0    0    0    0
+Traitement effectué
+
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat niveau ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [4]
+    0    0    0    0    0    0    0    0
+    0    0    0    0    0    2    2    0
+    0    0    0    0    2    2    0    0
+    0    0    0    0    0    2    2    0
+    0    1    0    0    0    2    0    0
+    0    1    0    0    0    2    0    0
+    0    1    1    0    2    2    2    0
+    0    0    0    0    0    0    0    0
+Traitement effectué
+
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat niveau ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [15]
+Erreur 2 : le niveau de gris n’est pas une puissance de 2
+
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat niveau ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [32]
+    0    0    0    0    0    0    0    0
+    0    4    4    0    0   18   18    0
+    0    4    4    0   18   18    0    0
+    0    0    0    0    0   18   18    0
+    0   11    0    0    0   21    0    0
+    0   11    0    0    0   21    0    0
+    0   11   11    0   21   21   21    0
+    0    0    0    0    0    0    0    0
+Traitement effectué
+
+alexis@alexis-VirtualBox:~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/MODULE_IMAGE_V1$ cat niveau ~/TPC/GIBERT_ALEXIS_MODULE_IMAGE/Data/image1.dat | ./mon_module_image.out
+
+Test avec niveau [260]
+Erreur 1 : le niveau de gris est supérieur à 256
+\end{verbatim}
+
+    
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

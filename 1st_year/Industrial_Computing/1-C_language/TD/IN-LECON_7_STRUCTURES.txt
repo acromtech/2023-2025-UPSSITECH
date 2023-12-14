@@ -1,0 +1,74 @@
+//Exercice 1
+
+typedef struct membreFamille
+{
+   char nom[20];
+   char prenom[20];
+   int age;
+   struct membreFamille *ptr_pere, *ptr_mere;
+}st_famille;
+
+int main()
+{
+    st_famille pere_1={
+        .nom="X",
+        .prenom="ARTHUR",
+        .age=35,
+        NULL,
+        NULL
+    };
+    st_famille mere_1={
+        .nom="Y",
+        .prenom="EGLANTINE",
+        .age=30,
+        NULL,
+        NULL
+    };
+    st_famille enfant_1={
+        .nom="X",
+        .prenom="TOTO",
+        .age=10,
+        &pere_1,
+        &mere_1
+    };
+}
+----------------------------------------------------------------------------------------
+//Exercice 2
+
+typedef struct st_enfants
+{
+   char nom[20];
+   char prenom[20];
+   int age;
+   struct st_enfants *enfant;
+}st_famille;
+
+int main()
+{
+    st_famille enfant_1={
+        .nom="X",
+        .prenom="TOTO",
+        .age=10,
+        NULL
+    };
+    st_famille pere_1={
+        .nom="X",
+        .prenom="ARTHUR",
+        .age=35,
+        &enfant_1
+    };
+    st_famille mere_1={
+        .nom="Y",
+        .prenom="EGLANTINE",
+        .age=30,
+        &enfant_1
+    };
+---------------------------------------------------------------------------------
+//Exercice 3
+
+    pere_1.prenom[0]="ALPHONSE"; //on repart de la case 0 pour écraser l'ancien prenom
+    pere_1.age=25;
+    
+    mere_1.prenom[0]="MARGUERITE"; //on repart de la case 0 pour écraser l'ancien prenom
+    mere_1.age=25;
+}
