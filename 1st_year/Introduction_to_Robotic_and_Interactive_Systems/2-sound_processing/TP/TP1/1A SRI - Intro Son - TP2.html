@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0082)https://moodle.univ-tlse3.fr/pluginfile.php/619618/mod_resource/content/4/TP2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1A SRI - Intro Son - TP2</title>
+</head>
+
+<body>
+<h1 style="text-align: center;">1A SRI</h1>
+<h1 style="text-align: center;">Introduction au Son : TP2</h1><br>
+
+
+<h2>I. Décomposition en fréquences d'un fichier audio</h2>
+
+<h3>1. Génération d'un signal</h3>
+La première partie de ce TP consiste à produire un signal comportant des notes de musique.<br>
+Le signal à générer consistera en la séquence : [Silence] [DO3] [Silence] [MI3] [Silence] [SOL3] [Silence] [DO4] [Silence].<br>
+Ceci est une arpège de la gamme naturelle en Do majeur.<br>
+
+<p class="MsoNormal" style="text-align: justify;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>* Un [Silence] sera une séquence de 100 ms.</p>
+<p class="MsoNormal" style="text-align: justify;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>* Un [DO3] sera une séquence d'1 seconde durant laquelle le signal représente une sinusoïde de fréquence 262 Hz.</p>
+<p class="MsoNormal" style="text-align: justify;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>* Un [MI3] sera une séquence d'1 seconde durant laquelle le signal représente une sinusoïde de fréquence 330 Hz.</p>
+<p class="MsoNormal" style="text-align: justify;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>* Un [SOL3] sera une séquence d'1 seconde durant laquelle le signal représente une sinusoïde de fréquence 392 Hz.</p>
+<p class="MsoNormal" style="text-align: justify;"><span style="">&nbsp;&nbsp;&nbsp;
+</span>* Un [DO4] sera une séquence d'1 seconde durant laquelle le signal représente une sinusoïde de fréquence 523 Hz.</p>
+
+Générer un signal S décrivant cette mélodie, à raison de 8000 échantillons par seconde.<br><br>
+
+<h3>2. Calcul du spectrogramme</h3>
+
+Ecrire une fonction qui calcule le spectrogramme de S sur des fenêtres glissantes de w=1024 échantillons avec un pas p=512 échantillons. <br><br>
+
+Afficher le résultat en représentant bien les hautes fréquences sur le haut du graphique.<br><br>
+
+Tester d'autres valeurs de w et de p. Interpréter leur rôle et conclure.<br>
+
+<img alt="Spectrogramme de quatre notes" src="./1A SRI - Intro Son - TP2_files/spectroS.png" style="width: 430px; height: 243px;"><br>
+
+
+<h2>II. Triangle vocalique (optionnel)</h2>
+
+<h3>1. Enregistrement de signaux sonores</h3>
+
+Utiliser par exemple le programme wavesurfer pour enregistrer :
+<ul>
+<li>la phrase suivante : "A proximité d'un petit château nous avons trouvé des châtaignes",</li>
+<li>une phrase de votre cru (essayer de choisir une phrase équilibrée du point de vue des voyelles, une phrase contenant au moins les trois voyelles : a i u).</li>
+</ul>
+
+<h3>2. Etude des spectrogrammes</h3>
+En vous aidant du spectrogramme (le vôtre ou celui de wavesurfer), localiser les voyelles et extraire les deux premiers formants de chacune d'elles.<br><br>
+
+Tracer votre triangle vocalique (cf. ci-dessous). Conclure.<br><br>
+
+<img alt="Triangle vocalique théorique" src="./1A SRI - Intro Son - TP2_files/triangle_vocalique.png" style="width: 358px; height: 250px;">
+
+
+
+</body></html>
