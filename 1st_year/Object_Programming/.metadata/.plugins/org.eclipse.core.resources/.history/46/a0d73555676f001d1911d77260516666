@@ -1,0 +1,71 @@
+package src;
+
+public class MyCustomSortedSet extends MyCustomSet{
+	//Attributes
+
+	//Constructor
+	public MyCustomSortedSet() {
+		super();
+	}
+	
+	public MyCustomSortedSet(MyCustomSortedSet m) {
+		for(int i=0;i<m.size();i++) this.Liste.add(m.get(i));
+	}
+	
+	//Methods
+	public void add(int x) {
+		int i;
+		if(!Liste.contains(x)) {
+			if(Liste.size()==0)Liste.add(x);
+			else if(Liste.size()>0) {
+				for(i=0;i<Liste.size();i++) {
+					if(Liste.get(i)>x) {
+						Liste.add(i,x);
+						return;
+					}
+				}
+				Liste.add(x);
+			}
+		}
+	}
+	public MyCustomSet union(MyCustomSet e) {
+		MyCustomSet r = new MyCustomSet();
+		for(int i=0;i<this.size();i++)r.add(this.get(i));
+		for(int i=0;i<e.size();i++)r.add(e.get(i));
+		return r;
+	}
+	public MyCustomSet intersection(MyCustomSet e) {
+		MyCustomSet r = new MyCustomSet();
+		for(int i=0;i<e.size();i++)
+			if(this.contains(e.get(i)))
+				r.add(e.get(i));
+		return r;
+	}
+	public MyCustomSet difference(MyCustomSet e) {
+		MyCustomSet r = new MyCustomSet();
+		for(int i=0;i<e.size();i++)
+			if(!this.contains(e.get(i)))
+				r.add(e.get(i));
+		return r;
+	}
+	public boolean subset(MyCustomSet e) {
+		int i,cpt=0;
+		if(e.size()<=this.size())
+			for(i=0;i<this.size();i++)
+				if(this.contains(e.get(i)))
+					cpt++;
+		return(cpt==e.size());
+	}
+	public int nearest(int x) {
+		int a=this.get(0);
+		int b=this.get(this.size());
+		int m=(b-a)/2;
+		while(b>a) {
+			if(x<this.get(m)) b=m;
+			else if(x>this.get(m)) a=m;
+		}
+		if((x-a)>(x-b)) return b;
+		else return a;
+	}
+	
+}

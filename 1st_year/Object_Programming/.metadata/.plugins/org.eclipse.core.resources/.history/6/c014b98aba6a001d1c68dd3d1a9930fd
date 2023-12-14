@@ -1,0 +1,20 @@
+package src;
+
+public class AGENDA{
+	//attributs
+	AGENDA agenda;
+	DATE date;
+	HORAIRE horaire;
+	RDV rdv;
+	
+	//constructeur
+	public AGENDA(AGENDA agenda) {
+		this.rdv=agenda.rdv;
+	}
+	
+	//methodes
+	public void ajoutRDV() {
+		RDV rdv=new RDV(this.rdv);
+		this.rdv=rdv;
+	}
+}

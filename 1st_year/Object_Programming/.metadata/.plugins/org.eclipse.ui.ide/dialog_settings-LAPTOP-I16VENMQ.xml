@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\POO-TP3-LES_ENSEMBLES_TRIES\TP3"/>
+			<item value="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\POO-TP2-UN_AGENDA\TP2\.settings"/>
+			<item value="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\POO-TP2-UN_AGENDA"/>
+			<item value="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\EXERCICE_FINAL"/>
+			<item value="C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\POO-TP2-UN_AGENDA\TP2"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.ui.wizards.new.project"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.buildship.ui.creationwizards"/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

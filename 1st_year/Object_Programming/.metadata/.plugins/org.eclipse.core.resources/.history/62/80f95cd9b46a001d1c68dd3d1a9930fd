@@ -1,0 +1,74 @@
+package src;
+
+public class RDV {
+	//attributs
+	DATE date;
+	HORAIRE horaire;
+	String nom;
+	
+	//constructeurs
+	public RDV(DATE date, HORAIRE horaire, String nom) throws ExceptionTP2{
+		
+		this.date.annee=date.annee;
+		this.date.mois=date.mois;
+		this.date.jour=date.jour;
+		
+		this.horaire.heure=horaire.heure;
+		this.horaire.minute=horaire.minute;
+		
+		this.nom=nom;
+	}
+	public RDV(RDV rdv) {
+		this.date.annee=rdv.date.annee;
+		this.date.mois=rdv.date.mois;
+		this.date.jour=rdv.date.jour;
+		
+		this.horaire.heure=rdv.horaire.heure;
+		this.horaire.minute=rdv.horaire.minute;
+		
+		this.nom=rdv.nom;
+	}
+	//methodes
+	public boolean apres(RDV rdv) {
+		return(this.date.annee>date.annee
+				|| (this.date.annee==rdv.date.annee && this.date.mois>rdv.date.mois)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour>rdv.date.jour)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure>rdv.horaire.heure)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure==rdv.horaire.heure && this.horaire.minute>rdv.horaire.minute));
+	}
+	public boolean equals(RDV rdv) {
+		return (this.date.annee==rdv.date.annee 
+				&& this.date.mois==rdv.date.mois 
+				&& this.date.jour==rdv.date.jour
+				&& this.horaire.heure==rdv.horaire.heure
+				&& this.horaire.minute==rdv.horaire.minute
+				&& this.nom==rdv.nom);
+	}
+	public DATE getDate() {
+		return this.date;
+	}
+	public HORAIRE getHoraire() {
+		return this.horaire;
+	}
+	public String getNom() {
+		return this.nom;
+	}
+	public void setDate(DATE date) {
+		this.date.annee=date.annee;
+		this.date.mois=date.mois;
+		this.date.jour=date.jour;
+	}
+	public void setHoraire(HORAIRE horaire) {
+		this.horaire.heure=horaire.heure;
+		this.horaire.minute=horaire.minute;
+	}
+	public void setNom(String nom) {
+		this.nom=nom;
+	}
+	public String ToString() {
+		String rdv="Rendez-vous pr�vu le "+this.date.annee+"/"+this.date.mois+"/"+this.date.annee
+				+" a "+this.horaire.heure+"h"+this.horaire.minute
+				+" au nom de "+this.nom;
+		return rdv;
+	}
+}

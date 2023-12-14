@@ -1,0 +1,14 @@
+package src;
+
+public class AGENDA implements RDV{
+	//attributs
+	AGENDA agenda;
+	
+	//constructeur
+	public AGENDA(AGENDA agenda) {
+		this.agenda=agenda;
+	}
+	
+	//methodes
+	public ajoutRDV
+}

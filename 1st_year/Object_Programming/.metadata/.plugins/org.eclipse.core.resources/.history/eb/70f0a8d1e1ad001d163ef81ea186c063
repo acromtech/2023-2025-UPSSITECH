@@ -1,0 +1,27 @@
+package modele;
+
+public class FabriqueAliment {
+
+	public static Aliment creerProfil(Menu typeAliment, String nom) {
+
+		switch (typeAliment) {
+		case HAMBURGER:
+
+			Aliment hamburger = new Hamburger(nom);
+			typeAliment.ajouterAliment(hamburger);
+			return hamburger;
+
+		case ACCOMPAGNEMENT:
+
+			Aliment accompagnement = new Accompagnement(nom);
+			typeAliment.ajouterAliment(accompagnement);
+			return accompagnement;
+
+		default: //BOISSON
+
+			Aliment boisson = new Boisson(nom);
+			typeAliment.ajouterAliment(boisson);
+			return boisson;
+		}
+	}
+}

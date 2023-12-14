@@ -1,0 +1,16 @@
+package modele;
+
+import controleur.ControlCreerProfil;
+import vueconsole.Clavier;
+
+public class BoundaryCreerProfilGerant {
+	ControlCreerProfil controlCreerProfil;
+	public BoundaryCreerProfilGerant(){}
+	public void creerProfilGerant() {
+		Clavier scanner;
+		String nom=scanner.entrerClavierString();
+		String prenom=scanner.entrerClavierString();
+		String mdp=scanner.entrerClavierString();
+		controlCreerProfil.creerProfil(ProfilUtilisateur.GERANT,nom,prenom,mdp);
+	}
+}

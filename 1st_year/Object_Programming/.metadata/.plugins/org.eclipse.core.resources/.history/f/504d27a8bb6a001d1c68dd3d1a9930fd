@@ -1,0 +1,38 @@
+package src;
+
+public class AGENDA{
+	//attributs
+	AGENDA agenda;
+	DATE date;
+	HORAIRE horaire;
+	RDV rdv;
+	
+	//constructeur
+	public AGENDA(AGENDA agenda) {
+		this.rdv=agenda.rdv;
+	}
+	
+	//methodes
+	public void ajoutRDV() {
+		RDV rdv=new RDV(this.rdv);
+		this.rdv=rdv;
+	}
+	public RDV getRDVParDateEtHeure(DATE date,HORAIRE horaire) {
+		RDV rdv=new RDV(this.rdv);
+		rdv.date=this.rdv.date;
+		rdv.horaire=this.rdv.horaire;
+		return(rdv);
+	}
+	public RDV getRDVParNom(String nom) {
+		
+	}
+	public void supprimeRDVParDateEtHeure(DATE date, HORAIRE horaire) {
+		
+	}
+	public void supprimeRDVParNom(String nom) {
+		
+	}
+	public String ToString() {
+		
+	}
+}

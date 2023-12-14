@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\agib3\OneDrive\2022-2023-UPSSITECH_1A\PROGRAMMATION_ORIENTEE_OBJET\.metadata\.plugins\org.eclipse.jdt.core
+2497237714.index
+3516222639.index
+3108431294.index
+1865797976.index

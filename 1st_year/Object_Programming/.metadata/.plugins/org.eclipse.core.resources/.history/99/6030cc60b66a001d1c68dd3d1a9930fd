@@ -1,0 +1,81 @@
+package src;
+
+public class DATE {
+	//attributs
+	protected int jour;
+	protected int mois;
+	protected int annee;
+	
+	//constructeurs
+	public DATE(int jour,int mois,int annee) throws ExceptionTP2{
+		if(!jourExiste(jour,mois,annee))throw new ExceptionTP2(0);
+		this.jour=jour;
+		this.mois=mois;
+		this.annee=annee;
+	}
+	
+	public DATE(DATE date) {
+		this.jour=date.jour;
+		this.mois=date.mois;
+		this.annee=date.annee;
+	}
+	
+	//methodes
+	public boolean annee29J(int annee) {
+		if(annee%400==0)return true;
+		else if(annee%100==0)return false;
+		else if (annee%4==0)return true;
+		else return true;
+	}
+	public boolean jourExiste(int jour, int mois, int annee) {
+		return(((mois==1 || mois==3 || mois==5 || mois==7 || mois==8 || mois==10 || mois==12) && jour<=31)
+				|| ((mois==4 || mois==6 || mois==9 || mois==11) && jour<=30)
+				|| (mois==2 && annee29J(annee) && jour<=29)
+				|| (mois==2 && !annee29J(annee) && jour<=28));
+	}
+	
+	public boolean apres(DATE date) {
+		return(this.annee>date.annee 
+				|| (this.annee==date.annee && this.mois>date.mois)
+				|| (this.annee==date.annee && this.mois==date.mois && this.jour>date.jour));
+	}
+	public boolean equals(DATE date) {
+		return (this.annee==date.annee 
+				&& this.mois==date.mois 
+				&& this.jour==date.jour);
+	}
+	public DATE jourSuivant(){
+		DATE date=new DATE(this);
+		if(jourExiste(date.jour+1,date.mois,date.annee))date.jour+=1;
+		else if(jourExiste(1,date.mois+1,date.annee)){
+			date.jour=1;
+			date.mois+=1;
+		}
+		else {
+			date.jour=1;
+			date.mois=1;
+			date.annee+=1;
+		}
+		return date;
+	}
+	public DATE moisSuivant() throws ExceptionTP2 {
+		DATE date=new DATE(this);
+		if(jourExiste(date.jour,date.mois+1,date.annee))date.mois+=1;
+		else if(jourExiste(date.jour,1,date.annee+1)){
+			date.mois=1;
+			date.annee+=1;
+		}
+		else throw new ExceptionTP2(0); //Ce jour n'existe pas le mois suivant
+		return date;
+	}
+	public DATE anneeSuivante() throws ExceptionTP2 {
+		DATE date=new DATE(this);
+		if(jourExiste(date.jour,date.mois,date.annee+1))date.annee+=1;
+		else throw new ExceptionTP2(0); //Ce jour n'existe pas l'annee suivante
+		return date;
+	}
+	public String ToString(){
+		String date=this.jour+"/"+this.mois+"/"+this.annee;
+		return date;
+	}
+}

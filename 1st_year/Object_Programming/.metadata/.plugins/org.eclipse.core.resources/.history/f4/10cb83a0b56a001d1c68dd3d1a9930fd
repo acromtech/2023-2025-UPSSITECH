@@ -1,0 +1,33 @@
+package src;
+
+public class HORAIRE {
+	//attributs
+	protected int heure;
+	protected int minute;
+	
+	//constructeurs
+	public HORAIRE (int heure, int minute) throws ExceptionTP2 {
+		if(heure<0 || heure>23 || minute<0 || minute>59) {
+			throw new ExceptionTP2(0); // code 0 = horaire invalide
+		}
+		this.heure = heure;
+		this.minute = minute;
+	}
+	
+	public HORAIRE(HORAIRE horaire) {
+		this.heure = horaire.heure;
+		this.minute = horaire.minute;
+	}
+	
+	//methodes
+	public boolean apres(HORAIRE horaire) {
+		return(this.heure>horaire.heure 
+				|| (this.heure==horaire.heure && this.minute==horaire.minute));
+	}
+	public boolean equals(HORAIRE horaire) {
+		return (this.heure==horaire.heure && this.minute==horaire.minute);
+	}
+	public String ToString(){
+		return (this.heure+"h"+this.minute);
+	}
+}

@@ -1,0 +1,18 @@
+package controleur;
+
+import modele.*;
+
+public class ControlAjouterAlimentMenu {
+	private Menu menu;
+	
+	public ControlAjouterAlimentMenu(Menu menu) {
+		this.menu = menu;
+	}
+	
+	public boolean verifierIdentification(ProfilUtilisateur profilUtilisateur, int numeroProfil) {
+		return();
+	}
+	public void ajouterAliment(AlimentMenu typeAliment, String nom) {
+		this.menu.ajouterAliment(creerAliment(typeAliment,nom));
+	}
+}

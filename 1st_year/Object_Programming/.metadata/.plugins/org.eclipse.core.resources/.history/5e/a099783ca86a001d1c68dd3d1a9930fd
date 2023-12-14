@@ -1,0 +1,81 @@
+package src;
+
+public class DATE {
+	//attributs
+	protected int jour;
+	protected int mois;
+	protected int annee;
+	
+	//constructeurs
+	public DATE(int jour,int mois,int annee) throws ExceptionTP2{
+		if(		anneeBissextile(annee) && 	(((jour<0 || jour>29) && mois==2) 
+											|| (jour<1 || jour>31 || mois<1 || mois>12 || annee<0))
+			|| !anneeBissextile(annee) && (((jour<0 || jour>28) && mois==2) 
+											|| (jour<1 || jour>31 || mois<1 || mois>12 || annee<0)))
+			throw new ExceptionTP2(0);
+		
+		this.jour=jour;
+		this.mois=mois;
+		this.annee=annee;
+	}
+	
+	public DATE(DATE date) {
+		this.jour=date.jour;
+		this.mois=date.mois;
+		this.annee=date.annee;
+	}
+	
+	//methodes
+	public boolean anneeBissextile(int annee) {
+		if(annee%400==0)return true;
+		else if(annee%100==0)return false;
+		else if (annee%4==0)return true;
+		else return true;
+	}
+	
+	public boolean apres(DATE date) {
+		if(this.annee>date.annee)return true;
+		else if(this.annee==date.annee)
+			if(this.mois>date.mois) return true;
+			else if(this.mois==date.mois) return (this.jour==date.jour);
+			else return false;
+		else return false;
+	}
+	public boolean equals(DATE date) {
+		return (this.annee==date.annee 
+				&& this.mois==date.mois 
+				&& this.jour==date.jour);
+	}
+	public DATE jourSuivant(){
+		DATE date=new DATE();
+		if(anneeBissextile(date.annee)) { // a modifier
+			date.jour=this.jour+1;
+			date.mois=this.mois;
+			date.annee=this.annee;
+		}
+		else { // a modifier
+			date.jour=this.jour+1;
+			date.mois=this.mois;
+			date.annee=this.annee;
+		}
+		return date;
+	}
+	public DATE moisSuivant() {
+		DATE date=new date;
+		date.jour=this.jour;
+		date.mois=this.mois+1;
+		date.annee=this.annee;
+		return date;
+	}
+	public DATE anneeSuivante() {
+		DATE date=new date;
+		date.jour=this.jour;
+		date.mois=this.mois;
+		date.annee=this.annee+1;
+		return date;
+	}
+	public String ToString(){
+		String date=this.jour+"/"+this.mois+"/"+this.annee;
+		return date;
+	}
+}

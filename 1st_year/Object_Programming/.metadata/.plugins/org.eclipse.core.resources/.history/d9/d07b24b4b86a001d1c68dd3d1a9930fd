@@ -1,0 +1,76 @@
+package src;
+
+public class RDV {
+	//attributs
+	DATE date;
+	HORAIRE horaire;
+	String nom;
+	
+	//constructeurs
+	public RDV(DATE date, HORAIRE horaire, String nom) throws ExceptionTP2 {
+		if(!horaireExiste(horaire.heure,horaire.minute)||!dateExiste(date.jour,date.mois,date.annee)) throw new ExceptionTP2(0);
+		this.date=date;
+		this.horaire=horaire;
+		this.nom=nom;
+	}
+	public RDV(RDV rdv) {
+		this.date=rdv.date;
+		this.horaire=rdv.horaire;
+		this.nom=rdv.nom;
+	}
+	//methodes
+	public boolean annee29J(int annee) {
+		if(annee%400==0)return true;
+		else if(annee%100==0)return false;
+		else if (annee%4==0)return true;
+		else return true;
+	}
+	public boolean dateExiste(int jour, int mois, int annee) {
+		return(((mois==1 || mois==3 || mois==5 || mois==7 || mois==8 || mois==10 || mois==12) && jour<=31)
+				|| ((mois==4 || mois==6 || mois==9 || mois==11) && jour<=30)
+				|| (mois==2 && annee29J(annee) && jour<=29)
+				|| (mois==2 && !annee29J(annee) && jour<=28));
+	}
+	public boolean horaireExiste(int heure, int minute) {
+		return (heure<0 || heure>23 || minute<0 || minute>59);
+	}
+	public boolean apres(RDV rdv) {
+		return(this.date.annee>date.annee
+				|| (this.date.annee==rdv.date.annee && this.date.mois>rdv.date.mois)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour>rdv.date.jour)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure>rdv.horaire.heure)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure==rdv.horaire.heure && this.horaire.minute>rdv.horaire.minute));
+	}
+	public boolean equals(RDV rdv) {
+		return (this.date.annee==rdv.date.annee 
+				&& this.date.mois==rdv.date.mois 
+				&& this.date.jour==rdv.date.jour
+				&& this.horaire.heure==rdv.horaire.heure
+				&& this.horaire.minute==rdv.horaire.minute
+				&& this.nom==rdv.nom);
+	}
+	public DATE getDate() {
+		return this.date;
+	}
+	public HORAIRE getHoraire() {
+		return this.horaire;
+	}
+	public String getNom() {
+		return this.nom;
+	}
+	public void setDate(DATE date) {
+		this.date=date;
+	}
+	public void setHoraire(HORAIRE horaire) {
+		this.horaire=horaire;
+	}
+	public void setNom(String nom) {
+		this.nom=nom;
+	}
+	public String ToString() {
+		String rdv="Rendez-vous pr�vu le "+this.date.annee+"/"+this.date.mois+"/"+this.date.annee
+				+" a "+this.horaire.heure+"h"+this.horaire.minute
+				+" au nom de "+this.nom;
+		return rdv;
+	}
+}

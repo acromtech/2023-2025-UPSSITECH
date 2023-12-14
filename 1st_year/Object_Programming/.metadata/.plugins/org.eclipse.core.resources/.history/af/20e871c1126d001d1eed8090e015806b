@@ -1,0 +1,48 @@
+package src;
+import java.util.ArrayList;
+
+public class Agenda {
+	//Attributes
+	ArrayList<RDV> agenda;
+	RDV rdv;
+	
+	//Constructor
+	public Agenda() {
+		this.agenda=new ArrayList<>();
+	}
+	
+	//Methods
+	public void ajoutRDV(RDV rdv){
+		this.agenda.add(rdv);
+	}
+	public RDV getRDVParDateEtHeure(Date date,Horaire horaire) throws ExceptionTP2 {
+		RDV rdv = new RDV(date,horaire,null);
+		if(agenda.contains(rdv))return(agenda.get(agenda.indexOf(rdv)));
+		throw new ExceptionTP2(0);
+	}
+	public RDV getRDVParNom(String nom) {
+		RDV rdv = new RDV(this.rdv);
+		rdv.nom=nom;
+		agenda.get(agenda.indexOf(rdv));
+		return rdv;
+	}
+	public void supprimeRDVParDateEtHeure(Date date, Horaire horaire) throws ExceptionTP2 {
+		RDV rdv = new RDV(this.rdv);
+		rdv.date=date;
+		rdv.horaire=horaire;
+		if(agenda.contains(rdv)) agenda.remove(agenda.indexOf(rdv));
+		throw new ExceptionTP2(0);
+	}
+	public void supprimeRDVParNom(String nom) throws ExceptionTP2 {
+		RDV rdv = new RDV(this.rdv);
+		rdv.nom=nom;
+		if(agenda.contains(rdv)) agenda.remove(agenda.indexOf(rdv));
+		throw new ExceptionTP2(0);
+	}
+	public String toString() {
+		String s = "L'agenda contient : \n";
+		for(int i=0;i<this.agenda.size();i++)
+			s=s+this.agenda.get(i)+"\n";
+		return s; 
+	}
+}

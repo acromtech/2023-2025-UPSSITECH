@@ -1,0 +1,58 @@
+package src;
+
+public class RDV {
+	//Attributes
+	Date date;
+	Horaire horaire;
+	String nom;
+	
+	//Constructor
+	public RDV(Date date, Horaire horaire, String nom) throws ExceptionTP2 {
+		if(horaire.horaireExistePas(horaire.heure,horaire.minute)||!date.dateExiste(date.jour,date.mois,date.annee)) throw new ExceptionTP2(0);
+		this.date=date;
+		this.horaire=horaire;
+		this.nom=nom;
+	}
+	public RDV(RDV rdv) {
+		this.date=rdv.date;
+		this.horaire=rdv.horaire;
+		this.nom=rdv.nom;
+	}
+	//Methods
+	public boolean apres(RDV rdv) {
+		return(this.date.annee<date.annee
+				|| (this.date.annee==rdv.date.annee && this.date.mois<rdv.date.mois)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour<rdv.date.jour)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure<rdv.horaire.heure)
+				|| (this.date.annee==rdv.date.annee && this.date.mois==rdv.date.mois && this.date.jour==rdv.date.jour && this.horaire.heure==rdv.horaire.heure && this.horaire.minute<rdv.horaire.minute));
+	}
+	public boolean equals(RDV rdv) {
+		return (this.date.annee==rdv.date.annee 
+				&& this.date.mois==rdv.date.mois 
+				&& this.date.jour==rdv.date.jour
+				&& this.horaire.heure==rdv.horaire.heure
+				&& this.horaire.minute==rdv.horaire.minute
+				&& this.nom==rdv.nom);
+	}
+	public Date getDate() {
+		return this.date;
+	}
+	public Horaire getHoraire() {
+		return this.horaire;
+	}
+	public String getNom() {
+		return this.nom;
+	}
+	public void setDate(Date date) {
+		this.date=date;
+	}
+	public void setHoraire(Horaire horaire) {
+		this.horaire=horaire;
+	}
+	public void setNom(String nom) {
+		this.nom=nom;
+	}
+	public String toString() {
+		return("Le RDV est pour "+this.nom+" a "+date.toString()+" et a "+horaire.toString());
+	}
+}

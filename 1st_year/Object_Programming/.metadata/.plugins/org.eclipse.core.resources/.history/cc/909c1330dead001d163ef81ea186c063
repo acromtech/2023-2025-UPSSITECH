@@ -1,0 +1,23 @@
+package modele;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Menu {
+	protected List<String> listeHamburger = new ArrayList<>();
+	protected List<String> listeAccompagnement = new ArrayList<>();
+	protected List<String> listeBoisson = new ArrayList<>();
+	
+	public Menu(){
+		
+	}
+	public void ajouterAliment(Hamburger hamburger) {
+		
+	}
+	public void ajouterAliment(Accompagnement accompagnement) {
+			
+	}
+	public void ajouterAliment(Boisson boisson) {
+		
+	}
+}
