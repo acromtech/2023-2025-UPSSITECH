@@ -1,2 +1,1 @@
-# TP_IA
-A short project for IA algorithm implementation
+Check the repository : https://github.com/acromtech/ai_algorithms_module
